@@ -29,6 +29,19 @@ Set Vercel Production Branch temporarily to your feature branch, then redeploy.
 
 ---
 
+
+## You already created a PR in Codex — next actions
+
+1. Click **View PR** in Codex.
+2. Confirm base branch is `main`.
+3. Merge the PR (squash or merge commit).
+4. Wait for Vercel auto-deploy (or click Redeploy).
+5. Hard refresh the site (`Ctrl/Cmd + Shift + R`).
+
+If the PR base is not `main`, edit the PR and target `main`, then merge.
+
+---
+
 ## Quick Verification Checklist
 
 - `main` branch contains these files:
