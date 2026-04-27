@@ -1,7 +1,6 @@
 const leadForm = document.getElementById("leadForm");
 const formResult = document.getElementById("formResult");
 const revealItems = document.querySelectorAll(".reveal");
-
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -12,22 +11,18 @@ const revealObserver = new IntersectionObserver(
   },
   { threshold: 0.16 }
 );
-
 revealItems.forEach((item) => revealObserver.observe(item));
 
 leadForm?.addEventListener("submit", (event) => {
   event.preventDefault();
-
   const data = new FormData(leadForm);
-  const volume = data.get("revenueBand");
-
-  if (volume === "low-volume") {
+  const budget = data.get("budget");
+  if (budget === "under-100k") {
     formResult.textContent =
-      "Thanks for applying. Your operation may be better suited for the template package built for smaller businesses. We can guide you to that option.";
+      "Thanks for applying. Based on your current budget, this may be an early-stage fit. We can discuss a lighter setup during screening.";
     formResult.className = "form-result warning";
     return;
   }
-
   formResult.textContent =
     "Application received. We will review your details and contact you on WhatsApp within 24 hours.";
   formResult.className = "form-result success";
