@@ -44,6 +44,15 @@ After uploading images, replace each portfolio visual block in `index.html` with
 <img src="assets/work/budget-dashboard.png" alt="Budget and cashflow dashboard" loading="lazy" />
 ```
 
+## Portfolio image filenames expected by the landing page
+Place these files in `assets/work/`:
+- `budget-cashflow-dashboard.png`
+- `weekly-meal-planner-dashboard.png`
+- `wedding-budget-dashboard.png`
+- `investment-portfolio-dashboard.png`
+
+If names differ, update the `<img src="...">` paths in `index.html`.
+
 ## Local Preview
 Open `index.html` directly in a browser, or run any static server.
 
@@ -51,18 +60,18 @@ Open `index.html` directly in a browser, or run any static server.
 1. Ensure your latest commit is on the branch Vercel tracks (usually `main`).
 2. Set Vercel **Root Directory** to repository root (`.`).
 3. Framework preset can be **Other** (static site).
-4. Redeploy after merges.
+4. Leave build command empty (or `null`) and publish root.
+5. Redeploy after merges.
 
+If Vercel still shows `404: NOT_FOUND`, it usually means the deployment is pointing to the wrong branch or wrong root directory, not that your HTML is invalid. See `DEPLOYMENT_FIX.md` for the exact fix path.
 
 ## If you still see old UI after merge
 - Do a hard refresh: **Ctrl/Cmd + Shift + R**.
 - Open the site in incognito.
 - Confirm the deployed HTML references versioned assets (e.g. `styles.css?v=20260427a`).
 
-
 ## Merge conflicts
 - If your PR shows conflicts, follow `MERGE_CONFLICT_RESOLUTION.md`.
-
 
 ## One-command conflict fix (for non-technical users)
 If your PR says "This branch has conflicts", run:
@@ -78,13 +87,3 @@ Then push:
 ```bash
 git push origin <your-feature-branch>
 ```
-
-
-## Portfolio image filenames expected by the landing page
-Place these files in `assets/work/`:
-- `budget-cashflow-dashboard.png`
-- `weekly-meal-planner-dashboard.png`
-- `wedding-budget-dashboard.png`
-- `investment-portfolio-dashboard.png`
-
-If names differ, update the `<img src="...">` paths in `index.html`.
