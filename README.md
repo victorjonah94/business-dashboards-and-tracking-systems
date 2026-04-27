@@ -62,3 +62,19 @@ Open `index.html` directly in a browser, or run any static server.
 
 ## Merge conflicts
 - If your PR shows conflicts, follow `MERGE_CONFLICT_RESOLUTION.md`.
+
+
+## One-command conflict fix (for non-technical users)
+If your PR says "This branch has conflicts", run:
+
+```bash
+git checkout <your-feature-branch>
+git merge origin/main
+./scripts/resolve_conflicts.sh
+```
+
+Then push:
+
+```bash
+git push origin <your-feature-branch>
+```

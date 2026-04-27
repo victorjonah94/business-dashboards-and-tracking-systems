@@ -15,6 +15,19 @@ If GitHub says your PR has conflicts, use this exact flow.
    - Vercel checklist
 5. Mark resolved, commit merge, then merge PR.
 
+
+## Simplest path (scripted)
+If you are not technical, run:
+
+```bash
+git checkout <your-feature-branch>
+git merge origin/main
+./scripts/resolve_conflicts.sh
+git push origin <your-feature-branch>
+```
+
+This script keeps your feature-branch versions for the main UI/config files and creates the merge commit automatically.
+
 ## CLI flow (recommended)
 ```bash
 # 1) Get latest main
