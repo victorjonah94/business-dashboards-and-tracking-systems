@@ -144,7 +144,6 @@ body {
 .hero-panel,
 .work-card,
 .process-card,
-.pricing-shell,
 .form-wrap,
 .lead-form {
   border: 1px solid var(--line);
@@ -383,30 +382,6 @@ h2 {
   color: var(--text-soft);
 }
 
-/* Pricing */
-.pricing-shell {
-  padding: 1.3rem;
-}
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 0.8rem;
-}
-
-.pricing-grid article {
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 0.9rem;
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.price {
-  font-size: 1.4rem;
-  color: #ffd7c8;
-  margin: 0.3rem 0;
-}
-
 /* Qualification cards */
 .grid-2 {
   display: grid;
@@ -462,6 +437,10 @@ select {
   color: var(--text);
   padding: 0.7rem;
   font: inherit;
+}
+
+.hidden-field {
+  display: none;
 }
 
 .form-note {

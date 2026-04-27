@@ -61,8 +61,8 @@
               <span>Typical implementation timeline</span>
             </div>
             <div>
-              <strong>₦100k – ₦900k+</strong>
-              <span>Service tiers by complexity</span>
+              <strong>Service tiers by complexity</strong>
+              <span>Scoped to your business size</span>
             </div>
             <div>
               <strong>Custom build</strong>
@@ -189,32 +189,6 @@
         </div>
       </section>
 
-      <section class="section container">
-        <div class="pricing-shell reveal">
-          <div>
-            <p class="eyebrow">Investment Tiers</p>
-            <h2>Choose the Right Implementation Depth</h2>
-          </div>
-          <div class="pricing-grid">
-            <article>
-              <h3>Starter</h3>
-              <p class="price">₦100k – ₦180k</p>
-              <small>Basic control setup</small>
-            </article>
-            <article>
-              <h3>Growth</h3>
-              <p class="price">₦250k – ₦400k</p>
-              <small>Integrated operating dashboard</small>
-            </article>
-            <article>
-              <h3>Command</h3>
-              <p class="price">₦500k – ₦900k+</p>
-              <small>Advanced multi-team architecture</small>
-            </article>
-          </div>
-        </div>
-      </section>
-
       <section class="section section-alt" id="qualify">
         <div class="container">
           <h2>Qualification — Who This Is For</h2>
@@ -228,7 +202,6 @@
                 <li>Business owners with recurring transactions</li>
                 <li>Teams needing reporting structure and discipline</li>
                 <li>Decision-makers ready to implement now</li>
-                <li>Budget readiness from ₦100k+</li>
               </ul>
             </div>
             <div class="card">
@@ -269,8 +242,31 @@
               <input type="tel" name="phone" required />
             </label>
             <label>
-              Business Type
-              <input type="text" name="businessType" required />
+              Business Category
+              <select name="businessType" id="businessType" required>
+                <option value="">Select category</option>
+                <option value="finance">Finance / Investment</option>
+                <option value="solar">Solar / Renewable Energy</option>
+                <option value="real-estate">Real Estate / Construction</option>
+                <option value="fmcg">FMCG / Distribution</option>
+                <option value="manufacturing">Manufacturing</option>
+                <option value="retail">Retail / Supermarket</option>
+                <option value="ecommerce">E-commerce</option>
+                <option value="healthcare">Healthcare / Pharmacy</option>
+                <option value="education">Education / EdTech</option>
+                <option value="hospitality">Hospitality / Restaurants</option>
+                <option value="logistics">Logistics / Transportation</option>
+                <option value="telecom">Telecom / Technology</option>
+                <option value="oil-gas">Oil & Gas Services</option>
+                <option value="agriculture">Agriculture / Agribusiness</option>
+                <option value="ngo">NGO / Development Projects</option>
+                <option value="professional-services">Professional Services</option>
+                <option value="other">Other (specify)</option>
+              </select>
+            </label>
+            <label id="otherCategoryWrap" class="hidden-field">
+              If Other, specify business category
+              <input type="text" name="otherBusinessType" id="otherBusinessType" />
             </label>
             <label>
               Monthly Revenue Band
@@ -280,16 +276,6 @@
                 <option value="1m-5m">₦1m - ₦5m</option>
                 <option value="5m-20m">₦5m - ₦20m</option>
                 <option value="above-20m">Above ₦20m</option>
-              </select>
-            </label>
-            <label>
-              Budget Readiness
-              <select name="budget" required>
-                <option value="">Select one</option>
-                <option value="under-100k">Under ₦100k</option>
-                <option value="100k-250k">₦100k - ₦250k</option>
-                <option value="250k-500k">₦250k - ₦500k</option>
-                <option value="500k-plus">₦500k+</option>
               </select>
             </label>
             <label>
