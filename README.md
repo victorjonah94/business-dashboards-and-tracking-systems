@@ -58,3 +58,7 @@ Open `index.html` directly in a browser, or run any static server.
 - Do a hard refresh: **Ctrl/Cmd + Shift + R**.
 - Open the site in incognito.
 - Confirm the deployed HTML references versioned assets (e.g. `styles.css?v=20260427a`).
+
+
+## Merge conflicts
+- If your PR shows conflicts, follow `MERGE_CONFLICT_RESOLUTION.md`.
