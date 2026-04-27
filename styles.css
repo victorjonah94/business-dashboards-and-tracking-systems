@@ -526,3 +526,57 @@ select {
   100% { transform: translateY(0px); }
   50% { transform: translateY(24px); }
 }
+
+
+.work-visual {
+  margin: 0;
+  height: 210px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(130deg, #9bcfc3, #8db9dc, #d9a4ba);
+}
+
+.work-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 420ms ease;
+}
+
+.work-card:hover .work-visual img {
+  transform: scale(1.04);
+}
+
+.work-visual figcaption {
+  position: absolute;
+  left: 0.65rem;
+  bottom: 0.65rem;
+  z-index: 2;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  padding: 0.22rem 0.55rem;
+}
+
+.work-visual.image-missing::before {
+  content: "Upload screenshot file to assets/work";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  padding: 1rem;
+  background: linear-gradient(130deg, #5d6a86, #7ba7bc, #d49b85);
+}
+
+.work-visual.image-missing img {
+  display: none;
+}

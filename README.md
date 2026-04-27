@@ -78,3 +78,13 @@ Then push:
 ```bash
 git push origin <your-feature-branch>
 ```
+
+
+## Portfolio image filenames expected by the landing page
+Place these files in `assets/work/`:
+- `budget-cashflow-dashboard.png`
+- `weekly-meal-planner-dashboard.png`
+- `wedding-budget-dashboard.png`
+- `investment-portfolio-dashboard.png`
+
+If names differ, update the `<img src="...">` paths in `index.html`.

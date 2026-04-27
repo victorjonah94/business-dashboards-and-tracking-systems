@@ -33,3 +33,11 @@ leadForm?.addEventListener("submit", (event) => {
   formResult.className = "form-result success";
   leadForm.reset();
 });
+
+
+// If screenshot files are missing, show graceful fallback card state.
+document.querySelectorAll('.work-visual img').forEach((img) => {
+  img.addEventListener('error', () => {
+    img.closest('.work-visual')?.classList.add('image-missing');
+  });
+});
