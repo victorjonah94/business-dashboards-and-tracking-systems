@@ -1,6 +1,5 @@
 const leadForm = document.getElementById("leadForm");
 const formResult = document.getElementById("formResult");
-
 const revealItems = document.querySelectorAll(".reveal");
 const revealObserver = new IntersectionObserver(
   (entries) => {
