@@ -52,3 +52,9 @@ Open `index.html` directly in a browser, or run any static server.
 2. Set Vercel **Root Directory** to repository root (`.`).
 3. Framework preset can be **Other** (static site).
 4. Redeploy after merges.
+
+
+## If you still see old UI after merge
+- Do a hard refresh: **Ctrl/Cmd + Shift + R**.
+- Open the site in incognito.
+- Confirm the deployed HTML references versioned assets (e.g. `styles.css?v=20260427a`).
