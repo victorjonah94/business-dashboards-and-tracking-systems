@@ -1,16 +1,16 @@
 :root {
-  --bg: #0e0f12;
-  --surface: #14161d;
-  --card: #1b1f2a;
-  --text: #e7e9ee;
-  --text-soft: #abb4c5;
-  --line: #2a3142;
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --card: #f4f1ee;
+  --text: #1a1a1a;
+  --text-soft: #6b7280;
+  --line: #e5e0d8;
   --brand: #d97757;
   --brand-2: #f2cbbd;
-  --accent: #7ba7bc;
-  --ok: #91c9a5;
+  --accent: #4a8fa8;
+  --ok: #2e7d52;
   --radius: 18px;
-  --shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
 }
 
 * {
@@ -25,8 +25,8 @@ body {
 
 body {
   font-family: "Plus Jakarta Sans", system-ui, sans-serif;
-  background: radial-gradient(circle at 20% -20%, #273149, transparent 35%),
-    radial-gradient(circle at 90% 20%, #412f2c, transparent 25%), var(--bg);
+  background: radial-gradient(circle at 20% -20%, #fde8dc, transparent 35%),
+    radial-gradient(circle at 90% 20%, #ddeef5, transparent 25%), var(--bg);
   color: var(--text);
   line-height: 1.65;
 }
@@ -36,8 +36,8 @@ body {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
   background-size: 38px 38px;
   mask-image: radial-gradient(circle at center, black 20%, transparent 90%);
 }
@@ -102,13 +102,13 @@ body {
 
 .btn-primary {
   background: linear-gradient(140deg, var(--brand), #e79e83);
-  color: #160d0a;
-  box-shadow: 0 14px 30px rgba(217, 119, 87, 0.35);
+  color: #ffffff;
+  box-shadow: 0 14px 30px rgba(217, 119, 87, 0.3);
 }
 
 .btn-ghost {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: #4e5668;
+  background: rgba(0, 0, 0, 0.04);
+  border-color: #d0c9be;
   color: var(--text);
 }
 
@@ -126,7 +126,7 @@ body {
   width: 260px;
   height: 260px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(217, 119, 87, 0.36), transparent 65%);
+  background: radial-gradient(circle, rgba(217, 119, 87, 0.18), transparent 65%);
   filter: blur(2px);
   animation: floatOrb 8s ease-in-out infinite;
   pointer-events: none;
@@ -147,7 +147,7 @@ body {
 .form-wrap,
 .lead-form {
   border: 1px solid var(--line);
-  background: linear-gradient(155deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+  background: rgba(255, 255, 255, 0.85);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
@@ -160,7 +160,7 @@ body {
   font-size: 0.8rem;
   letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: #f3cebf;
+  color: #b85c38;
   font-weight: 700;
 }
 
