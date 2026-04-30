@@ -2,60 +2,42 @@
 
 If GitHub says your PR has conflicts, use this exact flow.
 
-## Fastest (GitHub UI)
-1. Open the PR.
-2. Click **Resolve conflicts**.
-3. For each file, keep the **new premium landing page branch changes** for:
-   - `index.html`
-   - `styles.css`
-   - `script.js`
-   - `vercel.json`
-4. Keep whichever `README.md` version includes both:
-   - screenshot upload instructions
-   - Vercel checklist
-5. Mark resolved, commit merge, then merge PR.
-
-
-## Simplest path (scripted)
-If you are not technical, run:
+## Fastest non-technical path (CLI)
+Run these commands from your repo clone:
 
 ```bash
 git checkout <your-feature-branch>
+git fetch origin
 git merge origin/main
 ./scripts/resolve_conflicts.sh
 git push origin <your-feature-branch>
 ```
 
-This script keeps your feature-branch versions for the main UI/config files and creates the merge commit automatically.
+That auto-resolves the files that keep conflicting in this project:
+- `README.md`
+- `index.html`
+- `script.js`
+- `styles.css`
+- `vercel.json`
 
-## CLI flow (recommended)
+## If you want to keep main branch version instead
+
 ```bash
-# 1) Get latest main
-git checkout main
-git pull origin main
-
-# 2) Switch back to your feature branch
-git checkout <your-feature-branch>
-
-# 3) Merge main into feature branch
-git merge origin/main
-
-# 4) Resolve conflicts in editor, then:
-git add index.html styles.css script.js README.md vercel.json
-
-# 5) Finish merge
-git commit
-
-# 6) Push resolved branch
-git push origin <your-feature-branch>
+./scripts/resolve_conflicts.sh --theirs
 ```
 
-## Conflict policy for this project
-- Prefer **feature branch** content for UI files (`index.html`, `styles.css`, `script.js`).
-- Prefer **most complete combined content** for docs (`README.md`, `DEPLOYMENT_FIX.md`).
-- Keep `vercel.json` rewrite in place.
+## GitHub web editor fallback
+If you prefer the GitHub UI:
+1. Click **Resolve conflicts**.
+2. For `README.md`, `index.html`, `script.js`, `styles.css`, keep the feature-branch side.
+3. Mark resolved and commit merge.
+4. Merge PR.
 
-## Verification before final merge
-- Open Vercel preview URL from the PR.
-- Confirm page shows **UI V2** badge and premium launch bar.
-- Hard refresh (`Ctrl/Cmd + Shift + R`) and recheck.
+## Why conflicts keep happening
+These files are frequently edited across branches, so Git cannot auto-merge reliably.
+Using the script makes the merge deterministic and prevents repeated manual edits.
+
+## Verification after merge
+- Open the PR preview deployment.
+- Hard refresh (`Ctrl/Cmd + Shift + R`).
+- Confirm expected copy/sections are present.
