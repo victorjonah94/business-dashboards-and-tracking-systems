@@ -5,6 +5,8 @@ const businessTypeSelect = document.getElementById("businessType");
 const otherCategoryWrap = document.getElementById("otherCategoryWrap");
 const otherBusinessTypeInput = document.getElementById("otherBusinessType");
 
+const leadWebhookUrl = window.LEAD_WEBHOOK_URL || "";
+
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -34,7 +36,21 @@ function handleOtherCategory() {
 businessTypeSelect?.addEventListener("change", handleOtherCategory);
 handleOtherCategory();
 
-leadForm?.addEventListener("submit", (event) => {
+async function submitLeadToWebhook(payload) {
+  const response = await fetch(leadWebhookUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Webhook request failed (${response.status})`);
+  }
+}
+
+leadForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const data = new FormData(leadForm);
@@ -47,11 +63,36 @@ leadForm?.addEventListener("submit", (event) => {
     return;
   }
 
-  formResult.textContent =
-    "Application received. We will review your details and contact you on WhatsApp within 24 hours.";
-  formResult.className = "form-result success";
-  leadForm.reset();
-  handleOtherCategory();
+  const payload = {
+    submittedAt: new Date().toISOString(),
+    name: data.get("name") || "",
+    phone: data.get("phone") || "",
+    businessCategory: data.get("businessType") || "",
+    otherBusinessType: data.get("otherBusinessType") || "",
+    volumeBand: volume || "",
+    challenge: data.get("challenge") || "",
+    source: "Landing Page",
+  };
+
+  try {
+    if (leadWebhookUrl) {
+      await submitLeadToWebhook(payload);
+      formResult.textContent =
+        "Consultation request received. We will contact you on WhatsApp within 24 hours.";
+      formResult.className = "form-result success";
+      leadForm.reset();
+      handleOtherCategory();
+      return;
+    }
+
+    formResult.textContent =
+      "Form is working, but Google Sheets is not connected yet. Add your Apps Script URL in index.html (window.LEAD_WEBHOOK_URL).";
+    formResult.className = "form-result warning";
+  } catch (error) {
+    formResult.textContent =
+      "Submission could not be saved right now. Please send your details via WhatsApp while we fix the connection.";
+    formResult.className = "form-result warning";
+  }
 });
 
 // If screenshot files are missing, show graceful fallback card state.

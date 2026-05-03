@@ -88,3 +88,36 @@ Place these files in `assets/work/`:
 - `investment-portfolio-dashboard.png`
 
 If names differ, update the `<img src="...">` paths in `index.html`.
+
+
+## Google Sheets lead capture setup
+This landing page can send form submissions directly to a Google Sheet via Apps Script.
+
+1. Create a Google Sheet (example tab name: `Leads`).
+2. In the sheet, open **Extensions -> Apps Script** and paste:
+
+```javascript
+function doPost(e) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Leads');
+  const body = JSON.parse(e.postData.contents || '{}');
+  sheet.appendRow([
+    new Date(),
+    body.name || '',
+    body.phone || '',
+    body.businessCategory || '',
+    body.otherBusinessType || '',
+    body.volumeBand || '',
+    body.challenge || '',
+    body.source || ''
+  ]);
+  return ContentService.createTextOutput(JSON.stringify({ ok: true }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+```
+
+3. Deploy script as **Web app**:
+   - Execute as: **Me**
+   - Who has access: **Anyone**
+4. Copy the Web App URL.
+5. Open `index.html` and set `window.LEAD_WEBHOOK_URL` to that URL.
+6. Redeploy on Vercel.
