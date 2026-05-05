@@ -3,22 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Business Control Systems Abuja | Premium Tracking & Dashboard Implementation</title>
-    <meta
-      name="description"
-      content="Premium business tracking system implementation for Abuja founders and CEOs. Custom sales, expenses, inventory dashboards built in Google Sheets with full team onboarding."
-    />
+    <title>Business Control Systems | Premium Tracking &amp; Dashboard Implementation</title>
+    <meta name="description" content="Custom Google Sheets tracking systems for serious businesses — sales, expenses, inventory, and performance dashboards with full team onboarding." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css?v=20260427a" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=20260506" />
   </head>
   <body>
-    <div class="bg-grid" aria-hidden="true"></div>
-    <header class="hero" id="top">
+
+    <!-- ── Nav ── -->
+    <div class="site-header">
       <nav class="nav container">
         <a class="logo" href="#top">
           <span class="logo-dot"></span>
@@ -27,42 +22,55 @@
         <div class="nav-links">
           <a href="#work">Case Studies</a>
           <a href="#process">Process</a>
+          <a href="#pain-points">Who It Serves</a>
           <a href="#book">Book Call</a>
         </div>
-        <a class="btn btn-primary" href="#book">Book Consultation</a>
+        <div class="nav-right">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <g class="icon-sun">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </g>
+              <path class="icon-moon" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+            </svg>
+          </button>
+          <a class="btn btn-primary" href="#book">Book Consultation</a>
+        </div>
       </nav>
+    </div>
 
-      <div class="launch-bar container reveal show">
-        <p>New premium UI (v2) deployed — if you still see old design, hard refresh (Ctrl/Cmd + Shift + R).</p>
-      </div>
-
+    <!-- ── Hero ── -->
+    <header class="hero" id="top">
       <div class="container hero-shell">
-        <div class="hero-content reveal">
-          <p class="eyebrow">Premium Implementation for Abuja Founders & CEOs</p>
-          <span class="version-pill">UI V2 · Premium Experience</span>
-          <h1>
-            Turn Scattered Business Data Into a
-            <span class="text-gradient">CEO Command Dashboard</span>
-          </h1>
+        <div class="hero-content reveal show">
+          <p class="eyebrow">Premium Implementation for Founders &amp; Business Leaders</p>
+          <span class="version-pill">Custom Builds · Not Templates</span>
+          <h1>Turn Scattered Business Data Into a <span class="text-gradient">CEO Command Dashboard</span></h1>
           <p class="subheadline">
-            I design and implement custom Google Sheets tracking systems for
-            serious businesses: sales, expenses, inventory, and performance
-            dashboards — with team onboarding and reporting discipline.
+            I design and implement custom Google Sheets tracking systems for serious businesses —
+            sales, expenses, inventory, and performance dashboards — with full team onboarding
+            and reporting discipline.
           </p>
-
           <div class="hero-cta">
             <a class="btn btn-primary" href="#book">Apply for a Consultation</a>
             <a class="btn btn-ghost" href="#work">View Dashboard Work</a>
           </div>
-
           <div class="trust-row">
             <div>
-              <strong>14–30 days</strong>
-              <span>Typical implementation timeline</span>
+              <strong>14–60 days</strong>
+              <span>Implementation timeline</span>
             </div>
             <div>
-              <strong>Service tiers by complexity</strong>
-              <span>Scoped to your business size</span>
+              <strong>Scoped tiers</strong>
+              <span>Matched to business size</span>
             </div>
             <div>
               <strong>Custom build</strong>
@@ -71,25 +79,37 @@
           </div>
         </div>
 
-        <aside class="hero-panel reveal delay-1">
+        <aside class="hero-panel reveal delay-1 show">
           <h3>Live Control Snapshot</h3>
           <div class="kpi-grid">
             <article>
+              <div class="kpi-icon">
+                <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+              </div>
               <p>Revenue Visibility</p>
               <h4>100%</h4>
               <small>Daily dashboard signal</small>
             </article>
             <article>
+              <div class="kpi-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
               <p>Reporting Speed</p>
-              <h4>3x</h4>
+              <h4>3×</h4>
               <small>Faster weekly review</small>
             </article>
             <article>
+              <div class="kpi-icon">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg>
+              </div>
               <p>Leakage Detection</p>
               <h4>Early</h4>
               <small>Track variance instantly</small>
             </article>
             <article>
+              <div class="kpi-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+              </div>
               <p>Decision Confidence</p>
               <h4>High</h4>
               <small>Data-backed leadership</small>
@@ -99,213 +119,499 @@
       </div>
     </header>
 
+    <!-- ── Stats bar ── -->
+    <div class="stats-bar">
+      <div class="stats-inner container">
+        <div><strong>8+</strong><span>Dashboard types built</span></div>
+        <div><strong>100%</strong><span>Custom implementations</span></div>
+        <div><strong>14–60 days</strong><span>Delivery timeline</span></div>
+        <div><strong>Multi-industry</strong><span>Solar, Finance, FMCG &amp; more</span></div>
+      </div>
+    </div>
+
     <main>
+
+      <!-- ── Portfolio ── -->
       <section class="section container" id="work">
         <div class="section-head reveal">
-          <p class="eyebrow">Portfolio</p>
-          <h2>Dashboard Systems I Build for Serious Businesses</h2>
-          <p>
-            Inspired by your real work samples, this gallery positions your offer
-            as premium implementation — not template sales.
-          </p>
+          <p class="eyebrow">Portfolio — Case Studies</p>
+          <h2>Dashboard Systems Built for Serious Businesses</h2>
+          <p>Every system was custom-designed and implemented — not template resale. Click any image to expand and read the full case study.</p>
         </div>
-
         <div class="portfolio-grid">
-          <article class="work-card reveal">
-            <figure class="work-visual"><img src="assets/work/budget-cashflow-dashboard.png" alt="Budget and cashflow dashboard sample" loading="lazy" /><figcaption>Budget & Cashflow Sample</figcaption></figure>
+
+          <article class="work-card reveal"
+            data-title="Monthly Budget &amp; Cashflow Command Center"
+            data-desc="Full-month financial command system tracking income (salary + side hustle), bills, expenses, savings goals, debt, investments and subscriptions. Features budget-vs-actual bar charts, savings and spending breakdown pie charts, and a consolidated cashflow summary table with leftover calculation.">
+            <figure class="work-visual">
+              <img src="assets/work/budget-cashflow-dashboard.png" alt="Monthly budget and cashflow dashboard" loading="lazy" />
+              <figcaption>Budget &amp; Cashflow</figcaption>
+            </figure>
             <div class="work-copy">
-              <h3>Budget & Cashflow Command Center</h3>
-              <p>
-                Executive tables + chart breakdowns for bills, savings, expenses,
-                investments, and monthly variance.
-              </p>
+              <h3>Monthly Budget &amp; Cashflow Command Center</h3>
+              <p>Income, bills, savings, expenses &amp; investments vs budget — with bar charts and cashflow summary.</p>
             </div>
+            <button class="expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
           </article>
 
-          <article class="work-card reveal delay-1">
-            <figure class="work-visual"><img src="assets/work/weekly-meal-planner-dashboard.png" alt="Weekly meal planner dashboard sample" loading="lazy" /><figcaption>Weekly Meal Planner Sample</figcaption></figure>
+          <article class="work-card reveal delay-1"
+            data-title="Monthly Business Overview Dashboard"
+            data-desc="Full monthly P&amp;L overview for businesses tracking multiple income streams and expense categories. Shows total income, expenses, income after tax, and profit vs goal. Features income and expenses breakdown donut charts, categorised income and expense tables, monthly income vs expenses bar chart, and an actual vs profit goal comparison bar.">
+            <figure class="work-visual">
+              <img src="assets/work/monthly-overview-dashboard.png" alt="Monthly business overview with income and expense tracking" loading="lazy" />
+              <figcaption>Monthly Overview</figcaption>
+            </figure>
             <div class="work-copy">
-              <h3>Nutrition & Meal Performance Dashboard</h3>
-              <p>
-                Structured daily/weekly scoreboards with KPI cards, trends,
-                target-vs-actual, and data-entry workflows.
-              </p>
+              <h3>Monthly Business Overview Dashboard</h3>
+              <p>Total income, expenses, profit vs goal — donut charts, income &amp; expense tables, monthly comparison.</p>
             </div>
+            <button class="expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
           </article>
 
-          <article class="work-card reveal delay-2">
-            <figure class="work-visual"><img src="assets/work/wedding-budget-dashboard.png" alt="Wedding budget dashboard sample" loading="lazy" /><figcaption>Wedding Budget Sample</figcaption></figure>
+          <article class="work-card reveal delay-2"
+            data-title="Profit &amp; Loss Financial Dashboard"
+            data-desc="Comprehensive P&amp;L dashboard for period-based financial analysis. Displays net revenue, net income/loss, and gross margin as KPI cards. Features net revenue and net expenses donut charts, detailed income table with total/budget/tax columns, expenses table with total/budget/difference/tax, and quick-navigation buttons to Income Sheet, Expense Sheet, Monthly, and Annual tabs.">
+            <figure class="work-visual">
+              <img src="assets/work/profit-loss-dashboard.png" alt="Profit and loss dashboard with KPI cards and budget comparison" loading="lazy" />
+              <figcaption>Profit &amp; Loss</figcaption>
+            </figure>
+            <div class="work-copy">
+              <h3>Profit &amp; Loss Financial Dashboard</h3>
+              <p>Net revenue, income/loss, gross margin KPIs — income &amp; expense tables with budget variance tracking.</p>
+            </div>
+            <button class="expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+          </article>
+
+          <article class="work-card reveal"
+            data-title="Solar Business Inventory &amp; Sales CRM Dashboard"
+            data-desc="Complex multi-section inventory and CRM dashboard built for an active solar energy company (N Solar). Tracks available units of batteries, inverters, solar panels, streetlights, charge controllers, and accessories across two locations (Abuja &amp; Lagos) with grouped bar charts. Also includes: installed system size and project value, markup analysis by team member, lead source breakdown (website, Instagram, cold calls, referrals), payment status (completed, part-payment, pending), and project value leaderboard.">
+            <figure class="work-visual">
+              <img src="assets/work/solar-inventory-dashboard.png" alt="N Solar inventory and sales CRM dashboard with multi-location tracking" loading="lazy" />
+              <figcaption>Solar Inventory &amp; CRM</figcaption>
+            </figure>
+            <div class="work-copy">
+              <h3>Solar Business Inventory &amp; Sales CRM</h3>
+              <p>Multi-location inventory (Abuja &amp; Lagos), lead source, markup, payment status &amp; project value by rep.</p>
+            </div>
+            <button class="expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+          </article>
+
+          <article class="work-card reveal delay-1"
+            data-title="Weekly Meal Planner &amp; Macro Tracker"
+            data-desc="Structured daily meal entry for breakfast, lunch, dinner and snacks across Monday to Sunday. Auto-calculates calories, carbs, protein and fat against daily targets. Features doughnut charts for remaining vs target calories each day and horizontal bar charts comparing macro consumption. Built for nutrition coaches, athletes, and health-focused individuals.">
+            <figure class="work-visual">
+              <img src="assets/work/weekly-meal-planner-dashboard.png" alt="Weekly meal planner with macro and calorie tracking" loading="lazy" />
+              <figcaption>Meal Planner</figcaption>
+            </figure>
+            <div class="work-copy">
+              <h3>Weekly Meal Planner &amp; Macro Tracker</h3>
+              <p>Daily meal entry with auto-calculated calories, carbs, protein &amp; fat vs targets — with doughnut charts.</p>
+            </div>
+            <button class="expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+          </article>
+
+          <article class="work-card reveal delay-2"
+            data-title="Performance Nutrition &amp; Meal Analysis Dashboard"
+            data-desc="Advanced nutrition analytics with 30-day rolling goal stats, weekly daily intake trend line chart, and a filterable meal log searchable by month, week, meal type, and food group. Tracks calories, protein, carbs, fat, fiber, sugar, water, and sodium with progress indicators and target-vs-actual charts. Built for serious athletes and nutrition professionals.">
+            <figure class="work-visual">
+              <img src="assets/work/performance-nutrition-dashboard.png" alt="Performance nutrition analysis with 30-day stats" loading="lazy" />
+              <figcaption>Nutrition Analytics</figcaption>
+            </figure>
+            <div class="work-copy">
+              <h3>Performance Nutrition &amp; Meal Analysis</h3>
+              <p>30-day rolling stats, weekly intake trend, filterable meal log — calories, protein, carbs, fiber, water.</p>
+            </div>
+            <button class="expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+          </article>
+
+          <article class="work-card reveal"
+            data-title="Event Budget Tracking System"
+            data-desc="Complete event financial control system with budget-vs-actual horizontal bar chart across all categories, top expenses by category table showing amount paid and percentage of total, a radial budget overview pie chart, category summary with estimated vs paid vs difference vs due date, and a chronological expense tracker with notes. Automatically highlights over-budget items in red. Adaptable to any event type.">
+            <figure class="work-visual">
+              <img src="assets/work/wedding-budget-dashboard.png" alt="Wedding budget dashboard with category summary and expense tracker" loading="lazy" />
+              <figcaption>Event Budget</figcaption>
+            </figure>
             <div class="work-copy">
               <h3>Event Budget Tracking System</h3>
-              <p>
-                Category-level payment monitoring, due-date visibility, and visual
-                budget distribution for complete event cost control.
-              </p>
+              <p>Budget vs actual per category, top expenses table, expense tracker — auto-flags over-budget items in red.</p>
             </div>
+            <button class="expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
           </article>
 
-          <article class="work-card reveal">
-            <figure class="work-visual"><img src="assets/work/investment-portfolio-dashboard.png" alt="Investment dashboard sample" loading="lazy" /><figcaption>Investment Portfolio Sample</figcaption></figure>
+          <article class="work-card reveal delay-1"
+            data-title="Investment Portfolio Intelligence System"
+            data-desc="Multi-asset investment tracking across savings, equity (stocks), debt instruments (govt/corp bonds, treasury bills), real estate, and renewable energy. Features investment inflow distribution donut chart, asset class allocation grouped bar chart, percentage distribution donut, and profit/loss analysis chart. The ledger tracks maturity dates, days remaining, currency, interest/profit rate, total interest, compounded daily interest, and grand total.">
+            <figure class="work-visual">
+              <img src="assets/work/investment-portfolio-dashboard.png" alt="Investment portfolio intelligence with asset class allocation" loading="lazy" />
+              <figcaption>Investment Portfolio</figcaption>
+            </figure>
             <div class="work-copy">
-              <h3>Investment Portfolio Intelligence</h3>
-              <p>
-                Multi-asset inflow, yield, and return analytics with allocation
-                and profit/loss tracking.
-              </p>
+              <h3>Investment Portfolio Intelligence System</h3>
+              <p>Multi-asset inflow, maturity dates, compounded interest &amp; profit/loss — across 5 asset classes.</p>
             </div>
+            <button class="expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
           </article>
+
         </div>
       </section>
 
-      <section class="section section-alt" id="process">
+      <!-- ── Pain Points ── -->
+      <section class="section section-alt" id="pain-points">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Problems We Solve</p>
+            <h2>Business Pain Points &amp; What We Build to Fix Them</h2>
+            <p>These are the exact challenges our clients come with. If any sound familiar, we can build a system that eliminates them.</p>
+          </div>
+
+          <div class="pain-rows">
+
+            <div class="pain-row reveal">
+              <div class="pain-num">01</div>
+              <p class="pain-quote">I don't know if my business made profit last month.</p>
+              <div class="pain-arrow-col">→</div>
+              <p class="pain-solution">We build a P&amp;L dashboard that auto-calculates your net income, gross margin, and profit vs goal — updated in real time as your team logs entries.</p>
+            </div>
+
+            <div class="pain-row reveal">
+              <div class="pain-num">02</div>
+              <p class="pain-quote">Money is going out but I can't pinpoint where it's leaking.</p>
+              <div class="pain-arrow-col">→</div>
+              <p class="pain-solution">We build an expense categorisation system with budget-vs-actual variance alerts so you see exactly where overspending is happening, by category and by week.</p>
+            </div>
+
+            <div class="pain-row reveal">
+              <div class="pain-num">03</div>
+              <p class="pain-quote">My team tracks things in WhatsApp groups and four different spreadsheets.</p>
+              <div class="pain-arrow-col">→</div>
+              <p class="pain-solution">We consolidate all data entry into one structured system with clear tabs, input validation, and a dashboard summary — so everyone records in one place.</p>
+            </div>
+
+            <div class="pain-row reveal">
+              <div class="pain-num">04</div>
+              <p class="pain-quote">I have no visibility on my sales pipeline or who is buying what.</p>
+              <div class="pain-arrow-col">→</div>
+              <p class="pain-solution">We build a sales CRM with lead source tracking, deal stage pipeline, product/service breakdown, and revenue by team member — so you know exactly what's converting.</p>
+            </div>
+
+            <div class="pain-row reveal">
+              <div class="pain-num">05</div>
+              <p class="pain-quote">I have inventory but no idea what's available, what's sold, or what to reorder.</p>
+              <div class="pain-arrow-col">→</div>
+              <p class="pain-solution">We build an inventory tracking system with available stock by location and SKU, sold units, reorder alerts, markup tracking, and payment status — like the N Solar dashboard in our portfolio.</p>
+            </div>
+
+            <div class="pain-row reveal">
+              <div class="pain-num">06</div>
+              <p class="pain-quote">Preparing weekly reports takes my team hours every Friday.</p>
+              <div class="pain-arrow-col">→</div>
+              <p class="pain-solution">We restructure data entry so reports auto-generate. The dashboard updates as entries are logged. Weekly review meetings become 20 minutes instead of two hours of data gathering.</p>
+            </div>
+
+            <div class="pain-row reveal">
+              <div class="pain-num">07</div>
+              <p class="pain-quote">I have investment capital deployed across different assets but can't see my total returns.</p>
+              <div class="pain-arrow-col">→</div>
+              <p class="pain-solution">We build a portfolio intelligence dashboard tracking each investment's maturity date, interest rate, compounded returns, and profit/loss — consolidated into one clear overview across all asset classes.</p>
+            </div>
+
+            <div class="pain-row reveal">
+              <div class="pain-num">08</div>
+              <p class="pain-quote">Project or event budgets always run over and I only find out at the end.</p>
+              <div class="pain-arrow-col">→</div>
+              <p class="pain-solution">We build a budget tracking system with per-category spending limits, payment due dates, actual vs estimated comparisons, and automatic red-flag highlighting when a category goes over budget.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Process ── -->
+      <section class="section" id="process">
         <div class="container">
           <div class="section-head reveal">
             <p class="eyebrow">Implementation Framework</p>
             <h2>How We Build Your Business Control System</h2>
+            <p>A four-stage process from zero visibility to full command-level control.</p>
           </div>
-
-          <div class="process-grid">
-            <article class="process-card reveal">
-              <span>01</span>
+          <div class="process-flow">
+            <div class="process-step reveal">
+              <div class="step-badge">01</div>
               <h3>Business Audit</h3>
-              <p>Map your data flow, reporting gaps, and leakage points.</p>
-            </article>
-            <article class="process-card reveal delay-1">
-              <span>02</span>
+              <p>Map your data flow, reporting gaps, cash leakage points, and team workflows to define scope.</p>
+            </div>
+            <div class="process-step reveal delay-1">
+              <div class="step-badge">02</div>
               <h3>System Architecture</h3>
-              <p>Design KPI logic, tabs, workflow rules, and control checks.</p>
-            </article>
-            <article class="process-card reveal delay-2">
-              <span>03</span>
-              <h3>Custom Build + Automations</h3>
-              <p>Create a tailored system aligned with your team operations.</p>
-            </article>
-            <article class="process-card reveal">
-              <span>04</span>
-              <h3>Onboarding + Review Cadence</h3>
-              <p>Train your team and lock in weekly decision meetings.</p>
-            </article>
+              <p>Design KPI logic, sheet structure, workflow rules, formulas, and control checks.</p>
+            </div>
+            <div class="process-step reveal delay-2">
+              <div class="step-badge">03</div>
+              <h3>Custom Build</h3>
+              <p>Build a fully tailored system — dashboards, charts, alerts — aligned to your operations.</p>
+            </div>
+            <div class="process-step reveal delay-3">
+              <div class="step-badge">04</div>
+              <h3>Onboarding &amp; Review</h3>
+              <p>Train your team, set reporting rhythms, and lock in weekly decision-making meetings.</p>
+            </div>
           </div>
         </div>
       </section>
 
+      <!-- ── Qualify ── -->
       <section class="section section-alt" id="qualify">
         <div class="container">
-          <h2>Qualification — Who This Is For</h2>
-          <p class="section-intro">
-            This is a premium implementation service (not template sales).
-          </p>
+          <div class="section-head reveal">
+            <p class="eyebrow">Qualification</p>
+            <h2>Who This Is For</h2>
+            <p class="section-intro">Premium implementation service — not template sales. An honest breakdown of fit.</p>
+          </div>
           <div class="grid-2">
-            <div class="card">
-              <h3>Great Fit</h3>
+            <div class="card reveal">
+              <h3>✅ Great Fit</h3>
               <ul>
-                <li>Business owners with recurring transactions</li>
-                <li>Teams needing reporting structure and discipline</li>
-                <li>Decision-makers ready to implement now</li>
+                <li>Business owners with recurring transactions and teams</li>
+                <li>Decision-makers who need clear financial visibility</li>
+                <li>Teams that want reporting structure and discipline</li>
+                <li>Solar, finance, real estate, FMCG, logistics, and more</li>
+                <li>Ready to implement and enforce usage now</li>
               </ul>
             </div>
-            <div class="card">
-              <h3>Not a Fit</h3>
+            <div class="card reveal delay-1">
+              <h3>❌ Not a Fit</h3>
               <ul>
-                <li>You only want a cheap off-the-shelf template</li>
-                <li>You are not ready to enforce usage with your team</li>
+                <li>Only want a cheap off-the-shelf template</li>
+                <li>Not ready to enforce consistent data entry with your team</li>
                 <li>No urgency to fix tracking blind spots</li>
+                <li>Looking for accounting software — not custom dashboards</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section section-alt" id="book">
-        <div class="container form-wrap reveal">
-          <div>
-            <p class="eyebrow">Application</p>
-            <h2>Apply for a Business Control Consultation</h2>
-            <p>
-              We accept a limited number of new implementations each month to
-              maintain delivery quality.
-            </p>
-            <ul class="checklist">
-              <li>You run a serious business with recurring transactions</li>
-              <li>You want a custom implementation (not generic template)</li>
-              <li>You can commit leadership attention to rollout</li>
-            </ul>
-          </div>
+      <!-- ── Booking Form ── -->
+      <section class="section" id="book">
+        <div class="container">
+          <div class="form-wrap reveal">
+            <!-- Left panel -->
+            <div class="form-left">
+              <p class="eyebrow">Application</p>
+              <h2>Apply for a Business Control Consultation</h2>
+              <p>We accept a limited number of new implementations each month. Fill in the form and we'll review your details within 24 hours.</p>
+              <ul class="checklist">
+                <li>You run a serious business with recurring transactions</li>
+                <li>You want a custom implementation — not a generic template</li>
+                <li>You can commit leadership attention to the rollout</li>
+              </ul>
 
-          <form class="lead-form" id="leadForm">
-            <label>
-              Full Name
-              <input type="text" name="name" required />
-            </label>
-            <label>
-              Phone (WhatsApp)
-              <input type="tel" name="phone" required />
-            </label>
-            <label>
-              Business Category
-              <select name="businessType" id="businessType" required>
-                <option value="">Select category</option>
-                <option value="finance">Finance / Investment</option>
-                <option value="solar">Solar / Renewable Energy</option>
-                <option value="real-estate">Real Estate / Construction</option>
-                <option value="fmcg">FMCG / Distribution</option>
-                <option value="manufacturing">Manufacturing</option>
-                <option value="retail">Retail / Supermarket</option>
-                <option value="ecommerce">E-commerce</option>
-                <option value="healthcare">Healthcare / Pharmacy</option>
-                <option value="education">Education / EdTech</option>
-                <option value="hospitality">Hospitality / Restaurants</option>
-                <option value="logistics">Logistics / Transportation</option>
-                <option value="telecom">Telecom / Technology</option>
-                <option value="oil-gas">Oil & Gas Services</option>
-                <option value="agriculture">Agriculture / Agribusiness</option>
-                <option value="ngo">NGO / Development Projects</option>
-                <option value="professional-services">Professional Services</option>
-                <option value="other">Other (specify)</option>
-              </select>
-            </label>
-            <label id="otherCategoryWrap" class="hidden-field">
-              If Other, specify business category
-              <input type="text" name="otherBusinessType" id="otherBusinessType" />
-            </label>
-            <label>
-              Monthly Revenue Band
-              <select name="revenueBand" required>
-                <option value="">Select one</option>
-                <option value="below-1m">Below ₦1m</option>
-                <option value="1m-5m">₦1m - ₦5m</option>
-                <option value="5m-20m">₦5m - ₦20m</option>
-                <option value="above-20m">Above ₦20m</option>
-              </select>
-            </label>
-            <label>
-              Main Tracking Challenge
-              <textarea name="challenge" rows="4" required></textarea>
-            </label>
-            <button class="btn btn-primary" type="submit">Submit Application</button>
-            <p class="form-note">
-              Limited implementation slots monthly to maintain delivery quality.
-            </p>
-            <p id="formResult" class="form-result" aria-live="polite"></p>
-          </form>
+              <!-- Dashboard illustration -->
+              <div class="form-illustration" aria-hidden="true">
+                <svg viewBox="0 0 460 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Card drop shadow -->
+                  <rect x="16" y="16" width="428" height="266" rx="18" fill="currentColor" opacity=".04"/>
+                  <!-- Main card -->
+                  <rect x="8" y="8" width="444" height="266" rx="16" fill="var(--card)" stroke="var(--line)" stroke-width="1.2"/>
+                  <!-- Header strip -->
+                  <rect x="8" y="8" width="444" height="42" rx="16" fill="var(--brand)"/>
+                  <rect x="8" y="34" width="444" height="16" fill="var(--brand)"/>
+                  <!-- Window dots -->
+                  <circle cx="32" cy="29" r="5" fill="rgba(255,255,255,.35)"/>
+                  <circle cx="50" cy="29" r="5" fill="rgba(255,255,255,.35)"/>
+                  <circle cx="68" cy="29" r="5" fill="rgba(255,255,255,.35)"/>
+                  <!-- Header title bar -->
+                  <rect x="94" y="24" width="130" height="10" rx="5" fill="rgba(255,255,255,.5)"/>
+                  <!-- Header right chip -->
+                  <rect x="388" y="24" width="52" height="10" rx="5" fill="rgba(255,255,255,.22)"/>
+
+                  <!-- KPI cards row -->
+                  <!-- Card 1 -->
+                  <rect x="22" y="62" width="96" height="58" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="1"/>
+                  <rect x="32" y="72" width="42" height="7" rx="3.5" fill="var(--line)"/>
+                  <rect x="32" y="85" width="62" height="13" rx="4" fill="var(--text)" opacity=".6"/>
+                  <rect x="32" y="104" width="32" height="7" rx="3.5" fill="#16a34a" opacity=".55"/>
+                  <!-- Card 2 -->
+                  <rect x="126" y="62" width="96" height="58" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="1"/>
+                  <rect x="136" y="72" width="44" height="7" rx="3.5" fill="var(--line)"/>
+                  <rect x="136" y="85" width="56" height="13" rx="4" fill="var(--text)" opacity=".6"/>
+                  <rect x="136" y="104" width="32" height="7" rx="3.5" fill="#dc2626" opacity=".4"/>
+                  <!-- Card 3 -->
+                  <rect x="230" y="62" width="96" height="58" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="1"/>
+                  <rect x="240" y="72" width="52" height="7" rx="3.5" fill="var(--line)"/>
+                  <rect x="240" y="85" width="64" height="13" rx="4" fill="var(--text)" opacity=".6"/>
+                  <rect x="240" y="104" width="40" height="7" rx="3.5" fill="#16a34a" opacity=".55"/>
+                  <!-- Card 4 (brand highlight) -->
+                  <rect x="334" y="62" width="110" height="58" rx="10" fill="var(--brand)"/>
+                  <rect x="344" y="72" width="44" height="7" rx="3.5" fill="rgba(255,255,255,.38)"/>
+                  <rect x="344" y="85" width="68" height="13" rx="4" fill="rgba(255,255,255,.75)"/>
+                  <rect x="344" y="104" width="52" height="7" rx="3.5" fill="rgba(255,255,255,.38)"/>
+
+                  <!-- Bar chart panel -->
+                  <rect x="22" y="134" width="236" height="124" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="1"/>
+                  <rect x="34" y="146" width="88" height="8" rx="4" fill="var(--text)" opacity=".4"/>
+                  <!-- Bars group 1 -->
+                  <rect x="44" y="198" width="16" height="40" rx="4" fill="var(--brand)" opacity=".85"/>
+                  <rect x="63" y="213" width="16" height="25" rx="4" fill="var(--accent)" opacity=".65"/>
+                  <!-- Bars group 2 -->
+                  <rect x="95" y="183" width="16" height="55" rx="4" fill="var(--brand)" opacity=".85"/>
+                  <rect x="114" y="208" width="16" height="30" rx="4" fill="var(--accent)" opacity=".65"/>
+                  <!-- Bars group 3 -->
+                  <rect x="146" y="173" width="16" height="65" rx="4" fill="var(--brand)" opacity=".85"/>
+                  <rect x="165" y="203" width="16" height="35" rx="4" fill="var(--accent)" opacity=".65"/>
+                  <!-- Bars group 4 -->
+                  <rect x="197" y="165" width="16" height="73" rx="4" fill="var(--brand)" opacity=".85"/>
+                  <rect x="216" y="196" width="16" height="42" rx="4" fill="var(--accent)" opacity=".65"/>
+                  <!-- Axis line -->
+                  <rect x="34" y="240" width="210" height="1" fill="var(--line)"/>
+                  <!-- Legend -->
+                  <rect x="34" y="248" width="10" height="6" rx="2" fill="var(--brand)" opacity=".85"/>
+                  <rect x="48" y="249" width="34" height="5" rx="2.5" fill="var(--line)"/>
+                  <rect x="94" y="248" width="10" height="6" rx="2" fill="var(--accent)" opacity=".65"/>
+                  <rect x="108" y="249" width="34" height="5" rx="2.5" fill="var(--line)"/>
+
+                  <!-- Donut chart panel -->
+                  <rect x="268" y="134" width="176" height="124" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="1"/>
+                  <rect x="280" y="146" width="72" height="8" rx="4" fill="var(--text)" opacity=".4"/>
+                  <!-- Donut rings -->
+                  <circle cx="356" cy="205" r="42" fill="none" stroke="var(--line)" stroke-width="22"/>
+                  <circle cx="356" cy="205" r="42" fill="none" stroke="var(--brand)" stroke-width="22"
+                    stroke-dasharray="95 169" stroke-dashoffset="42" transform="rotate(-90 356 205)" opacity=".9"/>
+                  <circle cx="356" cy="205" r="42" fill="none" stroke="var(--accent)" stroke-width="22"
+                    stroke-dasharray="52 212" stroke-dashoffset="-53" transform="rotate(-90 356 205)" opacity=".75"/>
+                  <circle cx="356" cy="205" r="42" fill="none" stroke="#16a34a" stroke-width="22"
+                    stroke-dasharray="32 232" stroke-dashoffset="-105" transform="rotate(-90 356 205)" opacity=".65"/>
+                  <!-- Donut center -->
+                  <circle cx="356" cy="205" r="28" fill="var(--surface)"/>
+                  <rect x="338" y="201" width="36" height="8" rx="4" fill="var(--text)" opacity=".4"/>
+                  <!-- Donut legend -->
+                  <circle cx="283" cy="251" r="4" fill="var(--brand)" opacity=".9"/>
+                  <rect x="291" y="248" width="28" height="5" rx="2.5" fill="var(--line)"/>
+                  <circle cx="330" cy="251" r="4" fill="var(--accent)" opacity=".75"/>
+                  <rect x="338" y="248" width="28" height="5" rx="2.5" fill="var(--line)"/>
+
+                  <!-- Floating notification chip -->
+                  <rect x="296" y="-4" width="158" height="40" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="1" style="filter:drop-shadow(0 4px 12px rgba(0,0,0,.1))"/>
+                  <circle cx="316" cy="16" r="8" fill="rgba(22,163,74,.15)"/>
+                  <circle cx="316" cy="16" r="4" fill="#16a34a"/>
+                  <rect x="330" y="10" width="64" height="7" rx="3.5" fill="var(--text)" opacity=".55"/>
+                  <rect x="330" y="21" width="40" height="6" rx="3" fill="var(--line)"/>
+                  <rect x="420" y="13" width="24" height="6" rx="3" fill="rgba(22,163,74,.25)"/>
+                </svg>
+              </div>
+
+              <!-- Trust strip -->
+              <div class="form-trust">
+                <div class="form-trust-item">
+                  <strong>24 hrs</strong>
+                  <span>Response time</span>
+                </div>
+                <div class="form-trust-item">
+                  <strong>100%</strong>
+                  <span>Custom builds</span>
+                </div>
+                <div class="form-trust-item">
+                  <strong>Multi-industry</strong>
+                  <span>Solar · Finance · FMCG · More</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right panel — form -->
+            <form class="lead-form" id="leadForm" novalidate>
+              <label>
+                Full Name *
+                <input type="text" name="name" placeholder="e.g. Emeka Obi" required />
+              </label>
+              <label>
+                Email Address *
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </label>
+              <label>
+                Phone (WhatsApp) *
+                <input type="tel" name="phone" placeholder="+234 800 000 0000" required />
+              </label>
+              <label>
+                Business Category *
+                <select name="businessType" id="businessType" required>
+                  <option value="">Select category</option>
+                  <option>Finance / Investment</option>
+                  <option>Solar / Renewable Energy</option>
+                  <option>Real Estate / Construction</option>
+                  <option>FMCG / Distribution</option>
+                  <option>Manufacturing</option>
+                  <option>Retail / Supermarket</option>
+                  <option>E-commerce</option>
+                  <option>Healthcare / Pharmacy</option>
+                  <option>Education / EdTech</option>
+                  <option>Hospitality / Restaurants</option>
+                  <option>Logistics / Transportation</option>
+                  <option>Telecom / Technology</option>
+                  <option>Oil &amp; Gas Services</option>
+                  <option>Agriculture / Agribusiness</option>
+                  <option>NGO / Development Projects</option>
+                  <option>Professional Services</option>
+                  <option value="Other">Other (specify below)</option>
+                </select>
+              </label>
+              <label id="otherCategoryWrap" class="hidden-field">
+                Specify your business category
+                <input type="text" name="otherBusinessType" id="otherBusinessType" />
+              </label>
+              <label>
+                Monthly Revenue Band *
+                <select name="revenueBand" required>
+                  <option value="">Select one</option>
+                  <option>Below ₦1m</option>
+                  <option>₦1m – ₦5m</option>
+                  <option>₦5m – ₦20m</option>
+                  <option>Above ₦20m</option>
+                </select>
+              </label>
+              <label>
+                Main Tracking Challenge *
+                <textarea name="challenge" rows="4" placeholder="Describe the biggest problem you have tracking your business finances or operations…" required></textarea>
+              </label>
+              <button class="btn btn-primary" type="submit" id="submitBtn">Submit Application</button>
+              <p class="form-note">Limited implementation slots each month to maintain delivery quality.</p>
+              <p id="formResult" class="form-result" aria-live="polite"></p>
+            </form>
+          </div>
         </div>
       </section>
+
     </main>
 
+    <!-- ── Footer ── -->
     <footer class="footer">
       <div class="container footer-row">
         <div>
-          <strong>Business Control Systems Abuja</strong>
+          <strong>Business Control Systems</strong>
           <p>Custom tracking systems for serious growth-stage businesses.</p>
           <p>Email: <a href="mailto:victorjonah94@gmail.com">victorjonah94@gmail.com</a></p>
-          <p>WhatsApp: <a href="https://wa.me/2348030750358" target="_blank" rel="noopener">+2348030750358</a></p>
+          <p>WhatsApp: <a href="https://wa.me/2348030750358" target="_blank" rel="noopener">+234 803 075 0358</a></p>
           <p>Instagram: <a href="https://instagram.com/victorjonah94" target="_blank" rel="noopener">@victorjonah94</a></p>
-          <p>Address: Federal Capital Territory, Abuja</p>
+          <p>Address: Federal Capital Territory, Abuja, Nigeria</p>
         </div>
-        <a href="#top">Back to top ↑</a>
+        <a href="#top" class="footer-back">Back to top ↑</a>
       </div>
     </footer>
 
-    <script src="script.js?v=20260427a"></script>
+    <!-- ── Lightbox ── -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Dashboard preview">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+      <div class="lightbox-inner">
+        <div class="lightbox-img-wrap">
+          <img id="lightboxImg" src="" alt="" />
+        </div>
+        <div class="lightbox-info">
+          <h3 id="lightboxTitle"></h3>
+          <p id="lightboxDesc"></p>
+          <a class="btn btn-primary lightbox-cta" href="#book">Build This for My Business</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js?v=20260506"></script>
   </body>
 </html>
