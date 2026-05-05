@@ -4,32 +4,42 @@
 const APPS_SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
 // ───────────────────────────────────────────────────────────────────────────
 
-const leadForm = document.getElementById("leadForm");
-const formResult = document.getElementById("formResult");
-const submitBtn = document.getElementById("submitBtn");
-const businessTypeSelect = document.getElementById("businessType");
-const otherCategoryWrap = document.getElementById("otherCategoryWrap");
-const otherBusinessTypeInput = document.getElementById("otherBusinessType");
+// ── Dark mode ─────────────────────────────────────────────────────────────
+const themeToggle = document.getElementById("themeToggle");
+
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  localStorage.setItem("theme", theme);
+}
+
+// Restore preference or use system default
+const savedTheme = localStorage.getItem("theme");
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+applyTheme(savedTheme || (prefersDark ? "dark" : "light"));
+
+themeToggle?.addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  applyTheme(next);
+});
 
 // ── Reveal-on-scroll ──────────────────────────────────────────────────────
 const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) entry.target.classList.add("show");
-    });
-  },
+  (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("show"); }),
   { threshold: 0.1 }
 );
 document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
-// ── Other category toggle ─────────────────────────────────────────────────
+// ── Other business category toggle ───────────────────────────────────────
+const businessTypeSelect   = document.getElementById("businessType");
+const otherCategoryWrap    = document.getElementById("otherCategoryWrap");
+const otherBusinessTypeInput = document.getElementById("otherBusinessType");
+
 function handleOtherCategory() {
   const isOther = businessTypeSelect?.value === "Other";
+  otherCategoryWrap?.classList.toggle("hidden-field", !isOther);
   if (isOther) {
-    otherCategoryWrap?.classList.remove("hidden-field");
     otherBusinessTypeInput?.setAttribute("required", "required");
   } else {
-    otherCategoryWrap?.classList.add("hidden-field");
     otherBusinessTypeInput?.removeAttribute("required");
     if (otherBusinessTypeInput) otherBusinessTypeInput.value = "";
   }
@@ -38,22 +48,19 @@ businessTypeSelect?.addEventListener("change", handleOtherCategory);
 handleOtherCategory();
 
 // ── Form submission ───────────────────────────────────────────────────────
-leadForm?.addEventListener("submit", async (event) => {
-  event.preventDefault();
+const leadForm  = document.getElementById("leadForm");
+const formResult = document.getElementById("formResult");
+const submitBtn  = document.getElementById("submitBtn");
 
-  if (!leadForm.checkValidity()) {
-    leadForm.reportValidity();
-    return;
+leadForm?.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  if (!leadForm.checkValidity()) { leadForm.reportValidity(); return; }
+
+  const data = Object.fromEntries(new FormData(leadForm).entries());
+  if (data.businessType === "Other" && data.otherBusinessType) {
+    data.businessType = data.otherBusinessType;
   }
-
-  const formData = new FormData(leadForm);
-  const payload = {};
-  formData.forEach((val, key) => { payload[key] = val; });
-
-  if (payload.businessType === "Other" && payload.otherBusinessType) {
-    payload.businessType = payload.otherBusinessType;
-  }
-  delete payload.otherBusinessType;
+  delete data.otherBusinessType;
 
   submitBtn.disabled = true;
   submitBtn.textContent = "Sending…";
@@ -65,7 +72,7 @@ leadForm?.addEventListener("submit", async (event) => {
       method: "POST",
       mode: "no-cors",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(payload).toString(),
+      body: new URLSearchParams(data).toString(),
     });
     showSuccess();
   } catch {
@@ -77,38 +84,31 @@ leadForm?.addEventListener("submit", async (event) => {
 });
 
 function showSuccess() {
-  formResult.textContent =
-    "✅ Application received! We'll review your details and contact you on WhatsApp within 24 hours.";
+  formResult.textContent = "✅ Application received! We'll review your details and contact you on WhatsApp within 24 hours.";
   formResult.className = "form-result success";
   leadForm.reset();
   handleOtherCategory();
   formResult.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
-// ── Graceful image fallback ───────────────────────────────────────────────
+// ── Image fallback ────────────────────────────────────────────────────────
 document.querySelectorAll(".work-visual img").forEach((img) => {
-  img.addEventListener("error", () => {
-    img.closest(".work-visual")?.classList.add("image-missing");
-  });
+  img.addEventListener("error", () => img.closest(".work-visual")?.classList.add("image-missing"));
 });
 
 // ── Lightbox ─────────────────────────────────────────────────────────────
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightboxImg");
+const lightbox      = document.getElementById("lightbox");
+const lightboxImg   = document.getElementById("lightboxImg");
 const lightboxTitle = document.getElementById("lightboxTitle");
-const lightboxDesc = document.getElementById("lightboxDesc");
+const lightboxDesc  = document.getElementById("lightboxDesc");
 const lightboxClose = document.getElementById("lightboxClose");
 
 function openLightbox(card) {
   const img = card.querySelector(".work-visual img");
-  const title = card.dataset.title || card.querySelector("h3")?.textContent || "";
-  const desc = card.dataset.desc || "";
-
-  lightboxImg.src = img ? img.src : "";
-  lightboxImg.alt = img ? img.alt : "";
-  lightboxTitle.innerHTML = title;
-  lightboxDesc.innerHTML = desc;
-
+  lightboxImg.src   = img?.src || "";
+  lightboxImg.alt   = img?.alt || "";
+  lightboxTitle.innerHTML = card.dataset.title || card.querySelector("h3")?.textContent || "";
+  lightboxDesc.innerHTML  = card.dataset.desc  || "";
   lightbox.classList.add("open");
   document.body.style.overflow = "hidden";
   lightboxClose.focus();
@@ -119,27 +119,20 @@ function closeLightbox() {
   document.body.style.overflow = "";
 }
 
-// Click image or expand button to open
 document.querySelectorAll(".work-card").forEach((card) => {
-  card.querySelector(".work-visual")?.addEventListener("click", () => openLightbox(card));
+  const visual = card.querySelector(".work-visual");
+  if (visual) {
+    visual.style.cursor = "zoom-in";
+    visual.addEventListener("click", () => openLightbox(card));
+  }
   card.querySelector(".expand-btn")?.addEventListener("click", (e) => {
     e.stopPropagation();
     openLightbox(card);
   });
-
-  // Make image cursor a pointer hint
-  const visual = card.querySelector(".work-visual");
-  if (visual) visual.style.cursor = "zoom-in";
 });
 
 lightboxClose.addEventListener("click", closeLightbox);
-
-// Click backdrop to close
-lightbox.addEventListener("click", (e) => {
-  if (e.target === lightbox) closeLightbox();
-});
-
-// Escape key to close
+lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && lightbox.classList.contains("open")) closeLightbox();
 });
