@@ -1,7 +1,7 @@
 // ── Configuration ──────────────────────────────────────────────────────────
 // After deploying the Google Apps Script (see setup/google-apps-script.js),
 // paste your Web App URL here:
-const APPS_SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyF6ITf1VMuD72ShYDNfBg8ypBanl3JPE25JevSl9u4hkflC6lGPlEE-afjlGqmKA-K/exec";
 // ───────────────────────────────────────────────────────────────────────────
 
 // ── Dark mode ─────────────────────────────────────────────────────────────
