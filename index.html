@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260506" />
+    <link rel="stylesheet" href="styles.css?v=20260506c" />
   </head>
   <body>
 
@@ -21,6 +21,7 @@
         </a>
         <div class="nav-links">
           <a href="#work">Case Studies</a>
+          <a href="#about">Meet Me</a>
           <a href="#process">Process</a>
           <a href="#pain-points">Who It Serves</a>
           <a href="#book">Book Call</a>
@@ -252,6 +253,166 @@
             <button class="expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
           </article>
 
+          <article class="work-card reveal"
+            data-title="Financial Asset Allocation Dashboard"
+            data-desc="Comprehensive financial asset allocation system tracking investments across equity, savings, real estate, and renewable energy. Features an investment inflow distribution donut chart, asset class allocation grouped bar chart, percentage distribution donut, and asset class profit/loss comparison chart. The ledger records certificate numbers, currencies, investment amounts, maturity dates, interest/profit rates, and compounded returns per asset class.">
+            <figure class="work-visual">
+              <img src="assets/work/financial-asset-allocation-dashboard.png" alt="Financial asset allocation dashboard with inflow distribution and profit/loss charts" loading="lazy" />
+              <figcaption>Asset Allocation</figcaption>
+            </figure>
+            <div class="work-copy">
+              <h3>Financial Asset Allocation Dashboard</h3>
+              <p>Equity, savings, real estate &amp; renewable energy — inflow distribution, allocation charts, and profit/loss by asset class.</p>
+            </div>
+            <button class="expand-btn" aria-label="Expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ── About / Meet Me ── -->
+      <section class="section section-alt about-section" id="about">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Meet the Builder</p>
+            <h2>The Person Behind the Systems</h2>
+            <p>Data architect &amp; business systems specialist — turning operational chaos into command-level clarity for founders and executives across three continents.</p>
+          </div>
+
+          <div class="about-grid reveal">
+            <!-- Portrait + decorative orbits -->
+            <div class="about-portrait-wrap">
+              <div class="about-portrait-deco" aria-hidden="true">
+                <svg viewBox="0 0 380 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="aboutGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="var(--brand)" stop-opacity=".25"/>
+                      <stop offset="100%" stop-color="var(--accent)" stop-opacity=".18"/>
+                    </linearGradient>
+                  </defs>
+                  <!-- Radial gradient backdrop -->
+                  <circle cx="190" cy="220" r="170" fill="url(#aboutGrad)" opacity=".55"/>
+                  <!-- Orbits -->
+                  <ellipse cx="190" cy="240" rx="160" ry="160" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 5" opacity=".7"/>
+                  <ellipse cx="190" cy="240" rx="180" ry="180" stroke="var(--line)" stroke-width="1" opacity=".4"/>
+                  <!-- Floating data dots -->
+                  <circle cx="36"  cy="180" r="5" fill="var(--brand)"/>
+                  <circle cx="350" cy="120" r="4" fill="var(--accent)"/>
+                  <circle cx="330" cy="370" r="6" fill="var(--brand)" opacity=".75"/>
+                  <circle cx="40"  cy="380" r="3.5" fill="var(--accent)" opacity=".75"/>
+                </svg>
+              </div>
+              <figure class="about-portrait">
+                <img src="assets/about/victor-portrait.jpg" alt="Victor Jonah, business control systems specialist" loading="lazy" />
+              </figure>
+              <!-- Floating stat chips -->
+              <div class="about-chip about-chip-1" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span><strong>5+ Years</strong>Building Systems</span>
+              </div>
+              <div class="about-chip about-chip-2" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <span><strong>3 Countries</strong>NG · US · UK</span>
+              </div>
+            </div>
+
+            <!-- Bio + content -->
+            <div class="about-content">
+              <h3 class="about-name">Victor Jonah</h3>
+              <p class="about-role">Data Architect · Business Control Systems Specialist</p>
+
+              <div class="about-bio">
+                <p>I help founders, CEOs, and finance leaders replace spreadsheet chaos with <strong>command-level visibility</strong> over their businesses. For five years I've designed and implemented custom tracking systems — P&amp;L dashboards, sales CRMs, inventory controls, investment intelligence, and operational reporting — for serious operators in Nigeria, the United States, and the United Kingdom.</p>
+                <p>My work sits at the intersection of finance, operations, and data design. I don't sell templates. I build bespoke control systems tailored to how your business actually runs — then I train your team to operate them with discipline. The goal isn't a prettier spreadsheet. The goal is decisions made faster, money tracked tighter, and growth made visible.</p>
+                <p>Clients have ranged from solo founders managing seven-figure portfolios to multi-location operators with distributed teams in solar, real estate, FMCG, finance, hospitality, and logistics. The common thread: they were tired of guessing.</p>
+              </div>
+
+              <!-- Specialty chips -->
+              <div class="about-specialties">
+                <span class="spec-chip">Financial Dashboards</span>
+                <span class="spec-chip">Sales &amp; CRM Systems</span>
+                <span class="spec-chip">Inventory Controls</span>
+                <span class="spec-chip">Investment Intelligence</span>
+                <span class="spec-chip">Operational Reporting</span>
+                <span class="spec-chip">Team Onboarding</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stat infographic strip -->
+          <div class="about-stats reveal">
+            <div class="about-stat">
+              <div class="about-stat-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+              </div>
+              <strong>50+</strong>
+              <span>Custom Systems Delivered</span>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <strong>30+</strong>
+              <span>Founders &amp; CEOs Served</span>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <strong>3</strong>
+              <span>Countries · NG · US · UK</span>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <strong>15+</strong>
+              <span>Industries Across Sectors</span>
+            </div>
+          </div>
+
+          <!-- Workflow infographic -->
+          <div class="about-workflow reveal">
+            <h3 class="about-workflow-title">How I Think About Your Data</h3>
+            <div class="workflow-strip">
+              <div class="workflow-node">
+                <div class="workflow-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <strong>Diagnose</strong>
+                <span>Map your blind spots</span>
+              </div>
+              <div class="workflow-arrow" aria-hidden="true">→</div>
+              <div class="workflow-node">
+                <div class="workflow-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+                </div>
+                <strong>Architect</strong>
+                <span>Design control logic</span>
+              </div>
+              <div class="workflow-arrow" aria-hidden="true">→</div>
+              <div class="workflow-node">
+                <div class="workflow-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                </div>
+                <strong>Build</strong>
+                <span>Custom dashboards</span>
+              </div>
+              <div class="workflow-arrow" aria-hidden="true">→</div>
+              <div class="workflow-node">
+                <div class="workflow-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <strong>Embed</strong>
+                <span>Train &amp; enforce usage</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-cta reveal">
+            <a class="btn btn-primary" href="#book">Work With Me</a>
+            <a class="btn btn-ghost" href="https://wa.me/2348030750358?text=Hi%20Victor%2C%20I%20saw%20your%20portfolio." target="_blank" rel="noopener">Message on WhatsApp</a>
+          </div>
         </div>
       </section>
 
@@ -264,63 +425,87 @@
             <p>These are the exact challenges our clients come with. If any sound familiar, we can build a system that eliminates them.</p>
           </div>
 
-          <div class="pain-rows">
+          <div class="pain-grid">
 
-            <div class="pain-row reveal">
-              <div class="pain-num">01</div>
+            <article class="pain-card reveal">
+              <div class="pain-card-head">
+                <span class="pain-card-num">01</span>
+                <span class="pain-card-tag">P&amp;L Visibility</span>
+              </div>
               <p class="pain-quote">I don't know if my business made profit last month.</p>
-              <div class="pain-arrow-col">→</div>
+              <div class="pain-divider"></div>
               <p class="pain-solution">We build a P&amp;L dashboard that auto-calculates your net income, gross margin, and profit vs goal — updated in real time as your team logs entries.</p>
-            </div>
+            </article>
 
-            <div class="pain-row reveal">
-              <div class="pain-num">02</div>
+            <article class="pain-card reveal delay-1">
+              <div class="pain-card-head">
+                <span class="pain-card-num">02</span>
+                <span class="pain-card-tag">Expense Leaks</span>
+              </div>
               <p class="pain-quote">Money is going out but I can't pinpoint where it's leaking.</p>
-              <div class="pain-arrow-col">→</div>
+              <div class="pain-divider"></div>
               <p class="pain-solution">We build an expense categorisation system with budget-vs-actual variance alerts so you see exactly where overspending is happening, by category and by week.</p>
-            </div>
+            </article>
 
-            <div class="pain-row reveal">
-              <div class="pain-num">03</div>
+            <article class="pain-card reveal delay-2">
+              <div class="pain-card-head">
+                <span class="pain-card-num">03</span>
+                <span class="pain-card-tag">Data Chaos</span>
+              </div>
               <p class="pain-quote">My team tracks things in WhatsApp groups and four different spreadsheets.</p>
-              <div class="pain-arrow-col">→</div>
+              <div class="pain-divider"></div>
               <p class="pain-solution">We consolidate all data entry into one structured system with clear tabs, input validation, and a dashboard summary — so everyone records in one place.</p>
-            </div>
+            </article>
 
-            <div class="pain-row reveal">
-              <div class="pain-num">04</div>
+            <article class="pain-card reveal">
+              <div class="pain-card-head">
+                <span class="pain-card-num">04</span>
+                <span class="pain-card-tag">Sales Pipeline</span>
+              </div>
               <p class="pain-quote">I have no visibility on my sales pipeline or who is buying what.</p>
-              <div class="pain-arrow-col">→</div>
+              <div class="pain-divider"></div>
               <p class="pain-solution">We build a sales CRM with lead source tracking, deal stage pipeline, product/service breakdown, and revenue by team member — so you know exactly what's converting.</p>
-            </div>
+            </article>
 
-            <div class="pain-row reveal">
-              <div class="pain-num">05</div>
+            <article class="pain-card reveal delay-1">
+              <div class="pain-card-head">
+                <span class="pain-card-num">05</span>
+                <span class="pain-card-tag">Inventory Control</span>
+              </div>
               <p class="pain-quote">I have inventory but no idea what's available, what's sold, or what to reorder.</p>
-              <div class="pain-arrow-col">→</div>
+              <div class="pain-divider"></div>
               <p class="pain-solution">We build an inventory tracking system with available stock by location and SKU, sold units, reorder alerts, markup tracking, and payment status — like the N Solar dashboard in our portfolio.</p>
-            </div>
+            </article>
 
-            <div class="pain-row reveal">
-              <div class="pain-num">06</div>
+            <article class="pain-card reveal delay-2">
+              <div class="pain-card-head">
+                <span class="pain-card-num">06</span>
+                <span class="pain-card-tag">Reporting Time</span>
+              </div>
               <p class="pain-quote">Preparing weekly reports takes my team hours every Friday.</p>
-              <div class="pain-arrow-col">→</div>
+              <div class="pain-divider"></div>
               <p class="pain-solution">We restructure data entry so reports auto-generate. The dashboard updates as entries are logged. Weekly review meetings become 20 minutes instead of two hours of data gathering.</p>
-            </div>
+            </article>
 
-            <div class="pain-row reveal">
-              <div class="pain-num">07</div>
+            <article class="pain-card reveal">
+              <div class="pain-card-head">
+                <span class="pain-card-num">07</span>
+                <span class="pain-card-tag">Portfolio Returns</span>
+              </div>
               <p class="pain-quote">I have investment capital deployed across different assets but can't see my total returns.</p>
-              <div class="pain-arrow-col">→</div>
+              <div class="pain-divider"></div>
               <p class="pain-solution">We build a portfolio intelligence dashboard tracking each investment's maturity date, interest rate, compounded returns, and profit/loss — consolidated into one clear overview across all asset classes.</p>
-            </div>
+            </article>
 
-            <div class="pain-row reveal">
-              <div class="pain-num">08</div>
+            <article class="pain-card reveal delay-1">
+              <div class="pain-card-head">
+                <span class="pain-card-num">08</span>
+                <span class="pain-card-tag">Budget Overruns</span>
+              </div>
               <p class="pain-quote">Project or event budgets always run over and I only find out at the end.</p>
-              <div class="pain-arrow-col">→</div>
+              <div class="pain-divider"></div>
               <p class="pain-solution">We build a budget tracking system with per-category spending limits, payment due dates, actual vs estimated comparisons, and automatic red-flag highlighting when a category goes over budget.</p>
-            </div>
+            </article>
 
           </div>
         </div>
@@ -367,26 +552,36 @@
             <h2>Who This Is For</h2>
             <p class="section-intro">Premium implementation service — not template sales. An honest breakdown of fit.</p>
           </div>
-          <div class="grid-2">
-            <div class="card reveal">
-              <h3>✅ Great Fit</h3>
-              <ul>
-                <li>Business owners with recurring transactions and teams</li>
-                <li>Decision-makers who need clear financial visibility</li>
-                <li>Teams that want reporting structure and discipline</li>
-                <li>Solar, finance, real estate, FMCG, logistics, and more</li>
-                <li>Ready to implement and enforce usage now</li>
+          <div class="qualify-grid">
+            <article class="qualify-card qualify-card-fit reveal">
+              <div class="qualify-head">
+                <div class="qualify-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <h3>Great Fit</h3>
+              </div>
+              <ul class="qualify-list">
+                <li><span class="li-icon" aria-hidden="true">✓</span><span>Business owners with recurring transactions and teams</span></li>
+                <li><span class="li-icon" aria-hidden="true">✓</span><span>Decision-makers who need clear financial visibility</span></li>
+                <li><span class="li-icon" aria-hidden="true">✓</span><span>Teams that want reporting structure and discipline</span></li>
+                <li><span class="li-icon" aria-hidden="true">✓</span><span>Solar, finance, real estate, FMCG, logistics, and more</span></li>
+                <li><span class="li-icon" aria-hidden="true">✓</span><span>Ready to implement and enforce usage now</span></li>
               </ul>
-            </div>
-            <div class="card reveal delay-1">
-              <h3>❌ Not a Fit</h3>
-              <ul>
-                <li>Only want a cheap off-the-shelf template</li>
-                <li>Not ready to enforce consistent data entry with your team</li>
-                <li>No urgency to fix tracking blind spots</li>
-                <li>Looking for accounting software — not custom dashboards</li>
+            </article>
+            <article class="qualify-card qualify-card-not reveal delay-1">
+              <div class="qualify-head">
+                <div class="qualify-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <h3>Not a Fit</h3>
+              </div>
+              <ul class="qualify-list">
+                <li><span class="li-icon" aria-hidden="true">✕</span><span>Only want a cheap off-the-shelf template</span></li>
+                <li><span class="li-icon" aria-hidden="true">✕</span><span>Not ready to enforce consistent data entry with your team</span></li>
+                <li><span class="li-icon" aria-hidden="true">✕</span><span>No urgency to fix tracking blind spots</span></li>
+                <li><span class="li-icon" aria-hidden="true">✕</span><span>Looking for accounting software — not custom dashboards</span></li>
               </ul>
-            </div>
+            </article>
           </div>
         </div>
       </section>
@@ -400,6 +595,22 @@
               <p class="eyebrow">Application</p>
               <h2>Apply for a Business Control Consultation</h2>
               <p>We accept a limited number of new implementations each month. Fill in the form and we'll review your details within 24 hours.</p>
+
+              <div class="contact-actions">
+                <p class="contact-actions-label">Prefer a quick chat?</p>
+                <div class="contact-actions-row">
+                  <a class="btn-contact btn-calendly" href="https://calendly.com/victorjonah94" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Book a Call
+                  </a>
+                  <a class="btn-contact btn-whatsapp" href="https://wa.me/2348030750358?text=Hi%20Victor%2C%20I%27d%20like%20to%20discuss%20a%20business%20tracking%20system." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+                    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.003 3C9.376 3 4 8.376 4 15.003c0 2.633.853 5.07 2.296 7.058L4 29l7.107-2.273a11.93 11.93 0 0 0 4.892 1.044h.004C22.628 27.771 28 22.395 28 15.768 28 12.583 26.74 9.6 24.5 7.36A11.945 11.945 0 0 0 16.003 3Zm0 21.815a9.84 9.84 0 0 1-5.011-1.371l-.36-.214-4.215 1.348 1.376-4.107-.234-.376a9.836 9.836 0 0 1-1.508-5.227c0-5.46 4.444-9.903 9.952-9.903 2.66 0 5.155 1.036 7.034 2.916a9.842 9.842 0 0 1 2.916 7.026c0 5.46-4.444 9.908-9.95 9.908Zm5.452-7.41c-.298-.149-1.766-.871-2.04-.97-.273-.099-.473-.149-.672.149-.198.298-.77.97-.945 1.169-.174.198-.348.223-.646.074-.298-.149-1.26-.464-2.4-1.482-.886-.79-1.484-1.766-1.658-2.064-.173-.298-.018-.459.131-.607.135-.134.298-.348.448-.522.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.522-.074-.149-.671-1.62-.92-2.218-.243-.582-.49-.504-.671-.513l-.572-.01c-.198 0-.522.074-.795.372-.273.298-1.044 1.02-1.044 2.49 0 1.47 1.07 2.892 1.219 3.09.149.198 2.105 3.213 5.099 4.504.713.308 1.27.491 1.704.629.715.227 1.366.195 1.881.118.574-.086 1.766-.722 2.015-1.42.248-.696.248-1.293.174-1.42-.074-.124-.273-.198-.572-.347Z"/></svg>
+                    WhatsApp Chat
+                  </a>
+                </div>
+                <p class="contact-actions-divider"><span>or fill in the form below</span></p>
+              </div>
+
               <ul class="checklist">
                 <li>You run a serious business with recurring transactions</li>
                 <li>You want a custom implementation — not a generic template</li>
@@ -612,6 +823,6 @@
       </div>
     </div>
 
-    <script src="script.js?v=20260506"></script>
+    <script src="script.js?v=20260506c"></script>
   </body>
 </html>

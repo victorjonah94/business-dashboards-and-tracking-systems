@@ -33,7 +33,7 @@
  */
 
 // ── Configuration ────────────────────────────────────────────────────────────
-var SPREADSHEET_ID = "PASTE_YOUR_SPREADSHEET_ID_HERE";
+var SPREADSHEET_ID = "1aPLjhTNnnomqYEJKNxwLUQtNQW9Auja4MoZHQOKLPBM";
 var SHEET_NAME     = "Bookings";            // Tab name in your spreadsheet
 var NOTIFY_EMAIL   = "victorjonah94@gmail.com";
 // ─────────────────────────────────────────────────────────────────────────────
