@@ -332,6 +332,14 @@ h4 { font-size: .95rem; }
 .kpi-grid p    { margin:0; color: var(--text-xsoft); font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; }
 .kpi-grid h4   { margin: .15rem 0 .1rem; font-size: 1.55rem; color: var(--brand); line-height: 1; }
 .kpi-grid small{ color: var(--text-soft); font-size: .75rem; }
+.kpi-infographic {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: .65rem;
+  border-radius: 6px;
+  overflow: visible;
+}
 
 /* ── Stats bar ── */
 .stats-bar {
