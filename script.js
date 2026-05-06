@@ -136,3 +136,85 @@ lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLigh
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && lightbox.classList.contains("open")) closeLightbox();
 });
+
+// ── Pain Points slider ───────────────────────────────────────────────────
+(function initPainSlider() {
+  const slider   = document.getElementById("painSlider");
+  const dotsWrap = document.getElementById("painDots");
+  const prev     = document.getElementById("painPrev");
+  const next     = document.getElementById("painNext");
+  if (!slider || !dotsWrap) return;
+
+  const cards = Array.from(slider.children);
+
+  function getStep() {
+    const first  = cards[0];
+    if (!first) return slider.clientWidth;
+    const second = cards[1];
+    if (second) return second.offsetLeft - first.offsetLeft;
+    return first.offsetWidth + 16;
+  }
+
+  function getCardsPerView() {
+    const step = getStep();
+    return Math.max(1, Math.round(slider.clientWidth / step));
+  }
+
+  function getPageCount() {
+    return Math.max(1, Math.ceil(cards.length / getCardsPerView()));
+  }
+
+  function getCurrentPage() {
+    const step = getStep();
+    const cpv  = getCardsPerView();
+    return Math.round(slider.scrollLeft / (step * cpv));
+  }
+
+  function scrollToPage(page) {
+    const step = getStep();
+    const cpv  = getCardsPerView();
+    const max  = getPageCount() - 1;
+    const target = Math.max(0, Math.min(max, page));
+    slider.scrollTo({ left: step * cpv * target, behavior: "smooth" });
+  }
+
+  function renderDots() {
+    const total = getPageCount();
+    dotsWrap.innerHTML = "";
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement("button");
+      dot.className = "pain-dot";
+      dot.type = "button";
+      dot.setAttribute("role", "tab");
+      dot.setAttribute("aria-label", `Page ${i + 1} of ${total}`);
+      dot.addEventListener("click", () => scrollToPage(i));
+      dotsWrap.appendChild(dot);
+    }
+    updateActive();
+  }
+
+  function updateActive() {
+    const dots = dotsWrap.querySelectorAll(".pain-dot");
+    const cur  = getCurrentPage();
+    dots.forEach((d, i) => d.classList.toggle("active", i === cur));
+    if (prev) prev.toggleAttribute("disabled", cur <= 0);
+    if (next) next.toggleAttribute("disabled", cur >= getPageCount() - 1);
+  }
+
+  prev?.addEventListener("click", () => scrollToPage(getCurrentPage() - 1));
+  next?.addEventListener("click", () => scrollToPage(getCurrentPage() + 1));
+
+  let scrollTimer;
+  slider.addEventListener("scroll", () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(updateActive, 90);
+  });
+
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(renderDots, 150);
+  });
+
+  renderDots();
+})();

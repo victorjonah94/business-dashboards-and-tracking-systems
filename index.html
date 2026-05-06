@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260506c" />
+    <link rel="stylesheet" href="styles.css?v=20260506d" />
   </head>
   <body>
 
@@ -350,10 +350,10 @@
             </div>
             <div class="about-stat">
               <div class="about-stat-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
               </div>
-              <strong>30+</strong>
-              <span>Founders &amp; CEOs Served</span>
+              <strong>8+</strong>
+              <span>Dashboard Types Built</span>
             </div>
             <div class="about-stat">
               <div class="about-stat-icon" aria-hidden="true">
@@ -364,10 +364,10 @@
             </div>
             <div class="about-stat">
               <div class="about-stat-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               </div>
-              <strong>15+</strong>
-              <span>Industries Across Sectors</span>
+              <strong>5+</strong>
+              <span>Years Building Systems</span>
             </div>
           </div>
 
@@ -425,88 +425,97 @@
             <p>These are the exact challenges our clients come with. If any sound familiar, we can build a system that eliminates them.</p>
           </div>
 
-          <div class="pain-grid">
+          <div class="pain-slider-wrap reveal">
+            <button class="pain-nav pain-prev" id="painPrev" aria-label="Previous pain points">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="pain-slider" id="painSlider">
 
-            <article class="pain-card reveal">
-              <div class="pain-card-head">
-                <span class="pain-card-num">01</span>
-                <span class="pain-card-tag">P&amp;L Visibility</span>
-              </div>
-              <p class="pain-quote">I don't know if my business made profit last month.</p>
-              <div class="pain-divider"></div>
-              <p class="pain-solution">We build a P&amp;L dashboard that auto-calculates your net income, gross margin, and profit vs goal — updated in real time as your team logs entries.</p>
-            </article>
+              <article class="pain-card">
+                <div class="pain-card-head">
+                  <span class="pain-card-num">01</span>
+                  <span class="pain-card-tag">P&amp;L Visibility</span>
+                </div>
+                <p class="pain-quote">I don't know if my business made profit last month.</p>
+                <div class="pain-divider"></div>
+                <p class="pain-solution">We build a P&amp;L dashboard that auto-calculates your net income, gross margin, and profit vs goal — updated in real time as your team logs entries.</p>
+              </article>
 
-            <article class="pain-card reveal delay-1">
-              <div class="pain-card-head">
-                <span class="pain-card-num">02</span>
-                <span class="pain-card-tag">Expense Leaks</span>
-              </div>
-              <p class="pain-quote">Money is going out but I can't pinpoint where it's leaking.</p>
-              <div class="pain-divider"></div>
-              <p class="pain-solution">We build an expense categorisation system with budget-vs-actual variance alerts so you see exactly where overspending is happening, by category and by week.</p>
-            </article>
+              <article class="pain-card">
+                <div class="pain-card-head">
+                  <span class="pain-card-num">02</span>
+                  <span class="pain-card-tag">Expense Leaks</span>
+                </div>
+                <p class="pain-quote">Money is going out but I can't pinpoint where it's leaking.</p>
+                <div class="pain-divider"></div>
+                <p class="pain-solution">We build an expense categorisation system with budget-vs-actual variance alerts so you see exactly where overspending is happening, by category and by week.</p>
+              </article>
 
-            <article class="pain-card reveal delay-2">
-              <div class="pain-card-head">
-                <span class="pain-card-num">03</span>
-                <span class="pain-card-tag">Data Chaos</span>
-              </div>
-              <p class="pain-quote">My team tracks things in WhatsApp groups and four different spreadsheets.</p>
-              <div class="pain-divider"></div>
-              <p class="pain-solution">We consolidate all data entry into one structured system with clear tabs, input validation, and a dashboard summary — so everyone records in one place.</p>
-            </article>
+              <article class="pain-card">
+                <div class="pain-card-head">
+                  <span class="pain-card-num">03</span>
+                  <span class="pain-card-tag">Data Chaos</span>
+                </div>
+                <p class="pain-quote">My team tracks things in WhatsApp groups and four different spreadsheets.</p>
+                <div class="pain-divider"></div>
+                <p class="pain-solution">We consolidate all data entry into one structured system with clear tabs, input validation, and a dashboard summary — so everyone records in one place.</p>
+              </article>
 
-            <article class="pain-card reveal">
-              <div class="pain-card-head">
-                <span class="pain-card-num">04</span>
-                <span class="pain-card-tag">Sales Pipeline</span>
-              </div>
-              <p class="pain-quote">I have no visibility on my sales pipeline or who is buying what.</p>
-              <div class="pain-divider"></div>
-              <p class="pain-solution">We build a sales CRM with lead source tracking, deal stage pipeline, product/service breakdown, and revenue by team member — so you know exactly what's converting.</p>
-            </article>
+              <article class="pain-card">
+                <div class="pain-card-head">
+                  <span class="pain-card-num">04</span>
+                  <span class="pain-card-tag">Sales Pipeline</span>
+                </div>
+                <p class="pain-quote">I have no visibility on my sales pipeline or who is buying what.</p>
+                <div class="pain-divider"></div>
+                <p class="pain-solution">We build a sales CRM with lead source tracking, deal stage pipeline, product/service breakdown, and revenue by team member — so you know exactly what's converting.</p>
+              </article>
 
-            <article class="pain-card reveal delay-1">
-              <div class="pain-card-head">
-                <span class="pain-card-num">05</span>
-                <span class="pain-card-tag">Inventory Control</span>
-              </div>
-              <p class="pain-quote">I have inventory but no idea what's available, what's sold, or what to reorder.</p>
-              <div class="pain-divider"></div>
-              <p class="pain-solution">We build an inventory tracking system with available stock by location and SKU, sold units, reorder alerts, markup tracking, and payment status — like the N Solar dashboard in our portfolio.</p>
-            </article>
+              <article class="pain-card">
+                <div class="pain-card-head">
+                  <span class="pain-card-num">05</span>
+                  <span class="pain-card-tag">Inventory Control</span>
+                </div>
+                <p class="pain-quote">I have inventory but no idea what's available, what's sold, or what to reorder.</p>
+                <div class="pain-divider"></div>
+                <p class="pain-solution">We build an inventory tracking system with available stock by location and SKU, sold units, reorder alerts, markup tracking, and payment status — like the N Solar dashboard in our portfolio.</p>
+              </article>
 
-            <article class="pain-card reveal delay-2">
-              <div class="pain-card-head">
-                <span class="pain-card-num">06</span>
-                <span class="pain-card-tag">Reporting Time</span>
-              </div>
-              <p class="pain-quote">Preparing weekly reports takes my team hours every Friday.</p>
-              <div class="pain-divider"></div>
-              <p class="pain-solution">We restructure data entry so reports auto-generate. The dashboard updates as entries are logged. Weekly review meetings become 20 minutes instead of two hours of data gathering.</p>
-            </article>
+              <article class="pain-card">
+                <div class="pain-card-head">
+                  <span class="pain-card-num">06</span>
+                  <span class="pain-card-tag">Reporting Time</span>
+                </div>
+                <p class="pain-quote">Preparing weekly reports takes my team hours every Friday.</p>
+                <div class="pain-divider"></div>
+                <p class="pain-solution">We restructure data entry so reports auto-generate. The dashboard updates as entries are logged. Weekly review meetings become 20 minutes instead of two hours of data gathering.</p>
+              </article>
 
-            <article class="pain-card reveal">
-              <div class="pain-card-head">
-                <span class="pain-card-num">07</span>
-                <span class="pain-card-tag">Portfolio Returns</span>
-              </div>
-              <p class="pain-quote">I have investment capital deployed across different assets but can't see my total returns.</p>
-              <div class="pain-divider"></div>
-              <p class="pain-solution">We build a portfolio intelligence dashboard tracking each investment's maturity date, interest rate, compounded returns, and profit/loss — consolidated into one clear overview across all asset classes.</p>
-            </article>
+              <article class="pain-card">
+                <div class="pain-card-head">
+                  <span class="pain-card-num">07</span>
+                  <span class="pain-card-tag">Portfolio Returns</span>
+                </div>
+                <p class="pain-quote">I have investment capital deployed across different assets but can't see my total returns.</p>
+                <div class="pain-divider"></div>
+                <p class="pain-solution">We build a portfolio intelligence dashboard tracking each investment's maturity date, interest rate, compounded returns, and profit/loss — consolidated into one clear overview across all asset classes.</p>
+              </article>
 
-            <article class="pain-card reveal delay-1">
-              <div class="pain-card-head">
-                <span class="pain-card-num">08</span>
-                <span class="pain-card-tag">Budget Overruns</span>
-              </div>
-              <p class="pain-quote">Project or event budgets always run over and I only find out at the end.</p>
-              <div class="pain-divider"></div>
-              <p class="pain-solution">We build a budget tracking system with per-category spending limits, payment due dates, actual vs estimated comparisons, and automatic red-flag highlighting when a category goes over budget.</p>
-            </article>
+              <article class="pain-card">
+                <div class="pain-card-head">
+                  <span class="pain-card-num">08</span>
+                  <span class="pain-card-tag">Budget Overruns</span>
+                </div>
+                <p class="pain-quote">Project or event budgets always run over and I only find out at the end.</p>
+                <div class="pain-divider"></div>
+                <p class="pain-solution">We build a budget tracking system with per-category spending limits, payment due dates, actual vs estimated comparisons, and automatic red-flag highlighting when a category goes over budget.</p>
+              </article>
 
+            </div>
+            <button class="pain-nav pain-next" id="painNext" aria-label="Next pain points">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <div class="pain-dots" id="painDots" role="tablist" aria-label="Pain point pages"></div>
           </div>
         </div>
       </section>
@@ -552,36 +561,31 @@
             <h2>Who This Is For</h2>
             <p class="section-intro">Premium implementation service — not template sales. An honest breakdown of fit.</p>
           </div>
-          <div class="qualify-grid">
-            <article class="qualify-card qualify-card-fit reveal">
-              <div class="qualify-head">
-                <div class="qualify-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                </div>
-                <h3>Great Fit</h3>
-              </div>
-              <ul class="qualify-list">
-                <li><span class="li-icon" aria-hidden="true">✓</span><span>Business owners with recurring transactions and teams</span></li>
-                <li><span class="li-icon" aria-hidden="true">✓</span><span>Decision-makers who need clear financial visibility</span></li>
-                <li><span class="li-icon" aria-hidden="true">✓</span><span>Teams that want reporting structure and discipline</span></li>
-                <li><span class="li-icon" aria-hidden="true">✓</span><span>Solar, finance, real estate, FMCG, logistics, and more</span></li>
-                <li><span class="li-icon" aria-hidden="true">✓</span><span>Ready to implement and enforce usage now</span></li>
+          <div class="qualify-split reveal">
+            <div class="qualify-side qualify-side-fit">
+              <p class="qualify-eyebrow">Work with me if</p>
+              <h3 class="qualify-side-title">You're ready to run on real data.</h3>
+              <ul class="qualify-side-list">
+                <li>You run a serious business with recurring transactions and a team to manage</li>
+                <li>You're a decision-maker who needs clear financial &amp; operational visibility</li>
+                <li>You want reporting structure and discipline across your team</li>
+                <li>You operate in solar, finance, real estate, FMCG, logistics, or similar</li>
+                <li>You're ready to implement now — and to enforce daily usage</li>
               </ul>
-            </article>
-            <article class="qualify-card qualify-card-not reveal delay-1">
-              <div class="qualify-head">
-                <div class="qualify-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                </div>
-                <h3>Not a Fit</h3>
-              </div>
-              <ul class="qualify-list">
-                <li><span class="li-icon" aria-hidden="true">✕</span><span>Only want a cheap off-the-shelf template</span></li>
-                <li><span class="li-icon" aria-hidden="true">✕</span><span>Not ready to enforce consistent data entry with your team</span></li>
-                <li><span class="li-icon" aria-hidden="true">✕</span><span>No urgency to fix tracking blind spots</span></li>
-                <li><span class="li-icon" aria-hidden="true">✕</span><span>Looking for accounting software — not custom dashboards</span></li>
+            </div>
+            <div class="qualify-rule" aria-hidden="true">
+              <span class="qualify-rule-label">vs</span>
+            </div>
+            <div class="qualify-side qualify-side-not">
+              <p class="qualify-eyebrow">Skip me if</p>
+              <h3 class="qualify-side-title">You're shopping for a template.</h3>
+              <ul class="qualify-side-list">
+                <li>You only want a cheap off-the-shelf spreadsheet template</li>
+                <li>You're not ready to enforce consistent data entry with your team</li>
+                <li>You feel no urgency about your tracking blind spots</li>
+                <li>You're looking for accounting software — not custom dashboards</li>
               </ul>
-            </article>
+            </div>
           </div>
         </div>
       </section>
@@ -823,6 +827,6 @@
       </div>
     </div>
 
-    <script src="script.js?v=20260506c"></script>
+    <script src="script.js?v=20260506d"></script>
   </body>
 </html>
