@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>e-com VA academy — Editable Posts (Download JPG)</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800;12..96,900&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,500;1,700&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+:root {
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-body: 'Inter Tight', system-ui, sans-serif;
+  --coral: #ff5c35; --amber: #ffc53d; --violet: #6c63ff;
+  --teal: #00c9a7; --navy: #003049; --cream: #f5f0e8;
+  --brand: #1a4d35;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #1a1a1a; color: #fff; font-family: var(--font-body); padding: 40px 20px; }
+.page-header { max-width: 1200px; margin: 0 auto 32px; text-align: center; }
+.page-header h1 { font-family: var(--font-display); font-weight: 800; font-size: 36px; letter-spacing: -0.02em; }
+.page-header p { color: rgba(255,255,255,0.7); margin-top: 10px; font-size: 16px; line-height: 1.5; }
+.toolbar { max-width: 1200px; margin: 0 auto 32px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn { background: var(--amber); color: var(--navy); border: none; border-radius: 999px; padding: 12px 22px; font-weight: 700; font-family: var(--font-body); font-size: 15px; cursor: pointer; transition: transform .1s; }
+.btn:hover { transform: translateY(-1px); }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.btn.secondary { background: #fff; color: var(--navy); }
+.gallery { display: flex; flex-direction: column; gap: 56px; align-items: center; }
+.card { background: #2a2a2a; border-radius: 18px; padding: 18px; max-width: 1140px; }
+.card-head { display: flex; justify-content: space-between; align-items: center; padding: 4px 8px 14px; gap: 12px; flex-wrap: wrap; }
+.card-head h2 { font-family: var(--font-display); font-weight: 700; font-size: 18px; }
+.card-head .meta { color: rgba(255,255,255,0.55); font-size: 13px; }
+.stage { width: 1080px; max-width: 100%; aspect-ratio: 1080 / 1350; position: relative; }
+.stage-inner { transform-origin: top left; }
+@media (max-width: 1140px) {
+  .stage { width: 100%; }
+}
+.post { width: 1080px; height: 1350px; position: relative; overflow: hidden; font-family: var(--font-display); isolation: isolate; flex-shrink: 0; }
+.logo { position: absolute; top: 48px; left: 56px; z-index: 10; width: 132px; height: 40px; border-radius: 11px; background: var(--brand); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 20px; letter-spacing: -0.01em; }
+.logo.light { background: #fff; color: var(--brand); }
+.handle { position: absolute; bottom: 36px; left: 0; right: 0; text-align: center; z-index: 10; font-weight: 600; font-size: 22px; letter-spacing: 0.04em; color: rgba(0,0,0,0.45); }
+.cta-pill { display: inline-flex; align-items: center; border-radius: 999px; padding: 24px 32px 24px 40px; font-weight: 700; font-size: 30px; letter-spacing: -0.01em; gap: 18px; }
+.arrow { display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 999px; font-size: 28px; }
+img { display: block; }
+.status { text-align: center; color: rgba(255,255,255,0.7); margin-top: 16px; font-size: 14px; min-height: 20px; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>e-com VA academy — Editable Post Templates</h1>
+  <p>Click "Download JPG" on any post to save the 1080×1350 image. Then upload it to Canva to add price tags, swap text, or recolour. "Download All" zips through every post in sequence.</p>
+</div>
+
+<div class="toolbar">
+  <button class="btn" id="downloadAll">Download all 10 as JPG</button>
+  <a class="btn secondary" href="index.html">← Back to landing page</a>
+</div>
+
+<div class="status" id="status">&nbsp;</div>
+
+<div class="gallery">
+
+  <div class="card">
+    <div class="card-head">
+      <h2>Post 1 · Hands-on skills</h2>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <span class="meta">1080 × 1350 · JPG</span>
+        <button class="btn download-btn" data-target="post1" data-name="01-hands-on-skills">Download JPG</button>
+      </div>
+    </div>
+    <div class="stage"><div class="stage-inner">
+    <div class="post" id="post1" style="background:var(--cream);">
+      <div class="logo" style="border-radius: 11px; width: 195px">e-com VA academy</div>
+      <div style="position:absolute;top:0;right:0;width:380px;height:380px;background:var(--amber);clip-path:polygon(100% 0,100% 100%,0 0);"></div>
+      <div style="position:absolute;left:56px;top:660px;width:360px;height:360px;opacity:0.5;background-image:radial-gradient(rgba(0,48,73,0.18) 1.5px,transparent 2px);background-size:18px 18px;"></div>
+      <div style="position:absolute;top:62px;right:60px;z-index:5;font-weight:800;font-size:16px;letter-spacing:0.18em;color:var(--navy);">FOR NIGERIAN JOB SEEKERS</div>
+      <div style="position:absolute;top:150px;left:56px;right:56px;font-weight:900;font-size:94px;line-height:0.94;letter-spacing:-0.035em;color:var(--navy);">
+        4 hands-on
+        <span style="background:var(--amber);padding:0 18px;border-radius:8px;display:inline-block;transform:rotate(-1.5deg);margin:0 6px;">skills</span><br>
+        remote employers<br>
+        actually <em style="font-style:italic;text-decoration:underline;text-decoration-thickness:7px;text-underline-offset:14px;text-decoration-color:var(--amber);">pay</em> for.
+      </div>
+      <div style="position:absolute;left:56px;top:700px;right:480px;display:flex;flex-direction:column;gap:16px;">
+        <div style="display:flex;align-items:center;gap:16px;padding:14px 18px;background:#fff;border-radius:14px;border:2px solid var(--navy);box-shadow:0 6px 0 var(--navy);"><div style="font-weight:900;font-size:28px;color:var(--navy);min-width:50px;">01</div><div><div style="font-weight:800;font-size:22px;color:var(--navy);">Product listing &amp; SEO</div><div style="font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(0,48,73,0.55);margin-top:3px;">Shopify · Amazon</div></div></div>
+        <div style="display:flex;align-items:center;gap:16px;padding:14px 18px;background:#fff;border-radius:14px;border:2px solid var(--navy);box-shadow:0 6px 0 var(--navy);"><div style="font-weight:900;font-size:28px;color:var(--navy);min-width:50px;">02</div><div><div style="font-weight:800;font-size:22px;color:var(--navy);">Order &amp; inventory mgmt</div><div style="font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(0,48,73,0.55);margin-top:3px;">Daily ops</div></div></div>
+        <div style="display:flex;align-items:center;gap:16px;padding:14px 18px;background:#fff;border-radius:14px;border:2px solid var(--navy);box-shadow:0 6px 0 var(--navy);"><div style="font-weight:900;font-size:28px;color:var(--navy);min-width:50px;">03</div><div><div style="font-weight:800;font-size:22px;color:var(--navy);">Customer support replies</div><div style="font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(0,48,73,0.55);margin-top:3px;">Email · Chat</div></div></div>
+        <div style="display:flex;align-items:center;gap:16px;padding:14px 18px;background:var(--navy);border-radius:14px;"><div style="font-weight:900;font-size:28px;color:var(--amber);min-width:50px;">04</div><div><div style="font-weight:800;font-size:22px;color:#fff;">Meta &amp; Google ad ops</div><div style="font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);margin-top:3px;">E-Commerce VA Course</div></div></div>
+      </div>
+      <img src="assets/posts/art/coral-laptop.png" crossorigin="anonymous" style="position:absolute;right:-50px;bottom:220px;width:420px;height:auto;z-index:3;filter:drop-shadow(0 30px 40px rgba(0,48,73,0.25));" />
+      <div style="position:absolute;left:56px;bottom:100px;z-index:10;"><div class="cta-pill" style="background:var(--navy);color:#fff;">Enroll: E-Commerce VA Course<span class="arrow" style="background:var(--amber);color:var(--navy);">→</span></div></div>
+      <div class="handle">@the_ecommerce_va_academy</div>
+    </div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h2>Post 2 · $1.5T remote work</h2>
+      <div style="display:flex;gap:10px;align-items:center;"><span class="meta">1080 × 1350 · JPG</span><button class="btn download-btn" data-target="post2" data-name="02-remote-work-trillion">Download JPG</button></div>
+    </div>
+    <div class="stage"><div class="stage-inner">
+    <div class="post" id="post2" style="background:var(--cream);">
+      <div class="logo" style="width: 1px">e-com VA academy</div>
+      <div style="position:absolute;top:-200px;left:-200px;width:700px;height:700px;border-radius:50%;background:var(--teal);"></div>
+      <div style="position:absolute;right:-40px;top:80px;width:540px;height:540px;opacity:0.55;background-image:radial-gradient(var(--coral) 2px,transparent 2.5px);background-size:16px 16px;"></div>
+      <div style="position:absolute;top:58px;right:56px;z-index:5;font-weight:800;font-size:16px;letter-spacing:0.2em;color:var(--coral);">DID YOU KNOW?</div>
+      <div style="position:absolute;top:200px;left:56px;right:56px;z-index:4;">
+        <div style="font-weight:900;font-size:280px;line-height:0.85;letter-spacing:-0.06em;color:var(--navy);">$1.5<span style="color:var(--coral);">T</span></div>
+        <div style="font-weight:700;font-size:38px;line-height:1.1;color:var(--navy);margin-top:18px;letter-spacing:-0.02em;max-width:700px;">Remote work is a <span style="background:var(--coral);color:#fff;padding:2px 14px;border-radius:6px;">$1.5 trillion</span> industry.<br>And it runs on practical skills.</div>
+      </div>
+      <div style="position:absolute;left:56px;top:870px;width:560px;background:#fff;border:2px solid var(--navy);border-radius:18px;padding:24px 28px;box-shadow:8px 8px 0 var(--navy);z-index:5;">
+        <div style="font-weight:800;font-size:16px;letter-spacing:0.16em;text-transform:uppercase;color:var(--coral);margin-bottom:8px;">The shortcut in</div>
+        <div style="font-family:var(--font-body);font-size:24px;line-height:1.3;color:var(--navy);font-weight:500;">Build one <strong style="color:var(--coral);">employable skill</strong>. Get hired remotely. Start with E-Commerce VA.</div>
+      </div>
+      <img src="assets/posts/art/desk-teal.png" crossorigin="anonymous" style="position:absolute;right:-30px;bottom:240px;width:460px;height:auto;z-index:3;filter:drop-shadow(0 24px 30px rgba(0,48,73,0.25));" />
+      <div style="position:absolute;left:56px;bottom:100px;z-index:10;"><div class="cta-pill" style="background:var(--coral);color:#fff;">Enroll: E-Commerce VA Course<span class="arrow" style="background:var(--cream);color:var(--coral);">→</span></div></div>
+      <div class="handle">@the_ecommerce_va_academy</div>
+    </div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h2>Post 3 · Myth vs Fact</h2>
+      <div style="display:flex;gap:10px;align-items:center;"><span class="meta">1080 × 1350 · JPG</span><button class="btn download-btn" data-target="post3" data-name="03-myth-vs-fact">Download JPG</button></div>
+    </div>
+    <div class="stage"><div class="stage-inner">
+    <div class="post" id="post3" style="background:var(--navy);">
+      <div class="logo light" style="width: 1px">e-com VA academy</div>
+      <div style="position:absolute;inset:0;background:var(--violet);clip-path:polygon(0 60%,100% 30%,100% 100%,0 100%);opacity:0.85;"></div>
+      <div style="position:absolute;left:56px;top:200px;width:320px;height:320px;opacity:0.35;background-image:radial-gradient(var(--amber) 1.5px,transparent 2px);background-size:20px 20px;"></div>
+      <div style="position:absolute;top:150px;left:56px;right:56px;color:#fff;">
+        <div style="font-weight:700;font-size:22px;letter-spacing:0.22em;color:var(--amber);margin-bottom:18px;">HANDS-ON SKILLS</div>
+        <div style="font-weight:900;font-size:130px;line-height:0.88;letter-spacing:-0.04em;"><span style="color:#fff;">Myth</span><span style="color:var(--amber);font-style:italic;font-weight:500;font-size:90px;padding:0 14px;">vs</span><span style="color:var(--amber);">Fact</span></div>
+      </div>
+      <div style="position:absolute;left:56px;top:460px;width:470px;background:#fff;border-radius:22px;padding:24px 26px;transform:rotate(-2deg);box-shadow:12px 12px 0 rgba(0,0,0,0.4);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;"><div style="width:56px;height:56px;border-radius:14px;background:#ff3b3b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:900;">✗</div><div style="font-weight:900;font-size:32px;color:#ff3b3b;letter-spacing:0.06em;">MYTH</div></div>
+        <div style="font-style:italic;font-weight:600;font-size:26px;line-height:1.2;color:var(--navy);">"You need years of experience before anyone hires you remotely."</div>
+      </div>
+      <div style="position:absolute;right:56px;top:720px;width:510px;background:var(--amber);border-radius:22px;padding:26px 28px;transform:rotate(2deg);box-shadow:12px 12px 0 rgba(0,0,0,0.4);z-index:4;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;"><div style="width:56px;height:56px;border-radius:14px;background:var(--navy);color:var(--amber);display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:900;">✓</div><div style="font-weight:900;font-size:32px;color:var(--navy);letter-spacing:0.06em;">FACT</div></div>
+        <div style="font-weight:700;font-size:26px;line-height:1.2;color:var(--navy);">One sharp, hands-on skill — done well — beats five years of vague resume bullets.</div>
+        <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;font-weight:700;font-size:14px;">
+          <span style="background:var(--navy);color:var(--amber);padding:5px 12px;border-radius:999px;">Shopify ops</span>
+          <span style="background:var(--navy);color:var(--amber);padding:5px 12px;border-radius:999px;">Ad mgmt</span>
+          <span style="background:var(--navy);color:var(--amber);padding:5px 12px;border-radius:999px;">Customer support</span>
+          <span style="background:var(--navy);color:var(--amber);padding:5px 12px;border-radius:999px;">Listings</span>
+        </div>
+      </div>
+      <img src="assets/posts/art/violet-laptop.png" crossorigin="anonymous" style="position:absolute;left:-80px;bottom:220px;width:360px;height:auto;z-index:3;filter:drop-shadow(0 24px 30px rgba(0,0,0,0.4));" />
+      <div style="position:absolute;left:56px;bottom:100px;z-index:10;"><div class="cta-pill" style="background:var(--amber);color:var(--navy);">Enroll: E-Commerce VA Course<span class="arrow" style="background:var(--navy);color:var(--amber);">→</span></div></div>
+      <div class="handle" style="color:rgba(255,255,255,0.55);">@the_ecommerce_va_academy</div>
+    </div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h2>Post 4 · Switch into remote tech</h2>
+      <div style="display:flex;gap:10px;align-items:center;"><span class="meta">1080 × 1350 · JPG</span><button class="btn download-btn" data-target="post4" data-name="04-switch-remote-tech">Download JPG</button></div>
+    </div>
+    <div class="stage"><div class="stage-inner">
+    <div class="post" id="post4" style="background:var(--coral);">
+      <div class="logo light" style="width: 1px">e-com VA academy</div>
+      <div style="position:absolute;bottom:0;left:0;right:0;height:220px;background:var(--cream);"></div>
+      <div style="position:absolute;top:130px;left:-30px;right:-30px;height:130px;background:var(--navy);transform:rotate(-2deg);z-index:2;"></div>
+      <div style="position:absolute;top:145px;left:0;right:0;text-align:center;z-index:3;transform:rotate(-2deg);font-weight:800;font-size:26px;letter-spacing:0.18em;color:var(--cream);">NO DEGREE? NO PROBLEM. · NO DEGREE? NO PROBLEM.</div>
+      <div style="position:absolute;top:320px;left:56px;right:380px;color:#fff;font-weight:900;font-size:100px;line-height:0.92;letter-spacing:-0.04em;">
+        How to <span style="display:inline-block;background:var(--cream);color:var(--coral);padding:0 18px;border-radius:12px;transform:rotate(-1deg);">switch</span><br>into remote<br><em style="font-style:italic;color:var(--navy);">tech work.</em>
+      </div>
+      <div style="position:absolute;left:56px;top:720px;right:56px;display:flex;flex-direction:column;gap:14px;">
+        <div style="display:flex;align-items:center;gap:18px;color:#fff;font-weight:700;font-size:26px;line-height:1.1;"><div style="width:50px;height:50px;border-radius:50%;background:var(--cream);color:var(--coral);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:26px;flex-shrink:0;">1</div><div>Pick a hands-on skill (E-Com VA, copy, data)</div></div>
+        <div style="display:flex;align-items:center;gap:18px;color:#fff;font-weight:700;font-size:26px;line-height:1.1;"><div style="width:50px;height:50px;border-radius:50%;background:var(--cream);color:var(--coral);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:26px;flex-shrink:0;">2</div><div>Practise on real store tasks</div></div>
+        <div style="display:flex;align-items:center;gap:18px;color:#fff;font-weight:700;font-size:26px;line-height:1.1;"><div style="width:50px;height:50px;border-radius:50%;background:var(--cream);color:var(--coral);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:26px;flex-shrink:0;">3</div><div>Build 2–3 portfolio samples</div></div>
+        <div style="display:flex;align-items:center;gap:18px;color:#fff;font-weight:700;font-size:26px;line-height:1.1;"><div style="width:50px;height:50px;border-radius:50%;background:var(--cream);color:var(--coral);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:26px;flex-shrink:0;">4</div><div>Pitch to remote store owners</div></div>
+        <div style="display:flex;align-items:center;gap:18px;color:#fff;font-weight:700;font-size:26px;line-height:1.1;"><div style="width:50px;height:50px;border-radius:50%;background:var(--cream);color:var(--coral);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:26px;flex-shrink:0;">5</div><div>Show up. Consistently.</div></div>
+      </div>
+      <img src="assets/posts/art/coral-hoodie.png" crossorigin="anonymous" style="position:absolute;right:-40px;top:320px;width:340px;height:auto;z-index:4;filter:drop-shadow(0 20px 30px rgba(0,0,0,0.3));" />
+      <div style="position:absolute;left:56px;bottom:100px;z-index:10;"><div class="cta-pill" style="background:var(--navy);color:#fff;">Enroll: E-Commerce VA Course<span class="arrow" style="background:var(--coral);color:#fff;">→</span></div></div>
+      <div class="handle" style="color: rgb(2, 48, 72)">@the_ecommerce_va_academy</div>
+    </div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h2>Post 5 · 5 reasons no callbacks</h2>
+      <div style="display:flex;gap:10px;align-items:center;"><span class="meta">1080 × 1350 · JPG</span><button class="btn download-btn" data-target="post5" data-name="05-no-callbacks">Download JPG</button></div>
+    </div>
+    <div class="stage"><div class="stage-inner">
+    <div class="post" id="post5" style="background:var(--amber);">
+      <div class="logo" style="width: 195px">e-com VA academy</div>
+      <div style="position:absolute;top:0;left:0;right:0;height:130px;background:var(--navy);"></div>
+      <div style="position:absolute;top:130px;left:0;bottom:0;width:76px;background:var(--teal);"></div>
+      <div style="position:absolute;right:-30px;top:220px;width:380px;height:700px;opacity:0.3;background-image:radial-gradient(var(--navy) 2px,transparent 2.5px);background-size:22px 22px;"></div>
+      <div style="position:absolute;top:60px;right:56px;color:var(--amber);font-weight:800;font-size:16px;letter-spacing:0.22em;">JOB-SEARCH AUDIT</div>
+      <div style="position:absolute;top:200px;left:110px;right:56px;">
+        <div style="font-weight:900;font-size:130px;line-height:0.88;letter-spacing:-0.05em;color:var(--navy);">5</div>
+        <div style="font-weight:800;font-size:50px;line-height:0.95;letter-spacing:-0.025em;color:var(--navy);margin-top:-6px;">reasons you're not getting<br><span style="background:var(--navy);color:var(--amber);padding:2px 14px;border-radius:8px;display:inline-block;">callbacks</span> — and how to fix each.</div>
+      </div>
+      <div style="position:absolute;left:110px;top:600px;right:56px;background:var(--cream);border-radius:18px;overflow:hidden;border:3px solid var(--navy);box-shadow:8px 8px 0 var(--navy);">
+        <div style="display:grid;grid-template-columns:54px 1fr 1fr;background:var(--navy);color:var(--amber);font-weight:800;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;padding:10px 0;"><div></div><div style="padding-left:4px;">Why no callback</div><div style="padding-left:14px;color:var(--teal);">The fix</div></div>
+        <div style="display:grid;grid-template-columns:54px 1fr 1fr;align-items:center;min-height:70px;background:var(--teal);color:#fff;font-weight:700;"><div style="font-size:26px;font-weight:900;text-align:center;">1</div><div style="font-size:22px;padding-right:12px;text-decoration:line-through;opacity:0.85;">No proof of work</div><div style="font-size:22px;padding-left:14px;padding-right:12px;border-left:2px dashed rgba(255,255,255,0.5);font-weight:800;">→ Build VA portfolio</div></div>
+        <div style="display:grid;grid-template-columns:54px 1fr 1fr;align-items:center;min-height:70px;border-top:1px solid rgba(0,48,73,0.15);font-weight:700;color:var(--navy);"><div style="font-size:26px;font-weight:900;text-align:center;color:var(--teal);">2</div><div style="font-size:22px;padding-right:12px;text-decoration:line-through;opacity:0.85;">Generic CV</div><div style="font-size:22px;padding-left:14px;padding-right:12px;border-left:2px dashed rgba(0,48,73,0.25);font-weight:800;">→ Lead with one skill</div></div>
+        <div style="display:grid;grid-template-columns:54px 1fr 1fr;align-items:center;min-height:70px;border-top:1px solid rgba(0,48,73,0.15);font-weight:700;color:var(--navy);"><div style="font-size:26px;font-weight:900;text-align:center;color:var(--teal);">3</div><div style="font-size:22px;padding-right:12px;text-decoration:line-through;opacity:0.85;">No digital presence</div><div style="font-size:22px;padding-left:14px;padding-right:12px;border-left:2px dashed rgba(0,48,73,0.25);font-weight:800;">→ Build LinkedIn profile</div></div>
+        <div style="display:grid;grid-template-columns:54px 1fr 1fr;align-items:center;min-height:70px;border-top:1px solid rgba(0,48,73,0.15);font-weight:700;color:var(--navy);"><div style="font-size:26px;font-weight:900;text-align:center;color:var(--teal);">4</div><div style="font-size:22px;padding-right:12px;text-decoration:line-through;opacity:0.85;">Wrong roles</div><div style="font-size:22px;padding-left:14px;padding-right:12px;border-left:2px dashed rgba(0,48,73,0.25);font-weight:800;">→ Apply to VA roles</div></div>
+        <div style="display:grid;grid-template-columns:54px 1fr 1fr;align-items:center;min-height:70px;border-top:1px solid rgba(0,48,73,0.15);font-weight:700;color:var(--navy);"><div style="font-size:26px;font-weight:900;text-align:center;color:var(--teal);">5</div><div style="font-size:22px;padding-right:12px;text-decoration:line-through;opacity:0.85;">No follow-up</div><div style="font-size:22px;padding-left:14px;padding-right:12px;border-left:2px dashed rgba(0,48,73,0.25);font-weight:800;">→ Always follow up</div></div>
+      </div>
+      <div style="position:absolute;left:110px;bottom:100px;z-index:10;"><div class="cta-pill" style="background:var(--navy);color:#fff;">Enroll: E-Commerce VA Course<span class="arrow" style="background:var(--teal);color:#fff;">→</span></div></div>
+      <div class="handle">@the_ecommerce_va_academy</div>
+    </div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h2>Post 6 · What is an E-Com VA</h2>
+      <div style="display:flex;gap:10px;align-items:center;"><span class="meta">1080 × 1350 · JPG</span><button class="btn download-btn" data-target="post6" data-name="06-what-is-ecom-va">Download JPG</button></div>
+    </div>
+    <div class="stage"><div class="stage-inner">
+    <div class="post" id="post6" style="background:var(--teal);">
+      <div class="logo light" style="width: 195px">e-com VA academy</div>
+      <div style="position:absolute;right:0;top:130px;width:540px;bottom:220px;background:var(--cream);border-top-left-radius:80px;border-bottom-left-radius:80px;"></div>
+      <div style="position:absolute;right:-40px;top:700px;width:480px;height:520px;opacity:0.3;background-image:radial-gradient(var(--coral) 1.5px,transparent 2px);background-size:16px 16px;"></div>
+      <div style="position:absolute;top:62px;right:60px;font-weight:800;font-size:16px;letter-spacing:0.2em;color:var(--coral);">EXPLAINER</div>
+      <div style="position:absolute;top:160px;left:56px;right:56px;color:#fff;">
+        <div style="font-weight:700;font-size:32px;letter-spacing:0.04em;color:var(--cream);margin-bottom:6px;">What is an</div>
+        <div style="font-weight:900;font-size:116px;line-height:0.9;letter-spacing:-0.04em;">E-Commerce<br><span style="display:inline-block;background:var(--coral);color:#fff;padding:4px 22px;border-radius:14px;transform:rotate(-1.5deg);margin:8px 0;">Virtual Asst.</span></div>
+        <div style="font-weight:600;font-size:26px;color:var(--cream);margin-top:10px;font-style:italic;">(...and why it pays so well.)</div>
+      </div>
+      <div style="position:absolute;right:60px;top:480px;background:var(--navy);color:#fff;padding:20px 26px;border-radius:22px;box-shadow:8px 8px 0 var(--coral);transform:rotate(2deg);text-align:center;">
+        <div style="font-weight:700;font-size:14px;letter-spacing:0.2em;color:var(--teal);margin-bottom:4px;">AVERAGE RATE</div>
+        <div style="font-weight:900;font-size:56px;letter-spacing:-0.04em;line-height:1;">$5–$25<span style="font-size:28px;color:var(--teal);">/hr</span></div>
+        <div style="font-weight:600;font-size:13px;letter-spacing:0.1em;color:rgba(255,255,255,0.65);margin-top:4px;">PAID IN USD · REMOTE</div>
+      </div>
+      <div style="position:absolute;left:56px;top:720px;width:580px;display:flex;flex-direction:column;gap:12px;">
+        <div style="font-weight:800;font-size:16px;letter-spacing:0.18em;color:var(--cream);margin-bottom:4px;text-transform:uppercase;">What they do, daily:</div>
+        <div style="display:flex;align-items:center;background:rgba(255,255,255,0.95);color:var(--navy);padding:14px 20px;border-radius:14px;"><div style="font-weight:900;font-size:22px;color:var(--coral);min-width:36px;">01</div><div style="font-weight:800;font-size:24px;flex:1;">Product listings</div><div style="font-weight:600;font-size:16px;color:rgba(0,48,73,0.6);font-style:italic;">Shopify · Amazon</div></div>
+        <div style="display:flex;align-items:center;background:rgba(255,255,255,0.95);color:var(--navy);padding:14px 20px;border-radius:14px;"><div style="font-weight:900;font-size:22px;color:var(--coral);min-width:36px;">02</div><div style="font-weight:800;font-size:24px;flex:1;">Order management</div><div style="font-weight:600;font-size:16px;color:rgba(0,48,73,0.6);font-style:italic;">Tracking · Returns</div></div>
+        <div style="display:flex;align-items:center;background:rgba(255,255,255,0.95);color:var(--navy);padding:14px 20px;border-radius:14px;"><div style="font-weight:900;font-size:22px;color:var(--coral);min-width:36px;">03</div><div style="font-weight:800;font-size:24px;flex:1;">Customer service</div><div style="font-weight:600;font-size:16px;color:rgba(0,48,73,0.6);font-style:italic;">Email · Chat</div></div>
+        <div style="display:flex;align-items:center;background:rgba(255,255,255,0.95);color:var(--navy);padding:14px 20px;border-radius:14px;"><div style="font-weight:900;font-size:22px;color:var(--coral);min-width:36px;">04</div><div style="font-weight:800;font-size:24px;flex:1;">Ad campaigns</div><div style="font-weight:600;font-size:16px;color:rgba(0,48,73,0.6);font-style:italic;">Meta · Google</div></div>
+      </div>
+      <img src="assets/posts/art/laptop-orange-chair.png" crossorigin="anonymous" style="position:absolute;right:-50px;bottom:230px;width:420px;height:auto;z-index:4;filter:drop-shadow(0 24px 30px rgba(0,48,73,0.3));" />
+      <div style="position:absolute;left:56px;bottom:100px;z-index:10;"><div class="cta-pill" style="background:var(--coral);color:#fff;">Enroll: E-Commerce VA Course<span class="arrow" style="background:var(--cream);color:var(--coral);">→</span></div></div>
+      <div class="handle" style="color:rgba(0,48,73,0.7);">@the_ecommerce_va_academy</div>
+    </div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h2>Post 7 · Best investment (price tag area)</h2>
+      <div style="display:flex;gap:10px;align-items:center;"><span class="meta">1080 × 1350 · JPG</span><button class="btn download-btn" data-target="post7" data-name="07-best-investment">Download JPG</button></div>
+    </div>
+    <div class="stage"><div class="stage-inner">
+    <div class="post" id="post7" style="background:var(--cream);">
+      <div class="logo" style="width: 1px">e-com VA academy</div>
+      <div style="position:absolute;left:0;top:0;bottom:0;width:46%;background:var(--violet);"></div>
+      <div style="position:absolute;left:46%;top:0;width:240px;height:240px;background:var(--amber);transform:translateX(-50%);"></div>
+      <div style="position:absolute;left:60px;top:760px;width:360px;height:420px;opacity:0.35;background-image:radial-gradient(var(--amber) 1.5px,transparent 2px);background-size:20px 20px;"></div>
+      <div style="position:absolute;top:200px;left:56px;width:460px;color:#fff;z-index:4;">
+        <div style="font-weight:800;font-size:30px;letter-spacing:0.02em;color:var(--amber);margin-bottom:18px;">The best investment</div>
+        <div style="font-weight:900;font-size:102px;line-height:0.86;letter-spacing:-0.05em;color:#fff;">you can make<br>right now is<br><em style="font-style:italic;color:var(--amber);">your skill.</em></div>
+      </div>
+      <div style="position:absolute;right:60px;top:240px;width:460px;height:460px;border:4px dashed var(--violet);background:rgba(108,99,255,0.06);border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px;">
+        <div style="font-weight:800;font-size:14px;letter-spacing:0.2em;color:var(--violet);text-transform:uppercase;margin-bottom:10px;">Price tag area</div>
+        <div style="font-weight:900;font-size:60px;line-height:0.9;color:rgba(108,99,255,0.4);letter-spacing:-0.04em;">Add your<br>price here</div>
+      </div>
+      <div style="position:absolute;right:56px;top:800px;width:460px;background:#fff;border-radius:20px;padding:22px 26px;border:3px solid var(--violet);box-shadow:8px 8px 0 var(--violet);">
+        <div style="font-weight:800;font-size:16px;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);margin-bottom:8px;">Your move</div>
+        <div style="font-weight:700;font-size:25px;line-height:1.2;color:var(--violet);">Learn one <em style="font-style:italic;">real skill</em>. Get hired remotely. <span style="color:var(--amber);">Open the door.</span></div>
+      </div>
+      <img src="assets/posts/art/violet-laptop.png" crossorigin="anonymous" style="position:absolute;left:30px;bottom:220px;width:340px;height:auto;z-index:5;filter:drop-shadow(0 24px 30px rgba(0,0,0,0.3));" />
+      <div style="position:absolute;right:56px;bottom:100px;z-index:10;"><div class="cta-pill" style="background:var(--violet);color:#fff;">Enroll: E-Commerce VA Course<span class="arrow" style="background:var(--amber);color:var(--violet);">→</span></div></div>
+      <div class="handle" style="color: rgb(19, 19, 18)">@the_ecommerce_va_academy</div>
+    </div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h2>Post 8 · Day in the life</h2>
+      <div style="display:flex;gap:10px;align-items:center;"><span class="meta">1080 × 1350 · JPG</span><button class="btn download-btn" data-target="post8" data-name="08-day-in-the-life">Download JPG</button></div>
+    </div>
+    <div class="stage"><div class="stage-inner">
+    <div class="post" id="post8" style="background:var(--cream);">
+      <div class="logo" style="width: 1px">e-com VA academy</div>
+      <div style="position:absolute;top:0;left:0;right:0;height:470px;background:var(--teal);"></div>
+      <div style="position:absolute;right:-40px;bottom:200px;width:380px;height:480px;opacity:0.4;background-image:radial-gradient(var(--teal) 1.5px,transparent 2px);background-size:18px 18px;"></div>
+      <div style="position:absolute;top:62px;right:60px;font-weight:800;font-size:16px;letter-spacing:0.2em;color:var(--amber);">A DAY IN THE LIFE</div>
+      <div style="position:absolute;top:150px;left:56px;right:56px;color:#fff;font-weight:900;font-size:110px;line-height:0.88;letter-spacing:-0.045em;">
+        What an E-Com VA<br>actually <em style="font-style:italic;background:var(--amber);color:var(--navy);padding:0 16px;border-radius:10px;display:inline-block;transform:rotate(-1.5deg);">does</em> all day.
+      </div>
+      <div style="position:absolute;left:56px;top:540px;right:56px;display:flex;flex-direction:column;gap:14px;">
+        <div style="display:flex;align-items:stretch;background:#fff;border-radius:16px;border:2px solid var(--navy);box-shadow:6px 6px 0 var(--navy);overflow:hidden;"><div style="background:var(--navy);color:var(--amber);padding:20px 22px;font-weight:900;font-size:32px;letter-spacing:-0.02em;display:flex;align-items:center;min-width:130px;justify-content:center;">09:00</div><div style="flex:1;padding:16px 20px;"><div style="font-weight:800;font-size:24px;line-height:1.15;color:var(--navy);">Reply to overnight customer DMs</div><div style="font-weight:700;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--coral);margin-top:4px;">Inbox</div></div></div>
+        <div style="display:flex;align-items:stretch;background:#fff;border-radius:16px;border:2px solid var(--navy);box-shadow:6px 6px 0 var(--navy);overflow:hidden;"><div style="background:var(--navy);color:var(--amber);padding:20px 22px;font-weight:900;font-size:32px;letter-spacing:-0.02em;display:flex;align-items:center;min-width:130px;justify-content:center;">11:00</div><div style="flex:1;padding:16px 20px;"><div style="font-weight:800;font-size:24px;line-height:1.15;color:var(--navy);">Update product listings &amp; stock</div><div style="font-weight:700;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--coral);margin-top:4px;">Shopify</div></div></div>
+        <div style="display:flex;align-items:stretch;background:#fff;border-radius:16px;border:2px solid var(--navy);box-shadow:6px 6px 0 var(--navy);overflow:hidden;"><div style="background:var(--navy);color:var(--amber);padding:20px 22px;font-weight:900;font-size:32px;letter-spacing:-0.02em;display:flex;align-items:center;min-width:130px;justify-content:center;">14:00</div><div style="flex:1;padding:16px 20px;"><div style="font-weight:800;font-size:24px;line-height:1.15;color:var(--navy);">Run Meta ad performance check</div><div style="font-weight:700;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--coral);margin-top:4px;">Ads</div></div></div>
+        <div style="display:flex;align-items:stretch;background:#fff;border-radius:16px;border:2px solid var(--navy);box-shadow:6px 6px 0 var(--navy);overflow:hidden;"><div style="background:var(--navy);color:var(--amber);padding:20px 22px;font-weight:900;font-size:32px;letter-spacing:-0.02em;display:flex;align-items:center;min-width:130px;justify-content:center;">16:00</div><div style="flex:1;padding:16px 20px;"><div style="font-weight:800;font-size:24px;line-height:1.15;color:var(--navy);">Process returns &amp; track orders</div><div style="font-weight:700;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--coral);margin-top:4px;">Ops</div></div></div>
+      </div>
+      <div style="position:absolute;left:56px;bottom:100px;z-index:10;"><div class="cta-pill" style="background:var(--navy);color:#fff;">Enroll: E-Commerce VA Course<span class="arrow" style="background:var(--amber);color:var(--navy);">→</span></div></div>
+      <div class="handle">@the_ecommerce_va_academy</div>
+    </div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h2>Post 9 · The toolbox</h2>
+      <div style="display:flex;gap:10px;align-items:center;"><span class="meta">1080 × 1350 · JPG</span><button class="btn download-btn" data-target="post9" data-name="09-toolbox">Download JPG</button></div>
+    </div>
+    <div class="stage"><div class="stage-inner">
+    <div class="post" id="post9" style="background:var(--navy);">
+      <div class="logo light" style="width: 195px">e-com VA academy</div>
+      <div style="position:absolute;inset:0;background:var(--coral);clip-path:polygon(0 0,100% 0,100% 28%,0 18%);"></div>
+      <div style="position:absolute;left:-40px;bottom:0;width:460px;height:540px;opacity:0.25;background-image:radial-gradient(var(--amber) 1.5px,transparent 2px);background-size:20px 20px;"></div>
+      <div style="position:absolute;top:60px;right:60px;font-weight:800;font-size:16px;letter-spacing:0.22em;color:var(--cream);">YOUR TOOLBOX</div>
+      <div style="position:absolute;top:270px;left:56px;right:56px;color:#fff;">
+        <div style="font-weight:900;font-size:110px;line-height:0.88;letter-spacing:-0.045em;">The 8 tools<br>every E-Com VA<br><span style="display:inline-block;background:var(--coral);color:#fff;padding:0 18px;border-radius:12px;transform:rotate(-1.5deg);">uses daily.</span></div>
+        <div style="font-weight:600;font-size:22px;color:var(--cream);margin-top:18px;opacity:0.9;">Practical software. Hands-on workflows.</div>
+      </div>
+      <div style="position:absolute;left:56px;top:760px;right:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
+        <div style="background:#fff;border-radius:16px;padding:14px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;"><div style="width:64px;height:64px;border-radius:14px;background:#95BF47;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:32px;">S</div><div style="font-weight:800;font-size:16px;color:var(--navy);text-align:center;">Shopify</div></div>
+        <div style="background:#fff;border-radius:16px;padding:14px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;"><div style="width:64px;height:64px;border-radius:14px;background:#FF9900;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:32px;">a</div><div style="font-weight:800;font-size:16px;color:var(--navy);text-align:center;">Amazon</div></div>
+        <div style="background:#fff;border-radius:16px;padding:14px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;"><div style="width:64px;height:64px;border-radius:14px;background:#0866FF;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:32px;">M</div><div style="font-weight:800;font-size:16px;color:var(--navy);text-align:center;">Meta Ads</div></div>
+        <div style="background:#fff;border-radius:16px;padding:14px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;"><div style="width:64px;height:64px;border-radius:14px;background:#4285F4;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:32px;">G</div><div style="font-weight:800;font-size:16px;color:var(--navy);text-align:center;">Google Ads</div></div>
+        <div style="background:#fff;border-radius:16px;padding:14px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;"><div style="width:64px;height:64px;border-radius:14px;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:32px;">K</div><div style="font-weight:800;font-size:16px;color:var(--navy);text-align:center;">Klaviyo</div></div>
+        <div style="background:#fff;border-radius:16px;padding:14px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;"><div style="width:64px;height:64px;border-radius:14px;background:#5856E6;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:32px;">g</div><div style="font-weight:800;font-size:16px;color:var(--navy);text-align:center;">Gorgias</div></div>
+        <div style="background:#fff;border-radius:16px;padding:14px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;"><div style="width:64px;height:64px;border-radius:14px;background:#0c1f2a;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:32px;">N</div><div style="font-weight:800;font-size:16px;color:var(--navy);text-align:center;">Notion</div></div>
+        <div style="background:#fff;border-radius:16px;padding:14px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;"><div style="width:64px;height:64px;border-radius:14px;background:#4A154B;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:32px;">#</div><div style="font-weight:800;font-size:16px;color:var(--navy);text-align:center;">Slack</div></div>
+      </div>
+      <div style="position:absolute;left:56px;bottom:100px;z-index:10;"><div class="cta-pill" style="background:var(--coral);color:#fff;">Enroll: E-Commerce VA Course<span class="arrow" style="background:var(--cream);color:var(--coral);">→</span></div></div>
+      <div class="handle" style="color:rgba(255,255,255,0.55);">@the_ecommerce_va_academy</div>
+    </div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <h2>Post 10 · 6-month earnings path</h2>
+      <div style="display:flex;gap:10px;align-items:center;"><span class="meta">1080 × 1350 · JPG</span><button class="btn download-btn" data-target="post10" data-name="10-earnings-path">Download JPG</button></div>
+    </div>
+    <div class="stage"><div class="stage-inner">
+    <div class="post" id="post10" style="background:var(--cream);">
+      <div class="logo" style="width: 195px">e-com VA academy</div>
+      <div style="position:absolute;bottom:0;left:0;width:0;height:0;border-right:760px solid transparent;border-bottom:760px solid var(--amber);"></div>
+      <div style="position:absolute;right:30px;top:220px;width:320px;height:320px;opacity:0.4;background-image:radial-gradient(var(--coral) 1.5px,transparent 2px);background-size:18px 18px;"></div>
+      <div style="position:absolute;top:62px;right:60px;font-weight:800;font-size:16px;letter-spacing:0.2em;color:var(--coral);">FROM ₦0 TO PAID REMOTELY</div>
+      <div style="position:absolute;top:150px;left:56px;right:56px;font-weight:900;font-size:100px;line-height:0.9;letter-spacing:-0.04em;color:var(--navy);">
+        Where one <span style="background:var(--coral);color:#fff;padding:0 18px;border-radius:10px;display:inline-block;transform:rotate(-1.5deg);">skill</span> can<br>take you in <em style="font-style:italic;text-decoration:underline;text-decoration-thickness:7px;text-underline-offset:12px;text-decoration-color:var(--coral);">6 months.</em>
+      </div>
+      <div style="position:absolute;left:56px;top:540px;right:56px;display:flex;flex-direction:column;gap:14px;">
+        <div style="display:grid;grid-template-columns:170px 1fr 180px;align-items:center;background:#fff;border:2px solid var(--navy);border-radius:16px;overflow:hidden;box-shadow:4px 4px 0 var(--navy);min-height:88px;"><div style="padding:14px 18px;height:100%;border-right:2px solid var(--navy);font-weight:900;font-size:22px;color:var(--coral);display:flex;align-items:center;">Month 1</div><div style="padding:12px 22px;"><div style="font-weight:800;font-size:24px;color:var(--navy);">Learn the workflow</div><div style="font-weight:600;font-size:14px;color:rgba(0,48,73,0.55);margin-top:3px;">Practise on real tasks</div></div><div style="padding:14px 22px;text-align:right;font-weight:900;font-size:32px;color:var(--coral);">$0</div></div>
+        <div style="display:grid;grid-template-columns:170px 1fr 180px;align-items:center;background:#fff;border:2px solid var(--navy);border-radius:16px;overflow:hidden;box-shadow:4px 4px 0 var(--navy);min-height:88px;"><div style="padding:14px 18px;height:100%;border-right:2px solid var(--navy);font-weight:900;font-size:22px;color:var(--coral);display:flex;align-items:center;">Month 2</div><div style="padding:12px 22px;"><div style="font-weight:800;font-size:24px;color:var(--navy);">First paid client</div><div style="font-weight:600;font-size:14px;color:rgba(0,48,73,0.55);margin-top:3px;">Small store, low stakes</div></div><div style="padding:14px 22px;text-align:right;font-weight:900;font-size:32px;color:var(--coral);">$5/hr</div></div>
+        <div style="display:grid;grid-template-columns:170px 1fr 180px;align-items:center;background:#fff;border:2px solid var(--navy);border-radius:16px;overflow:hidden;box-shadow:4px 4px 0 var(--navy);min-height:88px;"><div style="padding:14px 18px;height:100%;border-right:2px solid var(--navy);font-weight:900;font-size:22px;color:var(--coral);display:flex;align-items:center;">Month 4</div><div style="padding:12px 22px;"><div style="font-weight:800;font-size:24px;color:var(--navy);">Two retained clients</div><div style="font-weight:600;font-size:14px;color:rgba(0,48,73,0.55);margin-top:3px;">Steady part-time income</div></div><div style="padding:14px 22px;text-align:right;font-weight:900;font-size:32px;color:var(--coral);">$10/hr</div></div>
+        <div style="display:grid;grid-template-columns:170px 1fr 180px;align-items:center;background:var(--navy);border-radius:16px;overflow:hidden;box-shadow:8px 8px 0 var(--coral);min-height:88px;"><div style="padding:14px 18px;height:100%;background:var(--coral);font-weight:900;font-size:22px;color:#fff;display:flex;align-items:center;">Month 6</div><div style="padding:12px 22px;"><div style="font-weight:800;font-size:24px;color:#fff;">Specialised E-Com VA</div><div style="font-weight:600;font-size:14px;color:var(--amber);margin-top:3px;">Ads + listings + ops</div></div><div style="padding:14px 22px;text-align:right;font-weight:900;font-size:32px;color:var(--amber);">$20/hr</div></div>
+      </div>
+      <div style="position:absolute;left:56px;bottom:100px;z-index:10;"><div class="cta-pill" style="background:var(--coral);color:#fff;">Enroll: E-Commerce VA Course<span class="arrow" style="background:var(--cream);color:var(--coral);">→</span></div></div>
+      <div class="handle">@the_ecommerce_va_academy</div>
+    </div>
+    </div></div>
+  </div>
+
+</div>
+
+<script>
+// Scale each .stage-inner so the 1080-wide post fits in its container, but render at full 1080×1350 for capture.
+function scaleStages() {
+  document.querySelectorAll('.stage').forEach(stage => {
+    const inner = stage.querySelector('.stage-inner');
+    if (!inner) return;
+    const w = stage.clientWidth;
+    const scale = w / 1080;
+    inner.style.transform = `scale(${scale})`;
+    inner.style.width = '1080px';
+    inner.style.height = '1350px';
+    stage.style.height = (1350 * scale) + 'px';
+  });
+}
+scaleStages();
+window.addEventListener('resize', scaleStages);
+
+const statusEl = document.getElementById('status');
+function setStatus(msg) { statusEl.textContent = msg || ' '; }
+
+async function captureAndDownload(targetId, filename) {
+  const el = document.getElementById(targetId);
+  if (!el) return;
+  // Move element off-screen at native size for crisp capture
+  const stash = document.createElement('div');
+  stash.style.cssText = 'position:fixed;left:-99999px;top:0;width:1080px;height:1350px;pointer-events:none;';
+  const clone = el.cloneNode(true);
+  stash.appendChild(clone);
+  document.body.appendChild(stash);
+  try {
+    setStatus(`Rendering ${filename}.jpg…`);
+    const canvas = await html2canvas(clone, {
+      width: 1080, height: 1350, scale: 2,
+      backgroundColor: null, useCORS: true, allowTaint: true, logging: false
+    });
+    const blob = await new Promise(res => canvas.toBlob(res, 'image/jpeg', 0.95));
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `${filename}.jpg`;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    setStatus(`Saved ${filename}.jpg`);
+  } catch (e) {
+    console.error(e);
+    setStatus(`Error capturing ${filename}: ${e.message}`);
+  } finally {
+    stash.remove();
+  }
+}
+
+document.querySelectorAll('.download-btn').forEach(btn => {
+  btn.addEventListener('click', async () => {
+    btn.disabled = true;
+    await captureAndDownload(btn.dataset.target, btn.dataset.name);
+    btn.disabled = false;
+  });
+});
+
+document.getElementById('downloadAll').addEventListener('click', async (e) => {
+  const btn = e.currentTarget;
+  btn.disabled = true;
+  const items = Array.from(document.querySelectorAll('.download-btn'));
+  for (let i = 0; i < items.length; i++) {
+    const b = items[i];
+    setStatus(`(${i+1}/${items.length}) ${b.dataset.name}…`);
+    await captureAndDownload(b.dataset.target, b.dataset.name);
+    await new Promise(r => setTimeout(r, 400));
+  }
+  setStatus(`All ${items.length} JPGs downloaded.`);
+  btn.disabled = false;
+});
+</script>
+</body>
+</html>
