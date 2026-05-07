@@ -84,11 +84,8 @@ leadForm?.addEventListener("submit", async (e) => {
 });
 
 function showSuccess() {
-  formResult.textContent = "✅ Application received! We'll review your details and contact you on WhatsApp within 24 hours.";
-  formResult.className = "form-result success";
   leadForm.reset();
   handleOtherCategory();
-  formResult.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
 // ── Image fallback ────────────────────────────────────────────────────────
@@ -102,6 +99,7 @@ const lightboxImg   = document.getElementById("lightboxImg");
 const lightboxTitle = document.getElementById("lightboxTitle");
 const lightboxDesc  = document.getElementById("lightboxDesc");
 const lightboxClose = document.getElementById("lightboxClose");
+const lightboxCta   = document.querySelector(".lightbox-cta");
 
 function openLightbox(card) {
   const img = card.querySelector(".work-visual img");
@@ -109,6 +107,22 @@ function openLightbox(card) {
   lightboxImg.alt   = img?.alt || "";
   lightboxTitle.innerHTML = card.dataset.title || card.querySelector("h3")?.textContent || "";
   lightboxDesc.innerHTML  = card.dataset.desc  || "";
+
+  const sheetUrl = card.dataset.sheetUrl;
+  if (lightboxCta) {
+    if (sheetUrl) {
+      lightboxCta.textContent = "Preview This Sheet";
+      lightboxCta.href = sheetUrl;
+      lightboxCta.target = "_blank";
+      lightboxCta.rel = "noopener";
+    } else {
+      lightboxCta.textContent = "Apply to Build This";
+      lightboxCta.href = "#book";
+      lightboxCta.removeAttribute("target");
+      lightboxCta.removeAttribute("rel");
+    }
+  }
+
   lightbox.classList.add("open");
   document.body.style.overflow = "hidden";
   lightboxClose.focus();
