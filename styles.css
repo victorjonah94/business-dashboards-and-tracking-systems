@@ -367,6 +367,20 @@ h4 { font-size: .95rem; }
 .section-head p { color: var(--text-soft); margin: .4rem 0 0; font-size: .95rem; }
 .section-intro { max-width: 640px; color: var(--text-soft); margin-top: .5rem; font-size: .95rem; }
 
+/* ── Justified body copy site-wide (not titles) ── */
+.section-head p,
+.section-intro,
+.hero-content .subheadline,
+.pain-solution,
+.work-card p,
+.about-bio p,
+.qualify-side-list li,
+.cvs-list li {
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
+}
+
 /* ── Portfolio grid ── */
 .portfolio-grid {
   display: grid;
@@ -1480,11 +1494,23 @@ input:focus, textarea:focus, select:focus {
   #work.container { padding-left: 1.4rem; padding-right: 1.4rem; }
   .process-flow   { grid-template-columns: repeat(2, 1fr); gap: .9rem; padding-top: 0; }
   .process-flow::before { display: none; }
-  .process-step   { flex-direction: row; align-items: flex-start; text-align: left; padding: .9rem; gap: .7rem; background: var(--card); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-xs); }
-  .process-step .step-badge { width: 38px; height: 38px; font-size: .8rem; margin-bottom: 0; flex: 0 0 38px; box-shadow: 0 4px 12px rgba(217,119,87,.3); }
-  .process-step h3 { font-size: .82rem; margin: 0 0 .25rem; text-align: left; line-height: 1.25; }
-  .process-step p  { font-size: .72rem; line-height: 1.45; text-align: left; }
-  .process-step-body { display: flex; flex-direction: column; min-width: 0; }
+  .process-step   {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "badge title" "body body";
+    align-items: center;
+    column-gap: .65rem;
+    row-gap: .4rem;
+    text-align: left;
+    padding: .9rem;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: var(--shadow-xs);
+  }
+  .process-step .step-badge { grid-area: badge; width: 38px; height: 38px; font-size: .8rem; margin-bottom: 0; box-shadow: 0 4px 12px rgba(217,119,87,.3); }
+  .process-step h3 { grid-area: title; font-size: .82rem; margin: 0; text-align: left; line-height: 1.25; }
+  .process-step p  { grid-area: body; font-size: .72rem; line-height: 1.5; text-align: justify; text-align-last: left; hyphens: auto; }
   .footer-row     { flex-direction: column; gap: 1.25rem; }
   .lightbox       { padding: .75rem; }
   .lightbox-inner { grid-template-columns: 1fr; grid-template-rows: 52vw 1fr; max-height: 92vh; }
