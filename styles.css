@@ -1442,9 +1442,18 @@ input:focus, textarea:focus, select:focus {
   .nav            { padding: .75rem .75rem; }
   .nav .btn       { padding: .55rem .9rem; font-size: .82rem; }
   .trust-row      { grid-template-columns: 1fr; }
-  .kpi-grid       { grid-template-columns: 1fr; }
+  .hero-panel     { padding: 1.1rem; }
+  .kpi-grid       { grid-template-columns: repeat(2, 1fr); gap: .5rem; }
+  .kpi-grid article { padding: .7rem; }
+  .kpi-grid h4    { font-size: 1.15rem; }
+  .kpi-grid p     { font-size: .6rem; letter-spacing: .05em; }
+  .kpi-grid small { font-size: .65rem; }
+  .kpi-icon       { width: 24px; height: 24px; margin-bottom: .2rem; }
+  .kpi-icon svg   { width: 12px; height: 12px; }
+  .kpi-infographic { display: none; }
   .stats-inner    { gap: 1.5rem; }
   .portfolio-grid { grid-template-columns: 1fr; }
+  #work.container { padding-left: 1.4rem; padding-right: 1.4rem; }
   .process-flow   { grid-template-columns: 1fr; gap: 1.5rem; }
   .footer-row     { flex-direction: column; gap: 1.25rem; }
   .lightbox       { padding: .75rem; }
@@ -1487,8 +1496,13 @@ input:focus, textarea:focus, select:focus {
   .about-stat strong    { font-size: 1.5rem; }
   .about-stat span      { font-size: .72rem; }
   .about-stat-icon      { width: 2.2rem; height: 2.2rem; }
-  .workflow-strip       { grid-template-columns: 1fr; gap: .25rem; padding: 1.25rem; }
-  .workflow-arrow       { transform: rotate(90deg); }
+  .workflow-strip       { grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr; gap: .15rem; padding: .9rem .55rem; }
+  .workflow-arrow       { transform: none; font-size: .9rem; }
+  .workflow-node        { padding: .25rem .1rem; gap: .15rem; }
+  .workflow-node strong { font-size: .72rem; }
+  .workflow-node span   { font-size: .6rem; line-height: 1.25; }
+  .workflow-icon        { width: 2rem; height: 2rem; margin-bottom: .15rem; }
+  .workflow-icon svg    { width: 1rem; height: 1rem; }
   .about-cta            { flex-direction: column; align-items: stretch; }
   .about-cta .btn       { width: 100%; justify-content: center; }
 
