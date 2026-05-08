@@ -25,7 +25,7 @@
  *    Copy the Web App URL shown.
  *
  * 5. Paste the Web App URL into script.js:
- *    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_ID/exec";
+ *    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbydCCxbJGVPBE9GENuiwyrYqUTHyRXn-GMqqNN3iLu_FF3277AGsB9cfriZpptZYrhT/exec";
  *
  * Done! Every form submission will:
  *   ✅ Append a row to your Google Sheet
