@@ -34,6 +34,9 @@ const whatsappBtn            = document.getElementById("whatsappBtn");
 const businessTypeSelect     = document.getElementById("businessType");
 const otherCategoryWrap      = document.getElementById("otherCategoryWrap");
 const otherBusinessTypeInput = document.getElementById("otherBusinessType");
+const roleSelect             = document.getElementById("roleSelect");
+const otherRoleWrap          = document.getElementById("otherRoleWrap");
+const otherRoleInput         = document.getElementById("otherRole");
 
 // ── WhatsApp button gating — enabled only when all required fields filled ──
 function checkFormValidity() {
@@ -42,10 +45,13 @@ function checkFormValidity() {
   const email        = leadForm.querySelector('[name="email"]')?.value.trim();
   const phone        = leadForm.querySelector('[name="phone"]')?.value.trim();
   const businessType = leadForm.querySelector('[name="businessType"]')?.value;
+  const businessName = leadForm.querySelector('[name="businessName"]')?.value.trim();
+  const role         = leadForm.querySelector('[name="role"]')?.value;
   const location     = leadForm.querySelector('[name="location"]')?.value;
   const revenueBand  = leadForm.querySelector('[name="revenueBand"]')?.value;
-  const otherOk      = businessType !== "Other" || !!otherBusinessTypeInput?.value.trim();
-  whatsappBtn.disabled = !(name && email && phone && businessType && location && revenueBand && otherOk);
+  const otherCatOk   = businessType !== "Other" || !!otherBusinessTypeInput?.value.trim();
+  const otherRoleOk  = role !== "Other" || !!otherRoleInput?.value.trim();
+  whatsappBtn.disabled = !(name && email && phone && businessType && businessName && role && location && revenueBand && otherCatOk && otherRoleOk);
 }
 
 // ── Other business category toggle ───────────────────────────────────────
@@ -60,18 +66,36 @@ function handleOtherCategory() {
   }
   checkFormValidity();
 }
+
+// ── Other role toggle ─────────────────────────────────────────────────────
+function handleOtherRole() {
+  const isOther = roleSelect?.value === "Other";
+  otherRoleWrap?.classList.toggle("hidden-field", !isOther);
+  if (isOther) {
+    otherRoleInput?.setAttribute("required", "required");
+  } else {
+    otherRoleInput?.removeAttribute("required");
+    if (otherRoleInput) otherRoleInput.value = "";
+  }
+  checkFormValidity();
+}
+
 businessTypeSelect?.addEventListener("change", handleOtherCategory);
+roleSelect?.addEventListener("change", handleOtherRole);
 handleOtherCategory();
+handleOtherRole();
 
 // Watch all required fields for changes
-["name", "email", "phone", "location", "revenueBand"].forEach((n) => {
+["name", "email", "phone", "businessName", "location", "revenueBand"].forEach((n) => {
   leadForm?.querySelector(`[name="${n}"]`)?.addEventListener("input", checkFormValidity);
   leadForm?.querySelector(`[name="${n}"]`)?.addEventListener("change", checkFormValidity);
 });
 businessTypeSelect?.addEventListener("change", checkFormValidity);
+roleSelect?.addEventListener("change", checkFormValidity);
 otherBusinessTypeInput?.addEventListener("input", checkFormValidity);
+otherRoleInput?.addEventListener("input", checkFormValidity);
 
-// ── WhatsApp submit — posts to Google Sheet + opens WhatsApp ──────────────
+// ── WhatsApp submit — sends email via Apps Script + opens WhatsApp ─────────
 whatsappBtn?.addEventListener("click", () => {
   if (!leadForm.checkValidity()) { leadForm.reportValidity(); return; }
 
@@ -81,25 +105,24 @@ whatsappBtn?.addEventListener("click", () => {
   }
   delete data.otherBusinessType;
 
-  const lines = [
-    "Hi Victor, I just filled in the consultation form. Here are my details:",
-    "",
-    `Name: ${data.name}`,
-    `Email: ${data.email}`,
-    `Phone: ${data.phone}`,
-    `Business Category: ${data.businessType}`,
-    `Location: ${data.location}`,
-    `Monthly Revenue: ${data.revenueBand}`,
-  ];
-  if (data.challenge) lines.push(`Main Challenge: ${data.challenge}`);
+  const resolvedRole = data.role === "Other" ? data.otherRole : data.role;
+  delete data.otherRole;
+  data.role = resolvedRole;
+
+  const standardRoles = ["CEO", "Managing Director", "Founder"];
+  const articleRole = standardRoles.includes(resolvedRole)
+    ? `the ${resolvedRole}`
+    : `a ${resolvedRole}`;
+
+  const waMessage = `Hi Victor, I am ${articleRole} of ${data.businessName}, when could we meet so I can walk you through what I need built for my business.`;
 
   // Open WhatsApp synchronously (before any async) to avoid popup blockers
   window.open(
-    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`,
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`,
     "_blank"
   );
 
-  // Fire-and-forget submission to Google Sheet
+  // Fire-and-forget email submission via Apps Script
   fetch(APPS_SCRIPT_URL, {
     method: "POST",
     mode: "no-cors",
@@ -109,6 +132,7 @@ whatsappBtn?.addEventListener("click", () => {
 
   leadForm.reset();
   handleOtherCategory();
+  handleOtherRole();
 });
 
 // ── Image fallback ────────────────────────────────────────────────────────
