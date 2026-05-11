@@ -47,14 +47,36 @@ function handleOtherCategory() {
 businessTypeSelect?.addEventListener("change", handleOtherCategory);
 handleOtherCategory();
 
-// ── Form submission ───────────────────────────────────────────────────────
+// ── Form submission + WhatsApp CTA ───────────────────────────────────────
 const leadForm  = document.getElementById("leadForm");
 const formResult = document.getElementById("formResult");
 const submitBtn  = document.getElementById("submitBtn");
+const WHATSAPP_URL = "https://wa.me/2348030750358?text=Hi%20Victor%2C%20I%27d%20like%20to%20discuss%20a%20business%20tracking%20system.";
 
-leadForm?.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  if (!leadForm.checkValidity()) { leadForm.reportValidity(); return; }
+function updateSubmitState() {
+  if (!leadForm || !submitBtn) return;
+  submitBtn.disabled = !leadForm.checkValidity();
+}
+
+async function submitLeadForm(data) {
+  await fetch(APPS_SCRIPT_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(data).toString(),
+  });
+}
+
+leadForm?.addEventListener("input", updateSubmitState);
+leadForm?.addEventListener("change", updateSubmitState);
+updateSubmitState();
+
+submitBtn?.addEventListener("click", async () => {
+  if (!leadForm.checkValidity()) {
+    leadForm.reportValidity();
+    updateSubmitState();
+    return;
+  }
 
   const data = Object.fromEntries(new FormData(leadForm).entries());
   if (data.businessType === "Other" && data.otherBusinessType) {
@@ -63,30 +85,23 @@ leadForm?.addEventListener("submit", async (e) => {
   delete data.otherBusinessType;
 
   submitBtn.disabled = true;
-  submitBtn.textContent = "Sending…";
+  submitBtn.textContent = "Opening WhatsApp…";
   formResult.textContent = "";
   formResult.className = "form-result";
 
+  window.open(WHATSAPP_URL, "_blank", "noopener");
+
   try {
-    await fetch(APPS_SCRIPT_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(data).toString(),
-    });
-    showSuccess();
+    await submitLeadForm(data);
   } catch {
-    showSuccess();
+    // no-cors blocks detailed errors; keep WhatsApp flow uninterrupted
   } finally {
-    submitBtn.disabled = false;
-    submitBtn.textContent = "Submit Application";
+    leadForm.reset();
+    handleOtherCategory();
+    updateSubmitState();
+    submitBtn.textContent = "Chat on WhatsApp & Submit";
   }
 });
-
-function showSuccess() {
-  leadForm.reset();
-  handleOtherCategory();
-}
 
 // ── Image fallback ────────────────────────────────────────────────────────
 document.querySelectorAll(".work-visual img").forEach((img) => {
