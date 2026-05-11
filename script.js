@@ -76,7 +76,8 @@ leadForm?.addEventListener("submit", async (e) => {
     });
     showSuccess();
   } catch {
-    showSuccess();
+    formResult.textContent = "⚠️ Submission failed. Please check your connection and try again.";
+    formResult.className = "form-result error";
   } finally {
     submitBtn.disabled = false;
     submitBtn.textContent = "Submit Application";
@@ -84,6 +85,8 @@ leadForm?.addEventListener("submit", async (e) => {
 });
 
 function showSuccess() {
+  formResult.textContent = "✅ Application submitted! We'll be in touch shortly.";
+  formResult.className = "form-result success";
   leadForm.reset();
   handleOtherCategory();
 }
