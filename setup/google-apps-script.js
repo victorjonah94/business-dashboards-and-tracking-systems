@@ -53,10 +53,11 @@ function doPost(e) {
         "Email",
         "Phone (WhatsApp)",
         "Business Category",
+        "Location",
         "Monthly Revenue Band",
         "Main Tracking Challenge",
       ]);
-      sheet.getRange(1, 1, 1, 7).setFontWeight("bold");
+      sheet.getRange(1, 1, 1, 8).setFontWeight("bold");
       sheet.setFrozenRows(1);
     }
 
@@ -68,26 +69,28 @@ function doPost(e) {
 
     sheet.appendRow([
       timestamp,
-      params.name        || "",
-      params.email       || "",
-      params.phone       || "",
+      params.name         || "",
+      params.email        || "",
+      params.phone        || "",
       params.businessType || "",
+      params.location     || "",
       params.revenueBand  || "",
       params.challenge    || "",
     ]);
 
     // Auto-resize columns for readability
-    sheet.autoResizeColumns(1, 7);
+    sheet.autoResizeColumns(1, 8);
 
     // Send email notification
     var subject = "🔔 New Consultation Application – " + (params.name || "Unknown");
     var body =
       "A new consultation application has been submitted.\n\n" +
       "────────────────────────\n" +
-      "Name:     " + (params.name        || "—") + "\n" +
-      "Email:    " + (params.email       || "—") + "\n" +
-      "Phone:    " + (params.phone       || "—") + "\n" +
+      "Name:     " + (params.name         || "—") + "\n" +
+      "Email:    " + (params.email        || "—") + "\n" +
+      "Phone:    " + (params.phone        || "—") + "\n" +
       "Business: " + (params.businessType || "—") + "\n" +
+      "Location: " + (params.location     || "—") + "\n" +
       "Revenue:  " + (params.revenueBand  || "—") + "\n\n" +
       "Challenge / Message:\n" + (params.challenge || "—") + "\n\n" +
       "────────────────────────\n" +
@@ -120,6 +123,7 @@ function testPost() {
       email:        "test@example.com",
       phone:        "+234 800 000 0000",
       businessType: "Finance / Investment",
+      location:     "Lagos",
       revenueBand:  "₦1m - ₦5m",
       challenge:    "This is a test submission from the Apps Script editor.",
     },

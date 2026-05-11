@@ -1,7 +1,6 @@
 // ── Configuration ──────────────────────────────────────────────────────────
-// After deploying the Google Apps Script (see setup/google-apps-script.js),
-// paste your Web App URL here:
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyF6ITf1VMuD72ShYDNfBg8ypBanl3JPE25JevSl9u4hkflC6lGPlEE-afjlGqmKA-K/exec";
+const WHATSAPP_NUMBER = "2348030750358";
 // ───────────────────────────────────────────────────────────────────────────
 
 // ── Dark mode ─────────────────────────────────────────────────────────────
@@ -29,11 +28,27 @@ const revealObserver = new IntersectionObserver(
 );
 document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
-// ── Other business category toggle ───────────────────────────────────────
-const businessTypeSelect   = document.getElementById("businessType");
-const otherCategoryWrap    = document.getElementById("otherCategoryWrap");
+// ── Form references ───────────────────────────────────────────────────────
+const leadForm               = document.getElementById("leadForm");
+const whatsappBtn            = document.getElementById("whatsappBtn");
+const businessTypeSelect     = document.getElementById("businessType");
+const otherCategoryWrap      = document.getElementById("otherCategoryWrap");
 const otherBusinessTypeInput = document.getElementById("otherBusinessType");
 
+// ── WhatsApp button gating — enabled only when all required fields filled ──
+function checkFormValidity() {
+  if (!leadForm || !whatsappBtn) return;
+  const name         = leadForm.querySelector('[name="name"]')?.value.trim();
+  const email        = leadForm.querySelector('[name="email"]')?.value.trim();
+  const phone        = leadForm.querySelector('[name="phone"]')?.value.trim();
+  const businessType = leadForm.querySelector('[name="businessType"]')?.value;
+  const location     = leadForm.querySelector('[name="location"]')?.value;
+  const revenueBand  = leadForm.querySelector('[name="revenueBand"]')?.value;
+  const otherOk      = businessType !== "Other" || !!otherBusinessTypeInput?.value.trim();
+  whatsappBtn.disabled = !(name && email && phone && businessType && location && revenueBand && otherOk);
+}
+
+// ── Other business category toggle ───────────────────────────────────────
 function handleOtherCategory() {
   const isOther = businessTypeSelect?.value === "Other";
   otherCategoryWrap?.classList.toggle("hidden-field", !isOther);
@@ -43,17 +58,21 @@ function handleOtherCategory() {
     otherBusinessTypeInput?.removeAttribute("required");
     if (otherBusinessTypeInput) otherBusinessTypeInput.value = "";
   }
+  checkFormValidity();
 }
 businessTypeSelect?.addEventListener("change", handleOtherCategory);
 handleOtherCategory();
 
-// ── Form submission ───────────────────────────────────────────────────────
-const leadForm  = document.getElementById("leadForm");
-const formResult = document.getElementById("formResult");
-const submitBtn  = document.getElementById("submitBtn");
+// Watch all required fields for changes
+["name", "email", "phone", "location", "revenueBand"].forEach((n) => {
+  leadForm?.querySelector(`[name="${n}"]`)?.addEventListener("input", checkFormValidity);
+  leadForm?.querySelector(`[name="${n}"]`)?.addEventListener("change", checkFormValidity);
+});
+businessTypeSelect?.addEventListener("change", checkFormValidity);
+otherBusinessTypeInput?.addEventListener("input", checkFormValidity);
 
-leadForm?.addEventListener("submit", async (e) => {
-  e.preventDefault();
+// ── WhatsApp submit — posts to Google Sheet + opens WhatsApp ──────────────
+whatsappBtn?.addEventListener("click", () => {
   if (!leadForm.checkValidity()) { leadForm.reportValidity(); return; }
 
   const data = Object.fromEntries(new FormData(leadForm).entries());
@@ -62,31 +81,35 @@ leadForm?.addEventListener("submit", async (e) => {
   }
   delete data.otherBusinessType;
 
-  submitBtn.disabled = true;
-  submitBtn.textContent = "Sending…";
-  formResult.textContent = "";
-  formResult.className = "form-result";
+  const lines = [
+    "Hi Victor, I just filled in the consultation form. Here are my details:",
+    "",
+    `Name: ${data.name}`,
+    `Email: ${data.email}`,
+    `Phone: ${data.phone}`,
+    `Business Category: ${data.businessType}`,
+    `Location: ${data.location}`,
+    `Monthly Revenue: ${data.revenueBand}`,
+  ];
+  if (data.challenge) lines.push(`Main Challenge: ${data.challenge}`);
 
-  try {
-    await fetch(APPS_SCRIPT_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(data).toString(),
-    });
-    showSuccess();
-  } catch {
-    showSuccess();
-  } finally {
-    submitBtn.disabled = false;
-    submitBtn.textContent = "Submit Application";
-  }
-});
+  // Open WhatsApp synchronously (before any async) to avoid popup blockers
+  window.open(
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`,
+    "_blank"
+  );
 
-function showSuccess() {
+  // Fire-and-forget submission to Google Sheet
+  fetch(APPS_SCRIPT_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(data).toString(),
+  }).catch(() => {});
+
   leadForm.reset();
   handleOtherCategory();
-}
+});
 
 // ── Image fallback ────────────────────────────────────────────────────────
 document.querySelectorAll(".work-visual img").forEach((img) => {
