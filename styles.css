@@ -1099,6 +1099,20 @@ h4 { font-size: .95rem; }
   transform: translateY(-1px);
   box-shadow: 0 8px 22px rgba(37,211,102,.4);
 }
+
+.lead-form .btn-whatsapp:disabled {
+  background: #9ca3af;
+  color: #f3f4f6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.lead-form .btn-whatsapp:not(:disabled) {
+  background: #25D366;
+  color: #fff;
+}
+.lead-form .btn-whatsapp:not(:disabled):hover {
+  background: #1ebe5a;
+}
 .contact-actions-divider {
   position: relative;
   text-align: center;
