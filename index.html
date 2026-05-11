@@ -872,10 +872,6 @@
               <div class="contact-actions">
                 <p class="contact-actions-label">Prefer a quick chat?</p>
                 <div class="contact-actions-row">
-                  <a class="btn-contact btn-calendly" href="https://calendly.com/victorjonah94" target="_blank" rel="noopener">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                    Book a Call
-                  </a>
                   <a class="btn-contact btn-whatsapp" href="https://wa.me/2348030750358?text=Hi%20Victor%2C%20I%27d%20like%20to%20discuss%20a%20business%20tracking%20system." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
                     <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.003 3C9.376 3 4 8.376 4 15.003c0 2.633.853 5.07 2.296 7.058L4 29l7.107-2.273a11.93 11.93 0 0 0 4.892 1.044h.004C22.628 27.771 28 22.395 28 15.768 28 12.583 26.74 9.6 24.5 7.36A11.945 11.945 0 0 0 16.003 3Zm0 21.815a9.84 9.84 0 0 1-5.011-1.371l-.36-.214-4.215 1.348 1.376-4.107-.234-.376a9.836 9.836 0 0 1-1.508-5.227c0-5.46 4.444-9.903 9.952-9.903 2.66 0 5.155 1.036 7.034 2.916a9.842 9.842 0 0 1 2.916 7.026c0 5.46-4.444 9.908-9.95 9.908Zm5.452-7.41c-.298-.149-1.766-.871-2.04-.97-.273-.099-.473-.149-.672.149-.198.298-.77.97-.945 1.169-.174.198-.348.223-.646.074-.298-.149-1.26-.464-2.4-1.482-.886-.79-1.484-1.766-1.658-2.064-.173-.298-.018-.459.131-.607.135-.134.298-.348.448-.522.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.522-.074-.149-.671-1.62-.92-2.218-.243-.582-.49-.504-.671-.513l-.572-.01c-.198 0-.522.074-.795.372-.273.298-1.044 1.02-1.044 2.49 0 1.47 1.07 2.892 1.219 3.09.149.198 2.105 3.213 5.099 4.504.713.308 1.27.491 1.704.629.715.227 1.366.195 1.881.118.574-.086 1.766-.722 2.015-1.42.248-.696.248-1.293.174-1.42-.074-.124-.273-.198-.572-.347Z"/></svg>
                     WhatsApp Chat
@@ -1043,6 +1039,57 @@
                 <input type="text" name="otherBusinessType" id="otherBusinessType" />
               </label>
               <label>
+                Location *
+                <select name="location" required>
+                  <option value="">Select location</option>
+                  <optgroup label="International">
+                    <option>United States (US)</option>
+                    <option>United Kingdom (UK)</option>
+                    <option>Canada</option>
+                    <option>Europe</option>
+                  </optgroup>
+                  <optgroup label="Nigeria — States">
+                    <option>Abia</option>
+                    <option>Adamawa</option>
+                    <option>Akwa Ibom</option>
+                    <option>Anambra</option>
+                    <option>Bauchi</option>
+                    <option>Bayelsa</option>
+                    <option>Benue</option>
+                    <option>Borno</option>
+                    <option>Cross River</option>
+                    <option>Delta</option>
+                    <option>Ebonyi</option>
+                    <option>Edo</option>
+                    <option>Ekiti</option>
+                    <option>Enugu</option>
+                    <option>FCT (Abuja)</option>
+                    <option>Gombe</option>
+                    <option>Imo</option>
+                    <option>Jigawa</option>
+                    <option>Kaduna</option>
+                    <option>Kano</option>
+                    <option>Katsina</option>
+                    <option>Kebbi</option>
+                    <option>Kogi</option>
+                    <option>Kwara</option>
+                    <option>Lagos</option>
+                    <option>Nasarawa</option>
+                    <option>Niger</option>
+                    <option>Ogun</option>
+                    <option>Ondo</option>
+                    <option>Osun</option>
+                    <option>Oyo</option>
+                    <option>Plateau</option>
+                    <option>Rivers</option>
+                    <option>Sokoto</option>
+                    <option>Taraba</option>
+                    <option>Yobe</option>
+                    <option>Zamfara</option>
+                  </optgroup>
+                </select>
+              </label>
+              <label>
                 Monthly Revenue Band *
                 <select name="revenueBand" required>
                   <option value="">Select one</option>
@@ -1052,11 +1099,14 @@
                 </select>
               </label>
               <label>
-                Main Tracking Challenge *
-                <textarea name="challenge" rows="4" placeholder="Describe the biggest problem you have tracking your business finances or operations…" required></textarea>
+                Main Tracking Challenge
+                <textarea name="challenge" rows="4" placeholder="Describe the biggest problem you have tracking your business finances or operations… (optional)"></textarea>
               </label>
-              <button class="btn btn-primary" type="submit" id="submitBtn">Submit Application</button>
-              <p class="form-note">Limited implementation slots each month to maintain delivery quality.</p>
+              <button class="btn-whatsapp-submit" type="button" id="whatsappBtn" disabled>
+                <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.003 3C9.376 3 4 8.376 4 15.003c0 2.633.853 5.07 2.296 7.058L4 29l7.107-2.273a11.93 11.93 0 0 0 4.892 1.044h.004C22.628 27.771 28 22.395 28 15.768 28 12.583 26.74 9.6 24.5 7.36A11.945 11.945 0 0 0 16.003 3Zm0 21.815a9.84 9.84 0 0 1-5.011-1.371l-.36-.214-4.215 1.348 1.376-4.107-.234-.376a9.836 9.836 0 0 1-1.508-5.227c0-5.46 4.444-9.903 9.952-9.903 2.66 0 5.155 1.036 7.034 2.916a9.842 9.842 0 0 1 2.916 7.026c0 5.46-4.444 9.908-9.95 9.908Zm5.452-7.41c-.298-.149-1.766-.871-2.04-.97-.273-.099-.473-.149-.672.149-.198.298-.77.97-.945 1.169-.174.198-.348.223-.646.074-.298-.149-1.26-.464-2.4-1.482-.886-.79-1.484-1.766-1.658-2.064-.173-.298-.018-.459.131-.607.135-.134.298-.348.448-.522.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.522-.074-.149-.671-1.62-.92-2.218-.243-.582-.49-.504-.671-.513l-.572-.01c-.198 0-.522.074-.795.372-.273.298-1.044 1.02-1.044 2.49 0 1.47 1.07 2.892 1.219 3.09.149.198 2.105 3.213 5.099 4.504.713.308 1.27.491 1.704.629.715.227 1.366.195 1.881.118.574-.086 1.766-.722 2.015-1.42.248-.696.248-1.293.174-1.42-.074-.124-.273-.198-.572-.347Z"/></svg>
+                Chat on WhatsApp
+              </button>
+              <p class="form-note">Fill in all required fields above to unlock the button. Your details will be sent along when you open WhatsApp.</p>
               <p id="formResult" class="form-result" aria-live="polite"></p>
             </form>
           </div>
