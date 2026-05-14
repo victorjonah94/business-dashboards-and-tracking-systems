@@ -44,7 +44,7 @@
 *,*::before,*::after { box-sizing: border-box; }
 html,body { margin:0; padding:0; }
 html { overflow-y: scroll; scrollbar-gutter: stable; }
-body { overflow-x: hidden; }
+body { overflow-x: clip; }
 
 body {
   font-family: "Plus Jakarta Sans", system-ui, sans-serif;
