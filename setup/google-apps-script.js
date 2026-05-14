@@ -1,14 +1,13 @@
 /**
- * GOOGLE APPS SCRIPT — Form → Email Alerts
- * ─────────────────────────────────────────
- * SETUP INSTRUCTIONS (one-time, ~3 minutes):
+ * GOOGLE APPS SCRIPT — Form → Email Alert + Google Sheets Log
+ * ─────────────────────────────────────────────────────────────
+ * SETUP INSTRUCTIONS (one-time, ~5 minutes):
  *
  * 1. Open Google Apps Script:  https://script.google.com
- *    Click "New project"
- *    Delete any existing code, then paste ALL of this file into the editor.
- *    Update NOTIFY_EMAIL below if needed.
+ *    Click "New project", name it "Business Consultations Handler"
+ *    Delete any existing code, paste ALL of this file into the editor.
  *
- * 2. Save the project (Ctrl+S), name it "Business Consultations Handler"
+ * 2. Save the project (Ctrl+S).
  *
  * 3. Deploy as Web App:
  *    Click Deploy → New deployment
@@ -21,12 +20,25 @@
  * 4. Paste the Web App URL into script.js:
  *    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_ID/exec";
  *
+ * 5. (Optional) For Book a Meeting:
+ *    Go to calendar.google.com → Settings → Appointment schedules → Create
+ *    Copy the booking link and paste it into index.html:
+ *    id="bookMeetingBtn" href="YOUR_CALENDAR_LINK"
+ *
  * Done! Every form submission will:
- *   ✅ Send an email alert to your inbox with all form details
+ *   ✅ Send an email alert to victorjonah94@gmail.com with all form details
+ *   ✅ Log each submission as a new row in a Google Sheet named
+ *      "Business Consultation Applications" (created automatically)
+ *
+ * GOOGLE FORMS ALTERNATIVE (even simpler):
+ *   Create a Google Form at forms.google.com with the same fields.
+ *   Google Forms auto-creates a linked Google Sheet.
+ *   Then update GOOGLE_FORM_URL below and call submitToGoogleForm() from doPost().
  */
 
-// ── Configuration ────────────────────────────────────────────────────────────
-var NOTIFY_EMAIL = "victorjonah94@gmail.com";
+// ── Configuration ─────────────────────────────────────────────────────────────
+var NOTIFY_EMAIL   = "victorjonah94@gmail.com";
+var SHEET_NAME     = "Business Consultation Applications";
 // ─────────────────────────────────────────────────────────────────────────────
 
 function doPost(e) {
@@ -39,9 +51,10 @@ function doPost(e) {
       "dd/MM/yyyy HH:mm:ss"
     );
 
-    var subject = "🔔 New Consultation Application – " + (params.name || "Unknown");
+    // ── 1. Send email notification ───────────────────────────────────────────
+    var subject = "🔔 New Consultation Request – " + (params.name || "Unknown");
     var body =
-      "A new consultation application has been submitted.\n\n" +
+      "A new consultation request has been submitted.\n\n" +
       "────────────────────────\n" +
       "Name:          " + (params.name         || "—") + "\n" +
       "Email:         " + (params.email        || "—") + "\n" +
@@ -61,6 +74,21 @@ function doPost(e) {
       body:    body,
     });
 
+    // ── 2. Log to Google Sheet ───────────────────────────────────────────────
+    var ss = getOrCreateSheet();
+    ss.appendRow([
+      timestamp,
+      params.name         || "",
+      params.email        || "",
+      params.phone        || "",
+      params.businessName || "",
+      params.role         || "",
+      params.businessType || "",
+      params.location     || "",
+      params.revenueBand  || "",
+      params.challenge    || "",
+    ]);
+
     return ContentService
       .createTextOutput(JSON.stringify({ status: "success" }))
       .setMimeType(ContentService.MimeType.JSON);
@@ -73,7 +101,31 @@ function doPost(e) {
   }
 }
 
-// Quick test — run this manually inside Apps Script to verify email delivery
+// Creates the spreadsheet + header row if it doesn't exist yet
+function getOrCreateSheet() {
+  var files = DriveApp.getFilesByName(SHEET_NAME);
+  var spreadsheet;
+
+  if (files.hasNext()) {
+    spreadsheet = SpreadsheetApp.open(files.next());
+  } else {
+    spreadsheet = SpreadsheetApp.create(SHEET_NAME);
+    var sheet = spreadsheet.getActiveSheet();
+    sheet.setName("Submissions");
+    sheet.appendRow([
+      "Timestamp", "Name", "Email", "Phone",
+      "Business Name", "Role", "Business Type",
+      "Location", "Revenue Band", "Challenge / Message",
+    ]);
+    // Freeze header row and bold it
+    sheet.setFrozenRows(1);
+    sheet.getRange(1, 1, 1, 10).setFontWeight("bold");
+  }
+
+  return spreadsheet.getSheets()[0];
+}
+
+// Quick test — run this manually inside Apps Script to verify email + sheet
 function testPost() {
   var fakeEvent = {
     parameter: {

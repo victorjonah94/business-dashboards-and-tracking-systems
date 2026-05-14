@@ -38,7 +38,7 @@ const roleSelect             = document.getElementById("roleSelect");
 const otherRoleWrap          = document.getElementById("otherRoleWrap");
 const otherRoleInput         = document.getElementById("otherRole");
 
-// ── WhatsApp button gating — enabled only when all required fields filled ──
+// ── Submit button gating — enabled only when all required fields filled ──
 function checkFormValidity() {
   if (!leadForm || !whatsappBtn) return;
   const name         = leadForm.querySelector('[name="name"]')?.value.trim();
@@ -95,8 +95,8 @@ roleSelect?.addEventListener("change", checkFormValidity);
 otherBusinessTypeInput?.addEventListener("input", checkFormValidity);
 otherRoleInput?.addEventListener("input", checkFormValidity);
 
-// ── WhatsApp submit — sends email via Apps Script + opens WhatsApp ─────────
-whatsappBtn?.addEventListener("click", () => {
+// ── Submit Request — sends email via Apps Script, then reveals WhatsApp CTA ──
+whatsappBtn?.addEventListener("click", async () => {
   if (!leadForm.checkValidity()) { leadForm.reportValidity(); return; }
 
   const data = Object.fromEntries(new FormData(leadForm).entries());
@@ -109,30 +109,57 @@ whatsappBtn?.addEventListener("click", () => {
   delete data.otherRole;
   data.role = resolvedRole;
 
+  const businessName = data.businessName;
   const standardRoles = ["CEO", "Managing Director", "Founder"];
   const articleRole = standardRoles.includes(resolvedRole)
     ? `the ${resolvedRole}`
     : `a ${resolvedRole}`;
 
-  const waMessage = `Hi Victor, I am ${articleRole} of ${data.businessName}, when could we meet so I can walk you through what I need built for my business.`;
+  // Loading state
+  whatsappBtn.disabled = true;
+  whatsappBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" class="spin" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-opacity=".25"/><path d="M12 2a10 10 0 0 1 10 10" stroke-opacity="1"/></svg> Sending…`;
 
-  // Open WhatsApp synchronously (before any async) to avoid popup blockers
-  window.open(
-    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`,
-    "_blank"
-  );
+  const formResult = document.getElementById("formResult");
 
-  // Fire-and-forget email submission via Apps Script
-  fetch(APPS_SCRIPT_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(data).toString(),
-  }).catch(() => {});
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(data).toString(),
+    });
 
-  leadForm.reset();
-  handleOtherCategory();
-  handleOtherRole();
+    // Success
+    leadForm.reset();
+    handleOtherCategory();
+    handleOtherRole();
+
+    if (formResult) {
+      formResult.textContent = "✅ Request submitted! We'll review your details and get back to you within 24 hours.";
+      formResult.className = "form-result success";
+    }
+
+    // Reset button label
+    whatsappBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg> Submit Request`;
+
+    // Reveal glowing WhatsApp follow-up button
+    const waFollowup = document.getElementById("waFollowup");
+    if (waFollowup) {
+      const waMessage = `Hi Victor, I am ${articleRole} of ${businessName}. I just submitted my consultation request. When could we meet so I can walk you through what I need built for my business.`;
+      waFollowup.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`;
+      waFollowup.removeAttribute("hidden");
+      waFollowup.classList.add("active");
+      setTimeout(() => waFollowup.scrollIntoView({ behavior: "smooth", block: "nearest" }), 100);
+    }
+
+  } catch {
+    if (formResult) {
+      formResult.textContent = "⚠️ Something went wrong. Please try again or reach out directly on WhatsApp.";
+      formResult.className = "form-result error";
+    }
+    whatsappBtn.disabled = false;
+    whatsappBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg> Submit Request`;
+  }
 });
 
 // ── Image fallback ────────────────────────────────────────────────────────
