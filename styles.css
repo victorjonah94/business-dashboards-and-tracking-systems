@@ -1128,6 +1128,11 @@ h4 { font-size: .95rem; }
   text-transform: uppercase;
   letter-spacing: .09em;
   color: var(--text-xsoft);
+  margin: 0 0 .3rem;
+}
+.contact-actions-hint {
+  font-size: .82rem;
+  color: var(--text-soft);
   margin: 0 0 .65rem;
 }
 .contact-actions-row {

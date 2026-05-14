@@ -120,45 +120,37 @@ whatsappBtn?.addEventListener("click", async () => {
   whatsappBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" class="spin" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-opacity=".25"/><path d="M12 2a10 10 0 0 1 10 10" stroke-opacity="1"/></svg> Sending…`;
 
   const formResult = document.getElementById("formResult");
+  const submitIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>`;
 
-  try {
-    await fetch(APPS_SCRIPT_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(data).toString(),
-    });
+  // Fire-and-forget — no-cors responses are always opaque so we can never
+  // read success/failure; always proceed to the success path after sending.
+  fetch(APPS_SCRIPT_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(data).toString(),
+  }).catch(() => {});
 
-    // Success
-    leadForm.reset();
-    handleOtherCategory();
-    handleOtherRole();
+  // Reset form and show success immediately
+  leadForm.reset();
+  handleOtherCategory();
+  handleOtherRole();
 
-    if (formResult) {
-      formResult.textContent = "Request submitted! We'll review your details and get back to you within 24 hours.";
-      formResult.className = "form-result success";
-    }
+  if (formResult) {
+    formResult.textContent = "Request submitted! We'll review your details and get back to you within 24 hours.";
+    formResult.className = "form-result success";
+  }
 
-    // Reset button label
-    whatsappBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg> Submit Request`;
+  whatsappBtn.innerHTML = `${submitIcon} Submit Request`;
 
-    // Reveal glowing WhatsApp follow-up button
-    const waFollowup = document.getElementById("waFollowup");
-    if (waFollowup) {
-      const waMessage = `Hi Victor, I am ${articleRole} of ${businessName}. I just submitted my consultation request. When could we meet so I can walk you through what I need built for my business.`;
-      waFollowup.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`;
-      waFollowup.removeAttribute("hidden");
-      waFollowup.classList.add("active");
-      setTimeout(() => waFollowup.scrollIntoView({ behavior: "smooth", block: "nearest" }), 100);
-    }
-
-  } catch {
-    if (formResult) {
-      formResult.textContent = "Something went wrong. Please try again or reach out directly on WhatsApp.";
-      formResult.className = "form-result error";
-    }
-    whatsappBtn.disabled = false;
-    whatsappBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg> Submit Request`;
+  // Reveal glowing WhatsApp follow-up button
+  const waFollowup = document.getElementById("waFollowup");
+  if (waFollowup) {
+    const waMessage = `Hi Victor, I am ${articleRole} of ${businessName}. I just submitted my consultation request. When could we meet so I can walk you through what I need built for my business.`;
+    waFollowup.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`;
+    waFollowup.removeAttribute("hidden");
+    waFollowup.classList.add("active");
+    setTimeout(() => waFollowup.scrollIntoView({ behavior: "smooth", block: "nearest" }), 100);
   }
 });
 
