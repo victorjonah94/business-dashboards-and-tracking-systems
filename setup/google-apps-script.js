@@ -18,7 +18,7 @@
  *    Copy the Web App URL shown.
  *
  * 4. Paste the Web App URL into script.js:
- *    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_ID/exec";
+ *    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbydCCxbJGVPBE9GENuiwyrYqUTHyRXn-GMqqNN3iLu_FF3277AGsB9cfriZpptZYrhT/exec";
  *
  * 5. (Optional) For Book a Meeting:
  *    Go to calendar.google.com → Settings → Appointment schedules → Create
