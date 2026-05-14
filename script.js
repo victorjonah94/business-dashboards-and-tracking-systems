@@ -135,7 +135,7 @@ whatsappBtn?.addEventListener("click", async () => {
     handleOtherRole();
 
     if (formResult) {
-      formResult.textContent = "✅ Request submitted! We'll review your details and get back to you within 24 hours.";
+      formResult.textContent = "Request submitted! We'll review your details and get back to you within 24 hours.";
       formResult.className = "form-result success";
     }
 
@@ -154,7 +154,7 @@ whatsappBtn?.addEventListener("click", async () => {
 
   } catch {
     if (formResult) {
-      formResult.textContent = "⚠️ Something went wrong. Please try again or reach out directly on WhatsApp.";
+      formResult.textContent = "Something went wrong. Please try again or reach out directly on WhatsApp.";
       formResult.className = "form-result error";
     }
     whatsappBtn.disabled = false;
