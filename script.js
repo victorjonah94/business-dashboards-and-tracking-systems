@@ -1,5 +1,5 @@
 // ── Configuration ──────────────────────────────────────────────────────────
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyF6ITf1VMuD72ShYDNfBg8ypBanl3JPE25JevSl9u4hkflC6lGPlEE-afjlGqmKA-K/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbydCCxbJGVPBE9GENuiwyrYqUTHyRXn-GMqqNN3iLu_FF3277AGsB9cfriZpptZYrhT/exec";
 const WHATSAPP_NUMBER = "2348030750358";
 // ───────────────────────────────────────────────────────────────────────────
 
