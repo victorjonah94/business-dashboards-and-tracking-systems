@@ -335,6 +335,37 @@ h4 { font-size: .95rem; }
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+.hero-pain-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+}
+.hero-pain-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+  font-size: .92rem;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+.pain-x {
+  flex-shrink: 0;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--brand);
+  font-size: .85rem;
+  margin-top: .1rem;
+}
+.hero-pain-bridge {
+  margin: 1.1rem 0 1rem;
+  font-size: .97rem;
+  font-weight: 600;
+  color: var(--text);
+  font-family: "Manrope", sans-serif;
+}
 .hero-cta {
   margin-top: 1.5rem;
   display: flex;
