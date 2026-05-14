@@ -38,7 +38,7 @@
 
 // ── Configuration ─────────────────────────────────────────────────────────────
 var NOTIFY_EMAIL   = "victorjonah94@gmail.com";
-var SHEET_NAME     = "Business Consultation Applications";
+var SHEET_NAME     = "Business Consultants";
 // ─────────────────────────────────────────────────────────────────────────────
 
 function doPost(e) {
