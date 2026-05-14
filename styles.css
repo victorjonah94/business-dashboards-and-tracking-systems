@@ -1642,8 +1642,8 @@ input:focus, textarea:focus, select:focus {
   .nav .btn       { padding: .55rem .9rem; font-size: .82rem; }
   .trust-row      { grid-template-columns: 1fr; }
   .hero-panel     { padding: 1.1rem; }
-  .kpi-grid       { grid-template-columns: repeat(2, 1fr); gap: .5rem; }
-  .kpi-grid article { padding: .7rem; }
+  .kpi-grid       { grid-template-columns: repeat(2, 1fr); gap: .5rem; flex: none; align-items: start; }
+  .kpi-grid article { padding: .7rem; height: auto; align-self: start; }
   .kpi-grid h4    { font-size: 1.15rem; }
   .kpi-grid p     { font-size: .6rem; letter-spacing: .05em; }
   .kpi-grid small { font-size: .65rem; }
