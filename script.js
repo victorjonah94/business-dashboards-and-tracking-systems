@@ -95,8 +95,8 @@ roleSelect?.addEventListener("change", checkFormValidity);
 otherBusinessTypeInput?.addEventListener("input", checkFormValidity);
 otherRoleInput?.addEventListener("input", checkFormValidity);
 
-// ── Submit Request — sends email via Apps Script, then reveals WhatsApp CTA ──
-whatsappBtn?.addEventListener("click", async () => {
+// ── Submit Request — hidden iframe POST (bypasses CORS) ──────────────────────
+whatsappBtn?.addEventListener("click", () => {
   if (!leadForm.checkValidity()) { leadForm.reportValidity(); return; }
 
   const data = Object.fromEntries(new FormData(leadForm).entries());
@@ -115,6 +115,31 @@ whatsappBtn?.addEventListener("click", async () => {
     ? `the ${resolvedRole}`
     : `a ${resolvedRole}`;
 
+  // Submit via hidden iframe — avoids CORS/redirect issues with Apps Script
+  const iframeName = "hidden-submit-" + Date.now();
+  const iframe = document.createElement("iframe");
+  iframe.name = iframeName;
+  iframe.style.display = "none";
+  document.body.appendChild(iframe);
+
+  const hiddenForm = document.createElement("form");
+  hiddenForm.method = "POST";
+  hiddenForm.action = APPS_SCRIPT_URL;
+  hiddenForm.target = iframeName;
+  Object.entries(data).forEach(([key, val]) => {
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = key;
+    input.value = val;
+    hiddenForm.appendChild(input);
+  });
+  document.body.appendChild(hiddenForm);
+  hiddenForm.submit();
+  setTimeout(() => {
+    hiddenForm.remove();
+    iframe.remove();
+  }, 10000);
+
   // Loading state
   whatsappBtn.disabled = true;
   whatsappBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" class="spin" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-opacity=".25"/><path d="M12 2a10 10 0 0 1 10 10" stroke-opacity="1"/></svg> Sending…`;
@@ -122,16 +147,7 @@ whatsappBtn?.addEventListener("click", async () => {
   const formResult = document.getElementById("formResult");
   const submitIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>`;
 
-  // Fire-and-forget — no-cors responses are always opaque so we can never
-  // read success/failure; always proceed to the success path after sending.
-  fetch(APPS_SCRIPT_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(data).toString(),
-  }).catch(() => {});
-
-  // Reset form and show success immediately
+  // Reset form and show success
   leadForm.reset();
   handleOtherCategory();
   handleOtherRole();
