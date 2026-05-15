@@ -1757,3 +1757,178 @@ input:focus, textarea:focus, select:focus {
   .workflow-strip { grid-template-columns: 1fr; }
   .workflow-arrow { transform: rotate(90deg); }
 }
+
+/* ── Panel status strip ── */
+.panel-status {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  margin-top: .85rem;
+  padding: .65rem 1rem;
+  border-top: 1px solid var(--line);
+  font-size: .7rem;
+  color: var(--text-soft);
+  background: color-mix(in srgb, var(--ok) 4%, var(--surface));
+  border-radius: 0 0 calc(var(--radius-sm) - 1px) calc(var(--radius-sm) - 1px);
+  flex-shrink: 0;
+}
+.panel-status span:nth-child(2) { flex: 1; }
+.panel-gs-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  padding: .2rem .5rem;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-size: .62rem;
+  font-weight: 700;
+  color: var(--text-xsoft);
+  white-space: nowrap;
+}
+.live-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--ok);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 0 rgba(34,197,94,.5);
+  animation: livePulse 2.2s ease-in-out infinite;
+}
+@keyframes livePulse {
+  0%  { box-shadow: 0 0 0 0 rgba(34,197,94,.5); }
+  60% { box-shadow: 0 0 0 5px rgba(34,197,94,0); }
+  100%{ box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+}
+
+/* ── Motion graphics — desktop only ── */
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+
+  /* Second hero background orb */
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: -60px; left: 8%;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(58,124,168,.07), transparent 65%);
+    pointer-events: none;
+    animation: floatOrb2 18s ease-in-out infinite;
+  }
+  @keyframes floatOrb2 {
+    0%,100% { transform: translateY(0) scale(1); }
+    40%     { transform: translateY(-25px) scale(1.06); }
+    70%     { transform: translateY(18px) scale(.94); }
+  }
+
+  /* KPI bar chart — bars grow up from bottom */
+  @keyframes kpiBarGrow {
+    from { transform: scaleY(0); }
+    to   { transform: scaleY(1); }
+  }
+  .hero-panel .kpi-infographic rect {
+    transform-box: fill-box;
+    transform-origin: bottom center;
+    animation: kpiBarGrow .55s cubic-bezier(.34,1.4,.64,1) both;
+  }
+  .hero-panel article:nth-child(1) .kpi-infographic rect:nth-child(1) { animation-delay: .25s; }
+  .hero-panel article:nth-child(1) .kpi-infographic rect:nth-child(2) { animation-delay: .35s; }
+  .hero-panel article:nth-child(1) .kpi-infographic rect:nth-child(3) { animation-delay: .45s; }
+  .hero-panel article:nth-child(1) .kpi-infographic rect:nth-child(4) { animation-delay: .55s; }
+  .hero-panel article:nth-child(1) .kpi-infographic rect:nth-child(5) { animation-delay: .65s; }
+  .hero-panel article:nth-child(2) .kpi-infographic rect:nth-child(1) { animation-delay: .3s; }
+  .hero-panel article:nth-child(2) .kpi-infographic rect:nth-child(2) { animation-delay: .4s; }
+  .hero-panel article:nth-child(2) .kpi-infographic rect:nth-child(3) { animation-delay: .5s; }
+  .hero-panel article:nth-child(2) .kpi-infographic rect:nth-child(4) { animation-delay: .6s; }
+  .hero-panel article:nth-child(4) .kpi-infographic rect:nth-child(1) { animation-delay: .3s; }
+  .hero-panel article:nth-child(4) .kpi-infographic rect:nth-child(2) { animation-delay: .42s; }
+  .hero-panel article:nth-child(4) .kpi-infographic rect:nth-child(3) { animation-delay: .54s; }
+  .hero-panel article:nth-child(4) .kpi-infographic rect:nth-child(4) { animation-delay: .66s; }
+  .hero-panel article:nth-child(5) .kpi-infographic rect { animation-delay: .35s; }
+  .hero-panel article:nth-child(5) .kpi-infographic rect:nth-child(2) { animation-delay: .45s; }
+  .hero-panel article:nth-child(5) .kpi-infographic rect:nth-child(3) { animation-delay: .55s; }
+  .hero-panel article:nth-child(5) .kpi-infographic rect:nth-child(4) { animation-delay: .65s; }
+  .hero-panel article:nth-child(5) .kpi-infographic rect:nth-child(5) { animation-delay: .75s; }
+  .hero-panel article:nth-child(5) .kpi-infographic rect:nth-child(6) { animation-delay: .85s; }
+
+  /* KPI sparklines — polylines draw in left to right */
+  @keyframes kpiDraw {
+    from { stroke-dashoffset: 320; }
+    to   { stroke-dashoffset: 0; }
+  }
+  .hero-panel .kpi-infographic polyline {
+    stroke-dasharray: 320;
+    stroke-dashoffset: 320;
+    animation: kpiDraw .9s ease forwards;
+  }
+  .hero-panel article:nth-child(1) .kpi-infographic polyline { animation-delay: .7s; }
+  .hero-panel article:nth-child(2) .kpi-infographic polyline { animation-delay: .75s; }
+  .hero-panel article:nth-child(3) .kpi-infographic polyline:nth-child(2) { animation-delay: .55s; }
+  .hero-panel article:nth-child(3) .kpi-infographic polyline:nth-child(5) { animation-delay: .8s; }
+  .hero-panel article:nth-child(4) .kpi-infographic polyline { animation-delay: .72s; }
+  .hero-panel article:nth-child(6) .kpi-infographic polyline:nth-child(1) { animation-delay: .5s; }
+  .hero-panel article:nth-child(6) .kpi-infographic polyline:nth-child(2) { animation-delay: .65s; }
+
+  /* KPI dot pop-in on leakage card */
+  @keyframes kpiDotPop {
+    0%   { transform: scale(0); }
+    70%  { transform: scale(1.3); }
+    100% { transform: scale(1); }
+  }
+  .hero-panel article:nth-child(3) .kpi-infographic circle {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: kpiDotPop .4s cubic-bezier(.34,1.56,.64,1) .9s both;
+  }
+
+  /* KPI cards stagger into view */
+  @keyframes kpiCardIn {
+    from { opacity: 0; transform: translateY(10px) scale(.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .hero-panel article {
+    opacity: 0;
+    animation: kpiCardIn .4s ease forwards;
+  }
+  .hero-panel article:nth-child(1) { animation-delay: .15s; }
+  .hero-panel article:nth-child(2) { animation-delay: .22s; }
+  .hero-panel article:nth-child(3) { animation-delay: .29s; }
+  .hero-panel article:nth-child(4) { animation-delay: .36s; }
+  .hero-panel article:nth-child(5) { animation-delay: .43s; }
+  .hero-panel article:nth-child(6) { animation-delay: .50s; }
+
+  /* Section heading accent underline draws in on reveal */
+  .section-head h2 { position: relative; padding-bottom: .5rem; }
+  .section-head h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 3px;
+    background: linear-gradient(90deg, var(--brand), var(--accent));
+    border-radius: 2px;
+    transition: width .8s cubic-bezier(.4,0,.2,1) .3s;
+  }
+  .section-head.show h2::after { width: 48px; }
+
+  /* Work cards — enhance the existing reveal with a subtle scale */
+  .work-card.reveal { transform: translateY(20px) scale(.97); }
+  .work-card.show   { transform: translateY(0) scale(1); }
+
+  /* Process step badges — pop in when the step reveals */
+  @keyframes stepBadgePop {
+    0%   { transform: scale(0) rotate(-12deg); }
+    70%  { transform: scale(1.18) rotate(4deg); }
+    100% { transform: scale(1) rotate(0); }
+  }
+  .step-badge { transform: scale(0) rotate(-12deg); transition: none; }
+  .process-step.show .step-badge {
+    animation: stepBadgePop .5s cubic-bezier(.34,1.56,.64,1) .1s forwards;
+  }
+
+  /* Stats bar counter — handled by JS; add flash on count finish */
+  @keyframes statFlash {
+    0%,100% { color: var(--brand); }
+    50%     { color: var(--accent); }
+  }
+  .stats-bar strong.counted { animation: statFlash .4s ease; }
+
+}
