@@ -429,6 +429,7 @@ h4 { font-size: .95rem; }
   grid-template-columns: repeat(2,1fr);
   gap: .7rem;
   flex: 1;
+  align-content: start;
 }
 .kpi-grid article {
   background: var(--surface);
