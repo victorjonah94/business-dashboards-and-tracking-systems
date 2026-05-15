@@ -170,6 +170,34 @@ whatsappBtn?.addEventListener("click", () => {
   }
 });
 
+// ── Stats bar counter animation (desktop only) ───────────────────────────
+if (window.matchMedia('(min-width: 900px) and (prefers-reduced-motion: no-preference)').matches) {
+  const statsBar = document.getElementById('statsBar');
+  if (statsBar) {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.querySelectorAll('[data-count]').forEach(el => {
+          const target = parseInt(el.dataset.count, 10);
+          const suffix = el.dataset.suffix || '';
+          const duration = 1200;
+          const start = performance.now();
+          const tick = (now) => {
+            const p = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.floor(eased * target) + suffix;
+            if (p < 1) requestAnimationFrame(tick);
+            else el.classList.add('counted');
+          };
+          requestAnimationFrame(tick);
+        });
+        counterObserver.unobserve(e.target);
+      });
+    }, { threshold: 0.6 });
+    counterObserver.observe(statsBar);
+  }
+}
+
 // ── Image fallback ────────────────────────────────────────────────────────
 document.querySelectorAll(".work-visual img").forEach((img) => {
   img.addEventListener("error", () => img.closest(".work-visual")?.classList.add("image-missing"));
